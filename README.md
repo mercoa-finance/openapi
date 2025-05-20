@@ -1,2 +1,1 @@
-# openapi
-Mercoa OpenAPI spec
+# Mercoa OpenAPI spec
