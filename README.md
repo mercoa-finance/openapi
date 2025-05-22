@@ -1,1 +1,0 @@
-# Mercoa OpenAPI spec

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.1
 info:
   title: api
   version: ''
@@ -9529,6 +9529,8 @@ paths:
               value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
             BankAccountPlaidAccessToken:
               value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+            Wallet:
+              value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
       responses:
         '200':
           description: ''
@@ -9726,6 +9728,25 @@ paths:
                     confirmedByEntity: true
                     createdAt: '2021-01-01T00:00:00Z'
                     updatedAt: '2021-01-01T00:00:00Z'
+                Wallet:
+                  value:
+                    id: pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18
+                    type: wallet
+                    availableBalance:
+                      amount: 100
+                      currency: USD
+                    pendingBalance:
+                      amount: 5
+                      currency: USD
+                    isDefaultSource: false
+                    isDefaultDestination: false
+                    supportedCurrencies:
+                      - USD
+                    metadata: {}
+                    frozen: false
+                    confirmedByEntity: true
+                    createdAt: '2021-01-01T00:00:00Z'
+                    updatedAt: '2021-01-01T00:00:00Z'
         '400':
           description: ''
           content:
@@ -9904,6 +9925,9 @@ paths:
                   plaid:
                     accessToken: access-sandbox-af1a0311-da53-4636-b754-dd15cc058176
                     accountId: account-sandbox-af1a0311-da53-4636-b754-dd15cc058176
+              Wallet:
+                value:
+                  type: wallet
   /entity/{entityId}/paymentMethod/{paymentMethodId}:
     get:
       operationId: entity_paymentMethod_get
@@ -18933,6 +18957,21 @@ paths:
       summary: Invalidate Tokens
       security:
         - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sessionId:
+                  type: array
+                  items:
+                    type: string
+                  nullable: true
+                  description: >-
+                    Optional list of session IDs to invalidate. If not provided,
+                    all sessions will be invalidated.
   /bankLookup:
     get:
       description: Find bank account details
@@ -25740,6 +25779,13 @@ paths:
         - name: returnVendorMetadata
           in: query
           description: Whether to return vendor metadata in the response
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+        - name: returnPaymentTiming
+          in: query
+          description: Whether to return payment timing in the response
           required: false
           schema:
             type: boolean
@@ -42983,6 +43029,12 @@ components:
         entity:
           $ref: '#/components/schemas/TokenGenerationEntityOptions'
           nullable: true
+        sessionId:
+          type: string
+          nullable: true
+          description: >-
+            Optional session ID to use for the token. If not provided, this
+            token will not be associated with a session.
     EntityOnboardingLinkType:
       title: EntityOnboardingLinkType
       type: string
@@ -43866,6 +43918,9 @@ components:
           nullable: true
         paymentDestinationOptions:
           $ref: '#/components/schemas/PaymentDestinationOptions'
+          nullable: true
+        paymentTiming:
+          $ref: '#/components/schemas/CalculatePaymentTimingResponse'
           nullable: true
         paymentDestinationConfirmed:
           type: boolean
