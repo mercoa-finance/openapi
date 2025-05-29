@@ -4048,7 +4048,9 @@ paths:
             $ref: '#/components/schemas/EntityGroupId'
           example: entg_a0f6ea94-0761-4a5e-a416-3c453cb7eced
           examples:
-            Example1:
+            Default:
+              value: entg_a0f6ea94-0761-4a5e-a416-3c453cb7eced
+            SessionID:
               value: entg_a0f6ea94-0761-4a5e-a416-3c453cb7eced
       responses:
         '200':
@@ -4058,7 +4060,10 @@ paths:
               schema:
                 type: string
               examples:
-                Example1:
+                Default:
+                  value: >-
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDU2Nzg5LCJuYW1lIjoiSm9zZXBoIn0.OpOSSw7e485LOP5PrzScxHb7SR6sAOMRckfFwi4rp7o
+                SessionID:
                   value: >-
                     eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDU2Nzg5LCJuYW1lIjoiSm9zZXBoIn0.OpOSSw7e485LOP5PrzScxHb7SR6sAOMRckfFwi4rp7o
         '400':
@@ -4169,9 +4174,13 @@ paths:
             schema:
               $ref: '#/components/schemas/TokenGenerationOptions'
             examples:
-              Example1:
+              Default:
                 value:
                   expiresIn: 1h
+              SessionID:
+                value:
+                  expiresIn: 1h
+                  sessionId: session_123
   /entityGroup/{entityGroupId}/addEntities:
     post:
       description: Add entities to an entity group
@@ -5630,6 +5639,8 @@ paths:
           examples:
             Default:
               value: entg_a0f6ea94-0761-4a5e-a416-3c453cb7eced
+            SessionID:
+              value: entg_a0f6ea94-0761-4a5e-a416-3c453cb7eced
         - name: foreignId
           in: path
           description: ID used to identify user in your system
@@ -5640,6 +5651,8 @@ paths:
           examples:
             Default:
               value: MY-DB-ID-12345
+            SessionID:
+              value: MY-DB-ID-12345
       responses:
         '200':
           description: ''
@@ -5649,6 +5662,9 @@ paths:
                 type: string
               examples:
                 Default:
+                  value: >-
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDU2Nzg5LCJuYW1lIjoiSm9zZXBoIn0.OpOSSw7e485LOP5PrzScxHb7SR6sAOMRckfFwi4rp7o
+                SessionID:
                   value: >-
                     eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDU2Nzg5LCJuYW1lIjoiSm9zZXBoIn0.OpOSSw7e485LOP5PrzScxHb7SR6sAOMRckfFwi4rp7o
         '400':
@@ -5760,6 +5776,9 @@ paths:
               $ref: '#/components/schemas/TokenGenerationOptions'
             examples:
               Default:
+                value:
+                  expiresIn: 1h
+              SessionID:
                 value:
                   expiresIn: 1h
   /entityGroup/{entityGroupId}/sync-users:
@@ -7174,7 +7193,9 @@ paths:
             $ref: '#/components/schemas/EntityId'
           example: ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced
           examples:
-            Example1:
+            Default:
+              value: ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced
+            SessionID:
               value: ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced
       responses:
         '200':
@@ -7184,7 +7205,10 @@ paths:
               schema:
                 type: string
               examples:
-                Example1:
+                Default:
+                  value: >-
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDU2Nzg5LCJuYW1lIjoiSm9zZXBoIn0.OpOSSw7e485LOP5PrzScxHb7SR6sAOMRckfFwi4rp7o
+                SessionID:
                   value: >-
                     eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDU2Nzg5LCJuYW1lIjoiSm9zZXBoIn0.OpOSSw7e485LOP5PrzScxHb7SR6sAOMRckfFwi4rp7o
         '400':
@@ -7295,9 +7319,13 @@ paths:
             schema:
               $ref: '#/components/schemas/TokenGenerationOptions'
             examples:
-              Example1:
+              Default:
                 value:
                   expiresIn: 1h
+              SessionID:
+                value:
+                  expiresIn: 1h
+                  sessionId: session_123
   /entity/{entityId}/onboarding:
     get:
       description: Generate an onboarding link for the entity.
@@ -11653,7 +11681,9 @@ paths:
             $ref: '#/components/schemas/EntityId'
           example: ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced
           examples:
-            Example1:
+            Default:
+              value: ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced
+            SessionID:
               value: ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced
         - name: userId
           in: path
@@ -11663,7 +11693,9 @@ paths:
             $ref: '#/components/schemas/EntityUserId'
           example: user_a0f6ea94-0761-4a5e-a416-3c453cb7eced
           examples:
-            Example1:
+            Default:
+              value: user_a0f6ea94-0761-4a5e-a416-3c453cb7eced
+            SessionID:
               value: user_a0f6ea94-0761-4a5e-a416-3c453cb7eced
       responses:
         '200':
@@ -11673,7 +11705,10 @@ paths:
               schema:
                 type: string
               examples:
-                Example1:
+                Default:
+                  value: >-
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDU2Nzg5LCJuYW1lIjoiSm9zZXBoIn0.OpOSSw7e485LOP5PrzScxHb7SR6sAOMRckfFwi4rp7o
+                SessionID:
                   value: >-
                     eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDU2Nzg5LCJuYW1lIjoiSm9zZXBoIn0.OpOSSw7e485LOP5PrzScxHb7SR6sAOMRckfFwi4rp7o
         '400':
@@ -11784,9 +11819,13 @@ paths:
             schema:
               $ref: '#/components/schemas/TokenGenerationOptions'
             examples:
-              Example1:
+              Default:
                 value:
                   expiresIn: 1h
+              SessionID:
+                value:
+                  expiresIn: 1h
+                  sessionId: session_123
   /invoice-templates:
     get:
       description: Search invoice templates for all entities in the organization
@@ -14833,6 +14872,164 @@ paths:
                           glAccountId: '600394'
                       creatorEntityId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
                       creatorUserId: user_e24fc81c-c5ee-47e8-af42-4fe29d895506
+    put:
+      description: >-
+        Update multiple invoices in bulk. This endpoint will process
+        synchronously and return a list of invoices that were updated or failed
+        to update.
+      operationId: invoice_bulk_update
+      tags:
+        - InvoiceBulk
+      parameters:
+        - name: emitWebhooks
+          in: query
+          description: >-
+            If true, webhooks will be emitted for each invoice that is updated.
+            By default, webhooks are not emitted.
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkInvoiceUpdateResponse'
+              examples:
+                FromObjects:
+                  value:
+                    data:
+                      - id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                        foreignId: YOUR-INVOICE-ID
+                      - error: Invoice update failed
+                        foreignId: YOUR-SECOND-INVOICE-ID
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Update Bulk Invoices (Sync)
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkInvoiceUpdateRequest'
+            examples:
+              FromObjects:
+                value:
+                  invoices:
+                    - invoiceId: inv_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                      status: NEW
+                      amount: 100
+                      currency: USD
+                      dueDate: '2024-01-31T00:00:00Z'
+                      invoiceDate: '2024-01-01T00:00:00Z'
+                      invoiceNumber: INV-001
+                      lineItems:
+                        - description: Item 1
+                          amount: 50
+                          quantity: 1
+                        - description: Item 2
+                          amount: 50
+                          quantity: 1
   /invoice:
     post:
       operationId: invoice_create
@@ -18972,6 +19169,14 @@ paths:
                   description: >-
                     Optional list of session IDs to invalidate. If not provided,
                     all sessions will be invalidated.
+            examples:
+              Sessions:
+                value:
+                  sessionId:
+                    - session_123
+                    - session_456
+              All Sessions:
+                value: {}
   /bankLookup:
     get:
       description: Find bank account details
@@ -32086,6 +32291,153 @@ paths:
                 value:
                   text: This is a reason for my action
                   userId: user_e24fc81c-c5ee-47e8-af42-4fe29d895506
+  /invoices/approve:
+    post:
+      description: >-
+        Approve multiple invoices in bulk. This endpoint will process
+        synchronously and return a list of invoices that were approved or failed
+        to approve.
+      operationId: invoice_bulk_approve
+      tags:
+        - InvoiceBulk
+      parameters:
+        - name: emitWebhooks
+          in: query
+          description: >-
+            If true, webhooks will be emitted for each invoice that is approved.
+            By default, webhooks are not emitted.
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkInvoiceApprovalResponse'
+              examples:
+                FromObjects:
+                  value:
+                    data:
+                      - id: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
+                      - id: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
+                        error: Invoice approval failed
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Approve Bulk Invoices (Sync)
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkInvoiceApprovalRequest'
+            examples:
+              FromObjects:
+                value:
+                  invoices:
+                    - invoiceId: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
+                      text: This is a reason for my action
+                      userId: user_e24fc81c-c5ee-47e8-af42-4fe29d895506
   /invoice/{invoiceId}/collection/next-action:
     get:
       description: >-
@@ -45005,6 +45357,106 @@ components:
             $ref: '#/components/schemas/BulkInvoiceCreationFromObjectResponse'
       required:
         - data
+    InvoiceUpdateRequestWithId:
+      title: InvoiceUpdateRequestWithId
+      type: object
+      properties:
+        invoiceId:
+          $ref: '#/components/schemas/InvoiceId'
+          description: The ID or foreign ID of the invoice to update
+      required:
+        - invoiceId
+      allOf:
+        - $ref: '#/components/schemas/InvoiceUpdateRequest'
+    BulkInvoiceUpdateRequest:
+      title: BulkInvoiceUpdateRequest
+      type: object
+      properties:
+        invoices:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvoiceUpdateRequestWithId'
+      required:
+        - invoices
+    BulkInvoiceUpdateFromObjectResponse:
+      title: BulkInvoiceUpdateFromObjectResponse
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/InvoiceId'
+          nullable: true
+          description: >-
+            The ID of the invoice that was updated. If the invoice was not
+            updated, this will be undefined
+        foreignId:
+          type: string
+          nullable: true
+          description: If provided, this is the foreign ID of the invoice that was updated.
+        error:
+          type: string
+          nullable: true
+          description: The error message if the invoice was not updated
+    BulkInvoiceUpdateResponse:
+      title: BulkInvoiceUpdateResponse
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkInvoiceUpdateFromObjectResponse'
+      required:
+        - data
+    ApprovalRequestWithId:
+      title: ApprovalRequestWithId
+      type: object
+      properties:
+        invoiceId:
+          $ref: '#/components/schemas/InvoiceId'
+          description: The ID or foreign ID of the invoice to approve
+      required:
+        - invoiceId
+      allOf:
+        - $ref: '#/components/schemas/ApprovalRequest'
+    BulkInvoiceApprovalRequest:
+      title: BulkInvoiceApprovalRequest
+      type: object
+      properties:
+        invoices:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApprovalRequestWithId'
+      required:
+        - invoices
+    BulkInvoiceApprovalFromObjectResponse:
+      title: BulkInvoiceApprovalFromObjectResponse
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/InvoiceId'
+          nullable: true
+          description: >-
+            The ID of the invoice that was approved. If the invoice was not
+            approved, this will be undefined
+        foreignId:
+          type: string
+          nullable: true
+          description: >-
+            If provided, this is the foreign ID of the invoice that was
+            approved.
+        error:
+          type: string
+          nullable: true
+          description: The error message if the invoice was not approved
+    BulkInvoiceApprovalResponse:
+      title: BulkInvoiceApprovalResponse
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkInvoiceApprovalFromObjectResponse'
+      required:
+        - data
     OCRJobId:
       title: OCRJobId
       type: string
@@ -46330,6 +46782,22 @@ components:
             Show this field only if the payment destination schema ID is in this
             list of payment destination schema IDs. This is only applicable if
             paymentDestinationTypes contains CUSTOM.
+    MetadataOcrRules:
+      title: MetadataOcrRules
+      type: object
+      properties:
+        extractFromDocument:
+          type: boolean
+          nullable: true
+          description: >-
+            Attempt to extract this field from reading the document. Only
+            applicable to line item metadata fields. Defaults to false.
+        predictFromHistory:
+          type: boolean
+          nullable: true
+          description: >-
+            Attempt to predict this field from historical invoice metadata. Only
+            applicable to line item metadata fields. Defaults to true.
     MetadataSchema:
       title: MetadataSchema
       type: object
@@ -46368,6 +46836,12 @@ components:
             should be shown. The field will only be shown if all of the
             conditions are met. If no conditions are specified, the field will
             always be shown.
+        ocrRules:
+          $ref: '#/components/schemas/MetadataOcrRules'
+          nullable: true
+          description: >-
+            A collection of rules that determine how this field is populated
+            during OCR.
       required:
         - key
         - displayName
@@ -48602,6 +49076,38 @@ components:
         - updatedByEntityId
         - newStatus
         - previousStatus
+    BulkInvoiceUpdateWebhook:
+      title: BulkInvoiceUpdateWebhook
+      type: object
+      properties:
+        eventType:
+          type: string
+          description: The type of the event.
+          example: invoice.bulk.updated
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkInvoiceUpdateFromObjectResponse'
+          description: A list of bulk invoice update responses.
+      required:
+        - eventType
+        - data
+    BulkInvoiceApprovalWebhook:
+      title: BulkInvoiceApprovalWebhook
+      type: object
+      properties:
+        eventType:
+          type: string
+          description: The type of the event.
+          example: invoice.bulk.approved
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkInvoiceApprovalFromObjectResponse'
+          description: A list of bulk invoice approval responses.
+      required:
+        - eventType
+        - data
   securitySchemes:
     BearerAuth:
       type: http
