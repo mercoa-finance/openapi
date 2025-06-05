@@ -14194,6 +14194,13 @@ paths:
           schema:
             type: boolean
             nullable: true
+        - name: returnPaymentTiming
+          in: query
+          description: Whether to return payment timing in the response
+          required: false
+          schema:
+            type: boolean
+            nullable: true
       responses:
         '200':
           description: ''
@@ -20762,6 +20769,13 @@ paths:
           schema:
             type: boolean
             nullable: true
+        - name: returnPaymentTiming
+          in: query
+          description: Whether to return payment timing in the response
+          required: false
+          schema:
+            type: boolean
+            nullable: true
       responses:
         '200':
           description: ''
@@ -21594,7 +21608,11 @@ paths:
             $ref: '#/components/schemas/EntityId'
           example: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
           examples:
-            AmountWithRoles:
+            AlwaysTrigger:
+              value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+            SingleTrigger:
+              value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+            MultipleTriggers:
               value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
       responses:
         '200':
@@ -21606,13 +21624,55 @@ paths:
                 items:
                   $ref: '#/components/schemas/ApprovalPolicyResponse'
               examples:
-                AmountWithRoles:
+                AlwaysTrigger:
+                  value:
+                    - id: apvl_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                      trigger: []
+                      rule:
+                        type: approver
+                        numApprovers: 2
+                        identifierList:
+                          type: userList
+                          value:
+                            - usr_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                            - usr_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                      upstreamPolicyId: root
+                      updatedAt: '2024-01-02T00:00:00Z'
+                      createdAt: '2024-01-01T00:00:00Z'
+                SingleTrigger:
                   value:
                     - id: apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c
                       trigger:
                         - type: amount
                           amount: 100
                           currency: USD
+                      rule:
+                        type: approver
+                        numApprovers: 2
+                        identifierList:
+                          type: rolesList
+                          value:
+                            - Admin
+                            - Controller
+                      upstreamPolicyId: root
+                      updatedAt: '2024-01-02T00:00:00Z'
+                      createdAt: '2024-01-01T00:00:00Z'
+                MultipleTriggers:
+                  value:
+                    - id: apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                      trigger:
+                        - type: amount
+                          amount: 100
+                          currency: USD
+                        - type: vendor
+                          vendorIds:
+                            - ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                        - type: metadata
+                          key: property_id
+                          value:
+                            - '123456'
+                            - '789012'
+                        - type: catchall
                       rule:
                         type: approver
                         numApprovers: 2
@@ -21740,9 +21800,11 @@ paths:
             $ref: '#/components/schemas/EntityId'
           example: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
           examples:
-            AmountWithRoles:
+            AlwaysTrigger:
               value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-            AlwaysAssignUsers:
+            SingleTrigger:
+              value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+            MultipleTriggers:
               value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
       responses:
         '200':
@@ -21752,7 +21814,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApprovalPolicyResponse'
               examples:
-                AmountWithRoles:
+                AlwaysTrigger:
+                  value:
+                    id: apvl_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                    trigger: []
+                    rule:
+                      type: approver
+                      numApprovers: 2
+                      identifierList:
+                        type: userList
+                        value:
+                          - usr_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                          - usr_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                    upstreamPolicyId: root
+                    updatedAt: '2024-01-02T00:00:00Z'
+                    createdAt: '2024-01-01T00:00:00Z'
+                SingleTrigger:
                   value:
                     id: apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c
                     trigger:
@@ -21770,18 +21847,30 @@ paths:
                     upstreamPolicyId: root
                     updatedAt: '2024-01-02T00:00:00Z'
                     createdAt: '2024-01-01T00:00:00Z'
-                AlwaysAssignUsers:
+                MultipleTriggers:
                   value:
-                    id: apvl_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                    trigger: []
+                    id: apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                    trigger:
+                      - type: amount
+                        amount: 100
+                        currency: USD
+                      - type: vendor
+                        vendorIds:
+                          - ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                      - type: metadata
+                        key: property_id
+                        value:
+                          - '123456'
+                          - '789012'
+                      - type: catchall
                     rule:
                       type: approver
                       numApprovers: 2
                       identifierList:
-                        type: userList
+                        type: rolesList
                         value:
-                          - usr_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                          - usr_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                          - Admin
+                          - Controller
                     upstreamPolicyId: root
                     updatedAt: '2024-01-02T00:00:00Z'
                     createdAt: '2024-01-01T00:00:00Z'
@@ -21893,7 +21982,19 @@ paths:
             schema:
               $ref: '#/components/schemas/ApprovalPolicyRequest'
             examples:
-              AmountWithRoles:
+              AlwaysTrigger:
+                value:
+                  trigger: []
+                  rule:
+                    type: approver
+                    numApprovers: 2
+                    identifierList:
+                      type: userList
+                      value:
+                        - usr_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                        - usr_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                  upstreamPolicyId: root
+              SingleTrigger:
                 value:
                   trigger:
                     - type: amount
@@ -21908,17 +22009,29 @@ paths:
                         - Admin
                         - Controller
                   upstreamPolicyId: root
-              AlwaysAssignUsers:
+              MultipleTriggers:
                 value:
-                  trigger: []
+                  trigger:
+                    - type: amount
+                      amount: 100
+                      currency: USD
+                    - type: vendor
+                      vendorIds:
+                        - ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                    - type: metadata
+                      key: property_id
+                      value:
+                        - '123456'
+                        - '789012'
+                    - type: catchall
                   rule:
                     type: approver
                     numApprovers: 2
                     identifierList:
-                      type: userList
+                      type: rolesList
                       value:
-                        - usr_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                        - usr_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                        - Admin
+                        - Controller
                   upstreamPolicyId: root
   /entity/{entityId}/approval-policy/{policyId}:
     get:
@@ -21935,9 +22048,11 @@ paths:
             $ref: '#/components/schemas/EntityId'
           example: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
           examples:
-            AmountWithRoles:
+            AlwaysTrigger:
               value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-            AlwaysAssignUsers:
+            SingleTrigger:
+              value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+            MultipleTriggers:
               value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
         - name: policyId
           in: path
@@ -21946,9 +22061,11 @@ paths:
             $ref: '#/components/schemas/ApprovalPolicyId'
           example: apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c
           examples:
-            AmountWithRoles:
+            AlwaysTrigger:
               value: apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c
-            AlwaysAssignUsers:
+            SingleTrigger:
+              value: apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c
+            MultipleTriggers:
               value: apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c
       responses:
         '200':
@@ -21958,7 +22075,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApprovalPolicyResponse'
               examples:
-                AmountWithRoles:
+                AlwaysTrigger:
+                  value:
+                    id: apvl_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                    trigger: []
+                    rule:
+                      type: approver
+                      numApprovers: 2
+                      identifierList:
+                        type: userList
+                        value:
+                          - usr_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                          - usr_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                    upstreamPolicyId: root
+                    updatedAt: '2024-01-02T00:00:00Z'
+                    createdAt: '2024-01-01T00:00:00Z'
+                SingleTrigger:
                   value:
                     id: apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c
                     trigger:
@@ -21976,18 +22108,30 @@ paths:
                     upstreamPolicyId: root
                     updatedAt: '2024-01-02T00:00:00Z'
                     createdAt: '2024-01-01T00:00:00Z'
-                AlwaysAssignUsers:
+                MultipleTriggers:
                   value:
-                    id: apvl_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                    trigger: []
+                    id: apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                    trigger:
+                      - type: amount
+                        amount: 100
+                        currency: USD
+                      - type: vendor
+                        vendorIds:
+                          - ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                      - type: metadata
+                        key: property_id
+                        value:
+                          - '123456'
+                          - '789012'
+                      - type: catchall
                     rule:
                       type: approver
                       numApprovers: 2
                       identifierList:
-                        type: userList
+                        type: rolesList
                         value:
-                          - usr_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                          - usr_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                          - Admin
+                          - Controller
                     upstreamPolicyId: root
                     updatedAt: '2024-01-02T00:00:00Z'
                     createdAt: '2024-01-01T00:00:00Z'
@@ -22106,9 +22250,11 @@ paths:
             $ref: '#/components/schemas/EntityId'
           example: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
           examples:
-            AmountWithRoles:
+            AlwaysTrigger:
               value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-            AlwaysAssignUsers:
+            SingleTrigger:
+              value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+            MultipleTriggers:
               value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
         - name: policyId
           in: path
@@ -22117,9 +22263,11 @@ paths:
             $ref: '#/components/schemas/ApprovalPolicyId'
           example: apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c
           examples:
-            AmountWithRoles:
+            AlwaysTrigger:
               value: apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c
-            AlwaysAssignUsers:
+            SingleTrigger:
+              value: apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c
+            MultipleTriggers:
               value: apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c
       responses:
         '200':
@@ -22129,7 +22277,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApprovalPolicyResponse'
               examples:
-                AmountWithRoles:
+                AlwaysTrigger:
+                  value:
+                    id: apvl_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                    trigger: []
+                    rule:
+                      type: approver
+                      numApprovers: 2
+                      identifierList:
+                        type: userList
+                        value:
+                          - usr_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                          - usr_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                    upstreamPolicyId: root
+                    updatedAt: '2024-01-02T00:00:00Z'
+                    createdAt: '2024-01-01T00:00:00Z'
+                SingleTrigger:
                   value:
                     id: apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c
                     trigger:
@@ -22147,18 +22310,30 @@ paths:
                     upstreamPolicyId: root
                     updatedAt: '2024-01-02T00:00:00Z'
                     createdAt: '2024-01-01T00:00:00Z'
-                AlwaysAssignUsers:
+                MultipleTriggers:
                   value:
-                    id: apvl_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                    trigger: []
+                    id: apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                    trigger:
+                      - type: amount
+                        amount: 100
+                        currency: USD
+                      - type: vendor
+                        vendorIds:
+                          - ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                      - type: metadata
+                        key: property_id
+                        value:
+                          - '123456'
+                          - '789012'
+                      - type: catchall
                     rule:
                       type: approver
                       numApprovers: 2
                       identifierList:
-                        type: userList
+                        type: rolesList
                         value:
-                          - usr_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                          - usr_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                          - Admin
+                          - Controller
                     upstreamPolicyId: root
                     updatedAt: '2024-01-02T00:00:00Z'
                     createdAt: '2024-01-01T00:00:00Z'
@@ -22270,7 +22445,19 @@ paths:
             schema:
               $ref: '#/components/schemas/ApprovalPolicyUpdateRequest'
             examples:
-              AmountWithRoles:
+              AlwaysTrigger:
+                value:
+                  trigger: []
+                  rule:
+                    type: approver
+                    numApprovers: 2
+                    identifierList:
+                      type: userList
+                      value:
+                        - usr_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                        - usr_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                  upstreamPolicyId: root
+              SingleTrigger:
                 value:
                   trigger:
                     - type: amount
@@ -22285,17 +22472,29 @@ paths:
                         - Admin
                         - Controller
                   upstreamPolicyId: root
-              AlwaysAssignUsers:
+              MultipleTriggers:
                 value:
-                  trigger: []
+                  trigger:
+                    - type: amount
+                      amount: 100
+                      currency: USD
+                    - type: vendor
+                      vendorIds:
+                        - ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                    - type: metadata
+                      key: property_id
+                      value:
+                        - '123456'
+                        - '789012'
+                    - type: catchall
                   rule:
                     type: approver
                     numApprovers: 2
                     identifierList:
-                      type: userList
+                      type: rolesList
                       value:
-                        - usr_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                        - usr_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                        - Admin
+                        - Controller
                   upstreamPolicyId: root
     delete:
       description: >-
@@ -42573,6 +42772,21 @@ components:
             - $ref: '#/components/schemas/MetadataTrigger'
           required:
             - type
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - catchall
+            - $ref: '#/components/schemas/CatchallTrigger'
+          required:
+            - type
+    CatchallTrigger:
+      title: CatchallTrigger
+      type: object
+      properties: {}
     AmountTrigger:
       title: AmountTrigger
       type: object
