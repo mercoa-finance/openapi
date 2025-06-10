@@ -13988,6 +13988,15 @@ paths:
           examples:
             Find invoices created by a specific entity:
               value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+        - name: entityGroupId
+          in: query
+          description: >-
+            Filter invoices by the ID or foreign ID of the entity group that the
+            entity belongs to.
+          required: false
+          schema:
+            $ref: '#/components/schemas/EntityGroupId'
+            nullable: true
         - name: startDate
           in: query
           description: >-
@@ -22626,6 +22635,297 @@ paths:
                       content:
                         type: string
       summary: Delete
+      security:
+        - BearerAuth: []
+  /entity/{entityId}/approval-policies/history:
+    get:
+      description: Retrieve the history of approval policy changes for an entity
+      operationId: entity_approvalPolicy_history
+      tags:
+        - EntityApprovalPolicy
+      parameters:
+        - name: entityId
+          in: path
+          description: Entity ID or Entity ForeignID
+          required: true
+          schema:
+            $ref: '#/components/schemas/EntityId'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApprovalPolicyHistoryResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Get History
+      security:
+        - BearerAuth: []
+  /entity/{entityId}/approval-policies/history/{approvalPolicyHistoryId}/restore:
+    post:
+      description: Restore approval policies from a history entry.
+      operationId: entity_approvalPolicy_restore
+      tags:
+        - EntityApprovalPolicy
+      parameters:
+        - name: entityId
+          in: path
+          description: Entity ID or Entity ForeignID
+          required: true
+          schema:
+            $ref: '#/components/schemas/EntityId'
+          example: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+          examples:
+            RestoreFromHistory:
+              value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+        - name: approvalPolicyHistoryId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: hist_21661ac1-a2a8-4465-a6c0-64474ba8181d
+          examples:
+            RestoreFromHistory:
+              value: hist_21661ac1-a2a8-4465-a6c0-64474ba8181d
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApprovalPolicyResponse'
+              examples:
+                RestoreFromHistory:
+                  value:
+                    - id: apvl_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                      trigger: []
+                      rule:
+                        type: approver
+                        numApprovers: 2
+                        identifierList:
+                          type: userList
+                          value:
+                            - usr_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                            - usr_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                      upstreamPolicyId: root
+                      updatedAt: '2024-01-02T00:00:00Z'
+                      createdAt: '2024-01-01T00:00:00Z'
+                    - id: apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                      trigger:
+                        - type: amount
+                          amount: 100
+                          currency: USD
+                      rule:
+                        type: approver
+                        numApprovers: 2
+                        identifierList:
+                          type: rolesList
+                          value:
+                            - Admin
+                            - Controller
+                      upstreamPolicyId: root
+                      updatedAt: '2024-01-02T00:00:00Z'
+                      createdAt: '2024-01-01T00:00:00Z'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Restore
       security:
         - BearerAuth: []
   /entities:
@@ -37027,20 +37327,9 @@ paths:
             items:
               $ref: '#/components/schemas/EntityId'
               nullable: true
-        - name: creatorUserId
-          in: query
-          description: >-
-            Filter transactions by the ID or foreign ID of the user that created
-            the invoice that created the transaction.
-          required: false
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/EntityUserId'
-              nullable: true
         - name: invoiceId
           in: query
-          description: Filter transactions by invoice ID. Does not support foreign ID.
+          description: Filter transactions by invoice ID or invoice foreign ID.
           required: false
           schema:
             type: array
@@ -37073,6 +37362,15 @@ paths:
             type: array
             items:
               $ref: '#/components/schemas/TransactionType'
+              nullable: true
+        - name: creatorUserId
+          in: query
+          description: Filter transactions by creator user ID. Does not work, do not use.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
               nullable: true
       responses:
         '200':
@@ -42736,6 +43034,30 @@ components:
         - upstreamPolicyId
         - createdAt
         - updatedAt
+    ApprovalPolicyHistoryResponse:
+      title: ApprovalPolicyHistoryResponse
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the approval policy history
+          example: hist_21661ac1-a2a8-4465-a6c0-64474ba8181d
+        policies:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApprovalPolicyResponse'
+        userId:
+          $ref: '#/components/schemas/EntityUserId'
+          description: The user ID of the user who edited the approval policy
+        createdAt:
+          type: string
+          format: date-time
+          example: '2024-01-02T00:00:00Z'
+      required:
+        - id
+        - policies
+        - userId
+        - createdAt
     Trigger:
       title: Trigger
       oneOf:
@@ -45114,7 +45436,8 @@ components:
           description: >-
             If multiple values are provided, the filter will match if any of the
             values match (OR filter). To filter for the absence of a key, use
-            the value 'NULL'.
+            the value 'NULL'. To filter for the presence of a key, use the value
+            'NOT NULL'.
       required:
         - key
         - value
