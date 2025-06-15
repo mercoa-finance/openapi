@@ -43160,6 +43160,17 @@ components:
             - $ref: '#/components/schemas/ApproverRule'
           required:
             - type
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - automatic
+            - $ref: '#/components/schemas/AutomaticRule'
+          required:
+            - type
     IdentifierList:
       title: IdentifierList
       oneOf:
@@ -43187,6 +43198,10 @@ components:
                 $ref: '#/components/schemas/EntityUserId'
           required:
             - type
+    AutomaticRule:
+      title: AutomaticRule
+      type: object
+      properties: {}
     ApproverRule:
       title: ApproverRule
       type: object
@@ -46970,6 +46985,13 @@ components:
       properties:
         url:
           type: string
+          description: The URL that the email will link to.
+        subject:
+          type: string
+          nullable: true
+          description: >-
+            The subject of the email. If not provided, the default subject will
+            be used.
       required:
         - url
     InvoiceNotificationConfigurationResponse:
