@@ -3,3009 +3,6 @@ info:
   title: api
   version: ''
 paths:
-  /contract/generate:
-    post:
-      description: >-
-        Generate a new contract object from a Base64 encoded PDF of a contract.
-        This endpoint will block until the contract is generated.
-      operationId: contract_generateContract
-      tags:
-        - Contract
-      parameters: []
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GenerateContractResponse'
-              examples:
-                Generate contract:
-                  value:
-                    jobId: cntgen_d6734204-ae46-4fe9-a0c5-bd2763d40c9b
-                    contract:
-                      id: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                      summary: >
-                        Contract Start Date: January 29, 2025
-
-                        Parties to the Agreement:
-
-                        - Provider (Vendor): [Vendor Name] - Client (Payer):
-                        [Client Name]
-
-                        Fees and Payment Terms:
-
-                        - Monthly Recurring Fee: \$20.00 - Payment Schedule:
-                        Fees are payable in advance on the 1st day of each
-                        month. - First Payment Date: February 1, 2025 - Payment
-                        Method: Via credit card to the account designated by
-                        Provider. - Payment Due Date: Payment is due 5 days
-                        after the invoice date.
-                      recurrences:
-                        - id: cntrec_0b2d48a7-38e8-44e1-9abc-95e0e67eb484
-                          contractId: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                          rrule: >-
-                            DTSTART:20250201T000000ZRRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1
-                          justification: >-
-                            Monthly recurring fee billed in advance on the 1st
-                            of each month
-                          filteredContractSummary: >
-                            Contract Start Date: January 29, 2025
-
-                            Parties to the Agreement:
-
-                            - Provider (Vendor): [Vendor Name] - Client (Payer):
-                            [Client Name]
-
-                            Fees and Payment Terms:
-
-                            - Monthly Recurring Fee: \$20.00 - Payment Schedule:
-                            Fees are payable in advance on the 1st day of each
-                            month. - First Payment Date: February 1, 2025 -
-                            Payment Method: Via credit card to the account
-                            designated by Provider. - Payment Due Date: Payment
-                            is due 5 days after the invoice date.
-                          invoiceSchema:
-                            lineItems:
-                              - name: Monthly Subscription Service Fee
-                                unitPrice: 20
-                                currency: USD
-                                quantity: 1
-                          createdInvoiceIds:
-                            - in_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                          createdAt: '2025-01-29T00:00:00Z'
-                          updatedAt: '2025-01-29T00:00:00Z'
-                      nextInvoiceDate: '2025-03-01'
-                      creatorEntityId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                      payerId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                      payer:
-                        id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                        foreignId: MY-DB-ID-12345
-                        name: Acme Inc.
-                        email: customer@acme.com
-                        acceptedTos: true
-                        status: verified
-                        isCustomer: true
-                        isPayor: true
-                        isPayee: false
-                        isNetworkPayor: false
-                        isNetworkPayee: false
-                        accountType: business
-                        updatedAt: '2024-01-02T00:00:00Z'
-                        createdAt: '2024-01-01T00:00:00Z'
-                        profile:
-                          business:
-                            email: customer@acme.com
-                            legalBusinessName: Acme Inc.
-                            businessType: llc
-                            phone:
-                              countryCode: '1'
-                              number: '4155551234'
-                            address:
-                              addressLine1: 123 Main St
-                              addressLine2: Unit 1
-                              city: San Francisco
-                              stateOrProvince: CA
-                              postalCode: '94105'
-                              country: US
-                            taxIDProvided: true
-                            taxId:
-                              ein:
-                                number: 12-3456789
-                            ownersProvided: true
-                        accounts:
-                          - accountId: '85866843'
-                            postalCode: '94105'
-                            nameOnAccount: John Doe
-                        paymentMethods:
-                          - id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
-                            type: bankAccount
-                            accountName: My Checking Account
-                            bankName: Chase
-                            routingNumber: '12345678'
-                            accountNumber: '99988767623'
-                            accountType: CHECKING
-                            status: VERIFIED
-                            isDefaultSource: true
-                            isDefaultDestination: true
-                            supportedCurrencies:
-                              - USD
-                            metadata: {}
-                            frozen: false
-                            confirmedByEntity: true
-                            createdAt: '2021-01-01T00:00:00Z'
-                            updatedAt: '2021-01-01T00:00:00Z'
-                        counterpartyType:
-                          - ENTITY
-                      vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                      vendor:
-                        id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                        foreignId: MY-DB-ID-90909
-                        name: Big Box Store
-                        email: vendor@bigboxstore.com
-                        acceptedTos: false
-                        status: unverified
-                        isCustomer: false
-                        isPayor: false
-                        isPayee: true
-                        isNetworkPayor: false
-                        isNetworkPayee: false
-                        accountType: business
-                        updatedAt: '2024-01-02T00:00:00Z'
-                        createdAt: '2024-01-01T00:00:00Z'
-                        profile:
-                          business:
-                            email: vendor@bigboxstore.com
-                            legalBusinessName: Big Box Store
-                            businessType: publicCorporation
-                            taxIDProvided: false
-                            ownersProvided: false
-                        paymentMethods:
-                          - id: pm_7610541f-4619-4033-8620-cfccfb811293
-                            type: bankAccount
-                            accountName: Vendor Checking Account
-                            bankName: Chase
-                            routingNumber: '66554433'
-                            accountNumber: '55934059697648'
-                            accountType: CHECKING
-                            status: NEW
-                            isDefaultSource: true
-                            isDefaultDestination: true
-                            supportedCurrencies:
-                              - USD
-                            metadata: {}
-                            frozen: false
-                            confirmedByEntity: false
-                            createdAt: '2021-01-01T00:00:00Z'
-                            updatedAt: '2021-01-01T00:00:00Z'
-                        counterpartyType:
-                          - ENTITY
-                      createdAt: '2025-01-29T00:00:00Z'
-                      updatedAt: '2025-02-01T00:00:00Z'
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Generate Contract (Sync)
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GenerateContractRequest'
-            examples:
-              Generate contract:
-                value:
-                  document: >-
-                    data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
-                  creatorEntityId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-  /contract/generate-async:
-    post:
-      description: >-
-        Generate a new contract object from a Base64 encoded PDF of a contract.
-        This endpoint will return immediately and the contract will be generated
-        asynchronously.
-      operationId: contract_generateContractRunAsync
-      tags:
-        - Contract
-      parameters: []
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GenerateContractAsyncResponse'
-              examples:
-                Generate contract async:
-                  value:
-                    jobId: cntgen_d6734204-ae46-4fe9-a0c5-bd2763d40c9b
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Generate Contract (Async)
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GenerateContractRequest'
-            examples:
-              Generate contract async:
-                value:
-                  document: >-
-                    data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
-                  creatorEntityId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-  /contract/generate-async/{jobId}:
-    get:
-      description: Get the status and results of an asynchronous contract generation job.
-      operationId: contract_generateContractGetAsync
-      tags:
-        - Contract
-      parameters:
-        - name: jobId
-          in: path
-          description: Job ID
-          required: true
-          schema:
-            $ref: '#/components/schemas/ContractJobId'
-          example: cntgen_d6734204-ae46-4fe9-a0c5-bd2763d40c9b
-          examples:
-            Get successful job:
-              value: cntgen_d6734204-ae46-4fe9-a0c5-bd2763d40c9b
-            Get pending job:
-              value: cntgen_d6734204-ae46-4fe9-a0c5-bd2763d40c9b
-            Get failed job:
-              value: cntgen_d6734204-ae46-4fe9-a0c5-bd2763d40c9b
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GenerateContractAsyncJobResponse'
-              examples:
-                Get successful job:
-                  value:
-                    jobId: cntgen_d6734204-ae46-4fe9-a0c5-bd2763d40c9b
-                    status: success
-                    contract:
-                      id: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                      summary: >
-                        Contract Start Date: January 29, 2025
-
-                        Parties to the Agreement:
-
-                        - Provider (Vendor): [Vendor Name] - Client (Payer):
-                        [Client Name]
-
-                        Fees and Payment Terms:
-
-                        - Monthly Recurring Fee: \$20.00 - Payment Schedule:
-                        Fees are payable in advance on the 1st day of each
-                        month. - First Payment Date: February 1, 2025 - Payment
-                        Method: Via credit card to the account designated by
-                        Provider. - Payment Due Date: Payment is due 5 days
-                        after the invoice date.
-                      recurrences:
-                        - id: cntrec_0b2d48a7-38e8-44e1-9abc-95e0e67eb484
-                          contractId: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                          rrule: >-
-                            DTSTART:20250201T000000ZRRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1
-                          justification: >-
-                            Monthly recurring fee billed in advance on the 1st
-                            of each month
-                          filteredContractSummary: >
-                            Contract Start Date: January 29, 2025
-
-                            Parties to the Agreement:
-
-                            - Provider (Vendor): [Vendor Name] - Client (Payer):
-                            [Client Name]
-
-                            Fees and Payment Terms:
-
-                            - Monthly Recurring Fee: \$20.00 - Payment Schedule:
-                            Fees are payable in advance on the 1st day of each
-                            month. - First Payment Date: February 1, 2025 -
-                            Payment Method: Via credit card to the account
-                            designated by Provider. - Payment Due Date: Payment
-                            is due 5 days after the invoice date.
-                          invoiceSchema:
-                            lineItems:
-                              - name: Monthly Subscription Service Fee
-                                unitPrice: 20
-                                currency: USD
-                                quantity: 1
-                          createdInvoiceIds:
-                            - in_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                          createdAt: '2025-01-29T00:00:00Z'
-                          updatedAt: '2025-01-29T00:00:00Z'
-                      nextInvoiceDate: '2025-03-01'
-                      creatorEntityId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                      payerId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                      payer:
-                        id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                        foreignId: MY-DB-ID-12345
-                        name: Acme Inc.
-                        email: customer@acme.com
-                        acceptedTos: true
-                        status: verified
-                        isCustomer: true
-                        isPayor: true
-                        isPayee: false
-                        isNetworkPayor: false
-                        isNetworkPayee: false
-                        accountType: business
-                        updatedAt: '2024-01-02T00:00:00Z'
-                        createdAt: '2024-01-01T00:00:00Z'
-                        profile:
-                          business:
-                            email: customer@acme.com
-                            legalBusinessName: Acme Inc.
-                            businessType: llc
-                            phone:
-                              countryCode: '1'
-                              number: '4155551234'
-                            address:
-                              addressLine1: 123 Main St
-                              addressLine2: Unit 1
-                              city: San Francisco
-                              stateOrProvince: CA
-                              postalCode: '94105'
-                              country: US
-                            taxIDProvided: true
-                            taxId:
-                              ein:
-                                number: 12-3456789
-                            ownersProvided: true
-                        accounts:
-                          - accountId: '85866843'
-                            postalCode: '94105'
-                            nameOnAccount: John Doe
-                        paymentMethods:
-                          - id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
-                            type: bankAccount
-                            accountName: My Checking Account
-                            bankName: Chase
-                            routingNumber: '12345678'
-                            accountNumber: '99988767623'
-                            accountType: CHECKING
-                            status: VERIFIED
-                            isDefaultSource: true
-                            isDefaultDestination: true
-                            supportedCurrencies:
-                              - USD
-                            metadata: {}
-                            frozen: false
-                            confirmedByEntity: true
-                            createdAt: '2021-01-01T00:00:00Z'
-                            updatedAt: '2021-01-01T00:00:00Z'
-                        counterpartyType:
-                          - ENTITY
-                      vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                      vendor:
-                        id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                        foreignId: MY-DB-ID-90909
-                        name: Big Box Store
-                        email: vendor@bigboxstore.com
-                        acceptedTos: false
-                        status: unverified
-                        isCustomer: false
-                        isPayor: false
-                        isPayee: true
-                        isNetworkPayor: false
-                        isNetworkPayee: false
-                        accountType: business
-                        updatedAt: '2024-01-02T00:00:00Z'
-                        createdAt: '2024-01-01T00:00:00Z'
-                        profile:
-                          business:
-                            email: vendor@bigboxstore.com
-                            legalBusinessName: Big Box Store
-                            businessType: publicCorporation
-                            taxIDProvided: false
-                            ownersProvided: false
-                        paymentMethods:
-                          - id: pm_7610541f-4619-4033-8620-cfccfb811293
-                            type: bankAccount
-                            accountName: Vendor Checking Account
-                            bankName: Chase
-                            routingNumber: '66554433'
-                            accountNumber: '55934059697648'
-                            accountType: CHECKING
-                            status: NEW
-                            isDefaultSource: true
-                            isDefaultDestination: true
-                            supportedCurrencies:
-                              - USD
-                            metadata: {}
-                            frozen: false
-                            confirmedByEntity: false
-                            createdAt: '2021-01-01T00:00:00Z'
-                            updatedAt: '2021-01-01T00:00:00Z'
-                        counterpartyType:
-                          - ENTITY
-                      createdAt: '2025-01-29T00:00:00Z'
-                      updatedAt: '2025-02-01T00:00:00Z'
-                Get pending job:
-                  value:
-                    jobId: cntgen_d6734204-ae46-4fe9-a0c5-bd2763d40c9b
-                    status: pending
-                Get failed job:
-                  value:
-                    jobId: cntgen_d6734204-ae46-4fe9-a0c5-bd2763d40c9b
-                    status: failed
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Get Contract Generation Response (Async)
-      security:
-        - BearerAuth: []
-  /contract/preview-invoices:
-    post:
-      description: >-
-        Generate previews of the invoices that will be created from the provided
-        contract.
-      operationId: contract_previewInvoices
-      tags:
-        - Contract
-      parameters: []
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/InvoiceResponse'
-              examples:
-                PreviewInvoices:
-                  value:
-                    - id: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
-                      status: DRAFT
-                      payerId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                      payer:
-                        id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                        foreignId: MY-DB-ID-12345
-                        name: Acme Inc.
-                        email: customer@acme.com
-                        acceptedTos: true
-                        status: verified
-                        isCustomer: true
-                        isPayor: true
-                        isPayee: false
-                        isNetworkPayor: false
-                        isNetworkPayee: false
-                        accountType: business
-                        updatedAt: '2024-01-02T00:00:00Z'
-                        createdAt: '2024-01-01T00:00:00Z'
-                        profile:
-                          business:
-                            email: customer@acme.com
-                            legalBusinessName: Acme Inc.
-                            businessType: llc
-                            phone:
-                              countryCode: '1'
-                              number: '4155551234'
-                            address:
-                              addressLine1: 123 Main St
-                              addressLine2: Unit 1
-                              city: San Francisco
-                              stateOrProvince: CA
-                              postalCode: '94105'
-                              country: US
-                            taxIDProvided: true
-                            taxId:
-                              ein:
-                                number: 12-3456789
-                            ownersProvided: true
-                        accounts:
-                          - accountId: '85866843'
-                            postalCode: '94105'
-                            nameOnAccount: John Doe
-                        paymentMethods:
-                          - id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
-                            type: bankAccount
-                            accountName: My Checking Account
-                            bankName: Chase
-                            routingNumber: '12345678'
-                            accountNumber: '99988767623'
-                            accountType: CHECKING
-                            status: VERIFIED
-                            isDefaultSource: true
-                            isDefaultDestination: true
-                            supportedCurrencies:
-                              - USD
-                            metadata: {}
-                            frozen: false
-                            confirmedByEntity: true
-                            createdAt: '2021-01-01T00:00:00Z'
-                            updatedAt: '2021-01-01T00:00:00Z'
-                        counterpartyType:
-                          - ENTITY
-                      vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                      vendor:
-                        id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                        foreignId: MY-DB-ID-90909
-                        name: Big Box Store
-                        email: vendor@bigboxstore.com
-                        acceptedTos: false
-                        status: unverified
-                        isCustomer: false
-                        isPayor: false
-                        isPayee: true
-                        isNetworkPayor: false
-                        isNetworkPayee: false
-                        accountType: business
-                        updatedAt: '2024-01-02T00:00:00Z'
-                        createdAt: '2024-01-01T00:00:00Z'
-                        profile:
-                          business:
-                            email: vendor@bigboxstore.com
-                            legalBusinessName: Big Box Store
-                            businessType: publicCorporation
-                            taxIDProvided: false
-                            ownersProvided: false
-                        paymentMethods:
-                          - id: pm_7610541f-4619-4033-8620-cfccfb811293
-                            type: bankAccount
-                            accountName: Vendor Checking Account
-                            bankName: Chase
-                            routingNumber: '66554433'
-                            accountNumber: '55934059697648'
-                            accountType: CHECKING
-                            status: NEW
-                            isDefaultSource: true
-                            isDefaultDestination: true
-                            supportedCurrencies:
-                              - USD
-                            metadata: {}
-                            frozen: false
-                            confirmedByEntity: false
-                            createdAt: '2021-01-01T00:00:00Z'
-                            updatedAt: '2021-01-01T00:00:00Z'
-                        counterpartyType:
-                          - ENTITY
-                      currency: USD
-                      amount: 20
-                      lineItems:
-                        - id: inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7
-                          amount: 20
-                          currency: USD
-                          quantity: 1
-                          unitPrice: 20
-                          name: Monthly Subscription Service Fee
-                          category: EXPENSE
-                          createdAt: '2025-01-29T00:00:00Z'
-                          updatedAt: '2025-01-29T00:00:00Z'
-                      invoiceNumber: INV-DEMO
-                      invoiceDate: '2025-02-01T00:00:00Z'
-                      dueDate: '2025-02-06T00:00:00Z'
-                      paymentDestinationConfirmed: false
-                      hasDocuments: true
-                      hasSourceEmail: true
-                      approvers: []
-                      approvalPolicy: []
-                      metadata: {}
-                      createdAt: '2021-01-29T00:00:00Z'
-                      updatedAt: '2021-01-29T00:00:00Z'
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Preview Invoices
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                contract:
-                  $ref: '#/components/schemas/ContractCreateRequest'
-                  description: Contract to preview invoice creation for
-                invoiceIndexes:
-                  type: array
-                  items:
-                    type: integer
-                  description: >-
-                    Indexes of the invoices to generate from each recurrence
-                    (e.g. [0, 1, 2] for the first three invoices).  Note that
-                    contracts with multiple recurrences will generate more
-                    preview invoices, and invalid invoice indexes will be
-                    ignored silently. For example, [0, 1, 2] on a contract with
-                    2 recurrences will generate at most 6 invoices, and
-                    potentially fewer if some of indexes are out of bounds for a
-                    recurrence.
-                  example:
-                    - 0
-              required:
-                - contract
-                - invoiceIndexes
-            examples:
-              PreviewInvoices:
-                value:
-                  contract:
-                    summary: >
-                      Contract Start Date: January 29, 2025
-
-                      Parties to the Agreement:
-
-                      - Provider (Vendor): [Vendor Name] - Client (Payer):
-                      [Client Name]
-
-                      Fees and Payment Terms:
-
-                      - Monthly Recurring Fee: \$20.00 - Payment Schedule: Fees
-                      are payable in advance on the 1st day of each month. -
-                      First Payment Date: February 1, 2025 - Payment Method: Via
-                      credit card to the account designated by Provider. -
-                      Payment Due Date: Payment is due 5 days after the invoice
-                      date.
-                    recurrences:
-                      - rrule: >-
-                          DTSTART:20250201T000000ZRRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1
-                        justification: >-
-                          Monthly recurring fee billed in advance on the 1st of
-                          each month
-                        filteredContractSummary: >
-                          Contract Start Date: January 29, 2025
-
-                          Parties to the Agreement:
-
-                          - Provider (Vendor): [Vendor Name] - Client (Payer):
-                          [Client Name]
-
-                          Fees and Payment Terms:
-
-                          - Monthly Recurring Fee: \$20.00 - Payment Schedule:
-                          Fees are payable in advance on the 1st day of each
-                          month. - First Payment Date: February 1, 2025 -
-                          Payment Method: Via credit card to the account
-                          designated by Provider. - Payment Due Date: Payment is
-                          due 5 days after the invoice date.
-                        invoiceSchema:
-                          lineItems:
-                            - name: Monthly Subscription Service Fee
-                              unitPrice: 20
-                              currency: USD
-                              quantity: 1
-                    creatorEntityId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                    payerId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                    vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                  invoiceIndexes:
-                    - 0
-  /contract/{contractId}/apply-contract-feedback:
-    post:
-      description: >-
-        Apply feedback to a contract, generating an updated contract object. 
-        NOTE: This works by re-extracting the contract details with the provided
-        feedback in mind.
-      operationId: contract_applyContractFeedback
-      tags:
-        - Contract
-      parameters:
-        - name: contractId
-          in: path
-          description: Contract ID
-          required: true
-          schema:
-            $ref: '#/components/schemas/ContractId'
-          example: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-          examples:
-            ApplyContractFeedback:
-              value: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ContractResponse'
-              examples:
-                ApplyContractFeedback:
-                  value:
-                    id: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                    summary: >
-                      Contract Start Date: January 29, 2025
-
-                      Parties to the Agreement:
-
-                      - Provider (Vendor): [Vendor Name] - Client (Payer):
-                      [Client Name]
-
-                      Fees and Payment Terms:
-
-                      - Monthly Recurring Fee: \$20.00 - Payment Schedule: Fees
-                      are payable in advance on the 1st day of each month. -
-                      First Payment Date: February 1, 2025 - Payment Method: Via
-                      credit card to the account designated by Provider. -
-                      Payment Due Date: Payment is due 5 days after the invoice
-                      date.
-                    recurrences:
-                      - id: cntrec_0b2d48a7-38e8-44e1-9abc-95e0e67eb484
-                        contractId: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                        rrule: >-
-                          DTSTART:20250201T000000ZRRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1
-                        justification: >-
-                          Monthly recurring fee billed in advance on the 1st of
-                          each month
-                        filteredContractSummary: >
-                          Contract Start Date: January 29, 2025
-
-                          Parties to the Agreement:
-
-                          - Provider (Vendor): [Vendor Name] - Client (Payer):
-                          [Client Name]
-
-                          Fees and Payment Terms:
-
-                          - Monthly Recurring Fee: \$20.00 - Payment Schedule:
-                          Fees are payable in advance on the 1st day of each
-                          month. - First Payment Date: February 1, 2025 -
-                          Payment Method: Via credit card to the account
-                          designated by Provider. - Payment Due Date: Payment is
-                          due 5 days after the invoice date.
-                        invoiceSchema:
-                          lineItems:
-                            - name: Monthly Subscription Service Fee
-                              unitPrice: 20
-                              currency: USD
-                              quantity: 1
-                        createdInvoiceIds:
-                          - in_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                        createdAt: '2025-01-29T00:00:00Z'
-                        updatedAt: '2025-01-29T00:00:00Z'
-                    nextInvoiceDate: '2025-03-01'
-                    creatorEntityId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                    payerId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                    payer:
-                      id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                      foreignId: MY-DB-ID-12345
-                      name: Acme Inc.
-                      email: customer@acme.com
-                      acceptedTos: true
-                      status: verified
-                      isCustomer: true
-                      isPayor: true
-                      isPayee: false
-                      isNetworkPayor: false
-                      isNetworkPayee: false
-                      accountType: business
-                      updatedAt: '2024-01-02T00:00:00Z'
-                      createdAt: '2024-01-01T00:00:00Z'
-                      profile:
-                        business:
-                          email: customer@acme.com
-                          legalBusinessName: Acme Inc.
-                          businessType: llc
-                          phone:
-                            countryCode: '1'
-                            number: '4155551234'
-                          address:
-                            addressLine1: 123 Main St
-                            addressLine2: Unit 1
-                            city: San Francisco
-                            stateOrProvince: CA
-                            postalCode: '94105'
-                            country: US
-                          taxIDProvided: true
-                          taxId:
-                            ein:
-                              number: 12-3456789
-                          ownersProvided: true
-                      accounts:
-                        - accountId: '85866843'
-                          postalCode: '94105'
-                          nameOnAccount: John Doe
-                      paymentMethods:
-                        - id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
-                          type: bankAccount
-                          accountName: My Checking Account
-                          bankName: Chase
-                          routingNumber: '12345678'
-                          accountNumber: '99988767623'
-                          accountType: CHECKING
-                          status: VERIFIED
-                          isDefaultSource: true
-                          isDefaultDestination: true
-                          supportedCurrencies:
-                            - USD
-                          metadata: {}
-                          frozen: false
-                          confirmedByEntity: true
-                          createdAt: '2021-01-01T00:00:00Z'
-                          updatedAt: '2021-01-01T00:00:00Z'
-                      counterpartyType:
-                        - ENTITY
-                    vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                    vendor:
-                      id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                      foreignId: MY-DB-ID-90909
-                      name: Big Box Store
-                      email: vendor@bigboxstore.com
-                      acceptedTos: false
-                      status: unverified
-                      isCustomer: false
-                      isPayor: false
-                      isPayee: true
-                      isNetworkPayor: false
-                      isNetworkPayee: false
-                      accountType: business
-                      updatedAt: '2024-01-02T00:00:00Z'
-                      createdAt: '2024-01-01T00:00:00Z'
-                      profile:
-                        business:
-                          email: vendor@bigboxstore.com
-                          legalBusinessName: Big Box Store
-                          businessType: publicCorporation
-                          taxIDProvided: false
-                          ownersProvided: false
-                      paymentMethods:
-                        - id: pm_7610541f-4619-4033-8620-cfccfb811293
-                          type: bankAccount
-                          accountName: Vendor Checking Account
-                          bankName: Chase
-                          routingNumber: '66554433'
-                          accountNumber: '55934059697648'
-                          accountType: CHECKING
-                          status: NEW
-                          isDefaultSource: true
-                          isDefaultDestination: true
-                          supportedCurrencies:
-                            - USD
-                          metadata: {}
-                          frozen: false
-                          confirmedByEntity: false
-                          createdAt: '2021-01-01T00:00:00Z'
-                          updatedAt: '2021-01-01T00:00:00Z'
-                      counterpartyType:
-                        - ENTITY
-                    createdAt: '2025-01-29T00:00:00Z'
-                    updatedAt: '2025-02-01T00:00:00Z'
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Apply Contract Feedback
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                feedback:
-                  type: string
-                  description: Natural language feedback to apply to the contract
-                  example: Change the monthly fee to $20.00
-              required:
-                - feedback
-            examples:
-              ApplyContractFeedback:
-                value:
-                  feedback: Change the monthly fee to $20.00
-  /contract/{contractId}/apply-invoice-feedback:
-    post:
-      description: Apply feedback to an invoice, generating an updated invoice object.
-      operationId: contract_applyInvoiceFeedback
-      tags:
-        - Contract
-      parameters:
-        - name: contractId
-          in: path
-          description: Contract ID
-          required: true
-          schema:
-            $ref: '#/components/schemas/ContractId'
-          example: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-          examples:
-            ApplyInvoiceFeedback:
-              value: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InvoiceResponse'
-              examples:
-                ApplyInvoiceFeedback:
-                  value:
-                    id: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
-                    status: DRAFT
-                    payerId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                    payer:
-                      id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                      foreignId: MY-DB-ID-12345
-                      name: Acme Inc.
-                      email: customer@acme.com
-                      acceptedTos: true
-                      status: verified
-                      isCustomer: true
-                      isPayor: true
-                      isPayee: false
-                      isNetworkPayor: false
-                      isNetworkPayee: false
-                      accountType: business
-                      updatedAt: '2024-01-02T00:00:00Z'
-                      createdAt: '2024-01-01T00:00:00Z'
-                      profile:
-                        business:
-                          email: customer@acme.com
-                          legalBusinessName: Acme Inc.
-                          businessType: llc
-                          phone:
-                            countryCode: '1'
-                            number: '4155551234'
-                          address:
-                            addressLine1: 123 Main St
-                            addressLine2: Unit 1
-                            city: San Francisco
-                            stateOrProvince: CA
-                            postalCode: '94105'
-                            country: US
-                          taxIDProvided: true
-                          taxId:
-                            ein:
-                              number: 12-3456789
-                          ownersProvided: true
-                      accounts:
-                        - accountId: '85866843'
-                          postalCode: '94105'
-                          nameOnAccount: John Doe
-                      paymentMethods:
-                        - id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
-                          type: bankAccount
-                          accountName: My Checking Account
-                          bankName: Chase
-                          routingNumber: '12345678'
-                          accountNumber: '99988767623'
-                          accountType: CHECKING
-                          status: VERIFIED
-                          isDefaultSource: true
-                          isDefaultDestination: true
-                          supportedCurrencies:
-                            - USD
-                          metadata: {}
-                          frozen: false
-                          confirmedByEntity: true
-                          createdAt: '2021-01-01T00:00:00Z'
-                          updatedAt: '2021-01-01T00:00:00Z'
-                      counterpartyType:
-                        - ENTITY
-                    vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                    vendor:
-                      id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                      foreignId: MY-DB-ID-90909
-                      name: Big Box Store
-                      email: vendor@bigboxstore.com
-                      acceptedTos: false
-                      status: unverified
-                      isCustomer: false
-                      isPayor: false
-                      isPayee: true
-                      isNetworkPayor: false
-                      isNetworkPayee: false
-                      accountType: business
-                      updatedAt: '2024-01-02T00:00:00Z'
-                      createdAt: '2024-01-01T00:00:00Z'
-                      profile:
-                        business:
-                          email: vendor@bigboxstore.com
-                          legalBusinessName: Big Box Store
-                          businessType: publicCorporation
-                          taxIDProvided: false
-                          ownersProvided: false
-                      paymentMethods:
-                        - id: pm_7610541f-4619-4033-8620-cfccfb811293
-                          type: bankAccount
-                          accountName: Vendor Checking Account
-                          bankName: Chase
-                          routingNumber: '66554433'
-                          accountNumber: '55934059697648'
-                          accountType: CHECKING
-                          status: NEW
-                          isDefaultSource: true
-                          isDefaultDestination: true
-                          supportedCurrencies:
-                            - USD
-                          metadata: {}
-                          frozen: false
-                          confirmedByEntity: false
-                          createdAt: '2021-01-01T00:00:00Z'
-                          updatedAt: '2021-01-01T00:00:00Z'
-                      counterpartyType:
-                        - ENTITY
-                    currency: USD
-                    amount: 30
-                    lineItems:
-                      - id: inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7
-                        amount: 20
-                        currency: USD
-                        quantity: 2
-                        unitPrice: 20
-                        name: Monthly Subscription Service Fee
-                        category: EXPENSE
-                        createdAt: '2025-01-29T00:00:00Z'
-                        updatedAt: '2025-01-29T00:00:00Z'
-                    invoiceNumber: INV-DEMO
-                    invoiceDate: '2025-02-01T00:00:00Z'
-                    dueDate: '2025-02-06T00:00:00Z'
-                    paymentDestinationConfirmed: false
-                    hasDocuments: true
-                    hasSourceEmail: true
-                    approvers: []
-                    approvalPolicy: []
-                    metadata: {}
-                    createdAt: '2021-01-29T00:00:00Z'
-                    updatedAt: '2021-01-29T00:00:00Z'
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Apply Invoice Feedback
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                feedback:
-                  type: string
-                  description: Natural language feedback to apply to the invoice
-                  example: There were 2 subscriptions this month
-                invoiceId:
-                  $ref: '#/components/schemas/InvoiceId'
-                  description: ID of the invoice to apply feedback to
-              required:
-                - feedback
-                - invoiceId
-            examples:
-              ApplyInvoiceFeedback:
-                value:
-                  feedback: There were 2 subscriptions this month
-                  invoiceId: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
-  /contracts:
-    get:
-      description: Search contracts for all entities in the organization
-      operationId: contract_find
-      tags:
-        - Contract
-      parameters:
-        - name: creatorEntityId
-          in: query
-          description: ID of the entity that created the contracts
-          required: false
-          schema:
-            $ref: '#/components/schemas/EntityId'
-            nullable: true
-          example: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-          examples:
-            Find contracts by creator:
-              value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FindContractResponse'
-              examples:
-                Find contracts by creator:
-                  value:
-                    count: 1
-                    hasMore: false
-                    data:
-                      - id: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                        summary: >
-                          Contract Start Date: January 29, 2025
-
-                          Parties to the Agreement:
-
-                          - Provider (Vendor): [Vendor Name] - Client (Payer):
-                          [Client Name]
-
-                          Fees and Payment Terms:
-
-                          - Monthly Recurring Fee: \$20.00 - Payment Schedule:
-                          Fees are payable in advance on the 1st day of each
-                          month. - First Payment Date: February 1, 2025 -
-                          Payment Method: Via credit card to the account
-                          designated by Provider. - Payment Due Date: Payment is
-                          due 5 days after the invoice date.
-                        recurrences:
-                          - id: cntrec_0b2d48a7-38e8-44e1-9abc-95e0e67eb484
-                            contractId: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                            rrule: >-
-                              DTSTART:20250201T000000ZRRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1
-                            justification: >-
-                              Monthly recurring fee billed in advance on the 1st
-                              of each month
-                            filteredContractSummary: >
-                              Contract Start Date: January 29, 2025
-
-                              Parties to the Agreement:
-
-                              - Provider (Vendor): [Vendor Name] - Client
-                              (Payer): [Client Name]
-
-                              Fees and Payment Terms:
-
-                              - Monthly Recurring Fee: \$20.00 - Payment
-                              Schedule: Fees are payable in advance on the 1st
-                              day of each month. - First Payment Date: February
-                              1, 2025 - Payment Method: Via credit card to the
-                              account designated by Provider. - Payment Due
-                              Date: Payment is due 5 days after the invoice
-                              date.
-                            invoiceSchema:
-                              lineItems:
-                                - name: Monthly Subscription Service Fee
-                                  unitPrice: 20
-                                  currency: USD
-                                  quantity: 1
-                            createdInvoiceIds:
-                              - in_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                            createdAt: '2025-01-29T00:00:00Z'
-                            updatedAt: '2025-01-29T00:00:00Z'
-                        nextInvoiceDate: '2025-03-01'
-                        creatorEntityId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                        payerId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                        payer:
-                          id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                          foreignId: MY-DB-ID-12345
-                          name: Acme Inc.
-                          email: customer@acme.com
-                          acceptedTos: true
-                          status: verified
-                          isCustomer: true
-                          isPayor: true
-                          isPayee: false
-                          isNetworkPayor: false
-                          isNetworkPayee: false
-                          accountType: business
-                          updatedAt: '2024-01-02T00:00:00Z'
-                          createdAt: '2024-01-01T00:00:00Z'
-                          profile:
-                            business:
-                              email: customer@acme.com
-                              legalBusinessName: Acme Inc.
-                              businessType: llc
-                              phone:
-                                countryCode: '1'
-                                number: '4155551234'
-                              address:
-                                addressLine1: 123 Main St
-                                addressLine2: Unit 1
-                                city: San Francisco
-                                stateOrProvince: CA
-                                postalCode: '94105'
-                                country: US
-                              taxIDProvided: true
-                              taxId:
-                                ein:
-                                  number: 12-3456789
-                              ownersProvided: true
-                          accounts:
-                            - accountId: '85866843'
-                              postalCode: '94105'
-                              nameOnAccount: John Doe
-                          paymentMethods:
-                            - id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
-                              type: bankAccount
-                              accountName: My Checking Account
-                              bankName: Chase
-                              routingNumber: '12345678'
-                              accountNumber: '99988767623'
-                              accountType: CHECKING
-                              status: VERIFIED
-                              isDefaultSource: true
-                              isDefaultDestination: true
-                              supportedCurrencies:
-                                - USD
-                              metadata: {}
-                              frozen: false
-                              confirmedByEntity: true
-                              createdAt: '2021-01-01T00:00:00Z'
-                              updatedAt: '2021-01-01T00:00:00Z'
-                          counterpartyType:
-                            - ENTITY
-                        vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                        vendor:
-                          id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                          foreignId: MY-DB-ID-90909
-                          name: Big Box Store
-                          email: vendor@bigboxstore.com
-                          acceptedTos: false
-                          status: unverified
-                          isCustomer: false
-                          isPayor: false
-                          isPayee: true
-                          isNetworkPayor: false
-                          isNetworkPayee: false
-                          accountType: business
-                          updatedAt: '2024-01-02T00:00:00Z'
-                          createdAt: '2024-01-01T00:00:00Z'
-                          profile:
-                            business:
-                              email: vendor@bigboxstore.com
-                              legalBusinessName: Big Box Store
-                              businessType: publicCorporation
-                              taxIDProvided: false
-                              ownersProvided: false
-                          paymentMethods:
-                            - id: pm_7610541f-4619-4033-8620-cfccfb811293
-                              type: bankAccount
-                              accountName: Vendor Checking Account
-                              bankName: Chase
-                              routingNumber: '66554433'
-                              accountNumber: '55934059697648'
-                              accountType: CHECKING
-                              status: NEW
-                              isDefaultSource: true
-                              isDefaultDestination: true
-                              supportedCurrencies:
-                                - USD
-                              metadata: {}
-                              frozen: false
-                              confirmedByEntity: false
-                              createdAt: '2021-01-01T00:00:00Z'
-                              updatedAt: '2021-01-01T00:00:00Z'
-                          counterpartyType:
-                            - ENTITY
-                        createdAt: '2025-01-29T00:00:00Z'
-                        updatedAt: '2025-02-01T00:00:00Z'
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Search Contracts
-      security:
-        - BearerAuth: []
-  /contract:
-    post:
-      operationId: contract_create
-      tags:
-        - Contract
-      parameters: []
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ContractResponse'
-              examples:
-                Create contract:
-                  value:
-                    id: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                    summary: >
-                      Contract Start Date: January 29, 2025
-
-                      Parties to the Agreement:
-
-                      - Provider (Vendor): [Vendor Name] - Client (Payer):
-                      [Client Name]
-
-                      Fees and Payment Terms:
-
-                      - Monthly Recurring Fee: \$20.00 - Payment Schedule: Fees
-                      are payable in advance on the 1st day of each month. -
-                      First Payment Date: February 1, 2025 - Payment Method: Via
-                      credit card to the account designated by Provider. -
-                      Payment Due Date: Payment is due 5 days after the invoice
-                      date.
-                    recurrences:
-                      - id: cntrec_0b2d48a7-38e8-44e1-9abc-95e0e67eb484
-                        contractId: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                        rrule: >-
-                          DTSTART:20250201T000000ZRRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1
-                        justification: >-
-                          Monthly recurring fee billed in advance on the 1st of
-                          each month
-                        filteredContractSummary: >
-                          Contract Start Date: January 29, 2025
-
-                          Parties to the Agreement:
-
-                          - Provider (Vendor): [Vendor Name] - Client (Payer):
-                          [Client Name]
-
-                          Fees and Payment Terms:
-
-                          - Monthly Recurring Fee: \$20.00 - Payment Schedule:
-                          Fees are payable in advance on the 1st day of each
-                          month. - First Payment Date: February 1, 2025 -
-                          Payment Method: Via credit card to the account
-                          designated by Provider. - Payment Due Date: Payment is
-                          due 5 days after the invoice date.
-                        invoiceSchema:
-                          lineItems:
-                            - name: Monthly Subscription Service Fee
-                              unitPrice: 20
-                              currency: USD
-                              quantity: 1
-                        createdInvoiceIds:
-                          - in_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                        createdAt: '2025-01-29T00:00:00Z'
-                        updatedAt: '2025-01-29T00:00:00Z'
-                    nextInvoiceDate: '2025-03-01'
-                    creatorEntityId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                    payerId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                    payer:
-                      id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                      foreignId: MY-DB-ID-12345
-                      name: Acme Inc.
-                      email: customer@acme.com
-                      acceptedTos: true
-                      status: verified
-                      isCustomer: true
-                      isPayor: true
-                      isPayee: false
-                      isNetworkPayor: false
-                      isNetworkPayee: false
-                      accountType: business
-                      updatedAt: '2024-01-02T00:00:00Z'
-                      createdAt: '2024-01-01T00:00:00Z'
-                      profile:
-                        business:
-                          email: customer@acme.com
-                          legalBusinessName: Acme Inc.
-                          businessType: llc
-                          phone:
-                            countryCode: '1'
-                            number: '4155551234'
-                          address:
-                            addressLine1: 123 Main St
-                            addressLine2: Unit 1
-                            city: San Francisco
-                            stateOrProvince: CA
-                            postalCode: '94105'
-                            country: US
-                          taxIDProvided: true
-                          taxId:
-                            ein:
-                              number: 12-3456789
-                          ownersProvided: true
-                      accounts:
-                        - accountId: '85866843'
-                          postalCode: '94105'
-                          nameOnAccount: John Doe
-                      paymentMethods:
-                        - id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
-                          type: bankAccount
-                          accountName: My Checking Account
-                          bankName: Chase
-                          routingNumber: '12345678'
-                          accountNumber: '99988767623'
-                          accountType: CHECKING
-                          status: VERIFIED
-                          isDefaultSource: true
-                          isDefaultDestination: true
-                          supportedCurrencies:
-                            - USD
-                          metadata: {}
-                          frozen: false
-                          confirmedByEntity: true
-                          createdAt: '2021-01-01T00:00:00Z'
-                          updatedAt: '2021-01-01T00:00:00Z'
-                      counterpartyType:
-                        - ENTITY
-                    vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                    vendor:
-                      id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                      foreignId: MY-DB-ID-90909
-                      name: Big Box Store
-                      email: vendor@bigboxstore.com
-                      acceptedTos: false
-                      status: unverified
-                      isCustomer: false
-                      isPayor: false
-                      isPayee: true
-                      isNetworkPayor: false
-                      isNetworkPayee: false
-                      accountType: business
-                      updatedAt: '2024-01-02T00:00:00Z'
-                      createdAt: '2024-01-01T00:00:00Z'
-                      profile:
-                        business:
-                          email: vendor@bigboxstore.com
-                          legalBusinessName: Big Box Store
-                          businessType: publicCorporation
-                          taxIDProvided: false
-                          ownersProvided: false
-                      paymentMethods:
-                        - id: pm_7610541f-4619-4033-8620-cfccfb811293
-                          type: bankAccount
-                          accountName: Vendor Checking Account
-                          bankName: Chase
-                          routingNumber: '66554433'
-                          accountNumber: '55934059697648'
-                          accountType: CHECKING
-                          status: NEW
-                          isDefaultSource: true
-                          isDefaultDestination: true
-                          supportedCurrencies:
-                            - USD
-                          metadata: {}
-                          frozen: false
-                          confirmedByEntity: false
-                          createdAt: '2021-01-01T00:00:00Z'
-                          updatedAt: '2021-01-01T00:00:00Z'
-                      counterpartyType:
-                        - ENTITY
-                    createdAt: '2025-01-29T00:00:00Z'
-                    updatedAt: '2025-02-01T00:00:00Z'
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Create
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ContractCreateRequest'
-            examples:
-              Create contract:
-                value:
-                  summary: >
-                    Contract Start Date: January 29, 2025
-
-                    Parties to the Agreement:
-
-                    - Provider (Vendor): [Vendor Name] - Client (Payer): [Client
-                    Name]
-
-                    Fees and Payment Terms:
-
-                    - Monthly Recurring Fee: \$20.00 - Payment Schedule: Fees
-                    are payable in advance on the 1st day of each month. - First
-                    Payment Date: February 1, 2025 - Payment Method: Via credit
-                    card to the account designated by Provider. - Payment Due
-                    Date: Payment is due 5 days after the invoice date.
-                  recurrences:
-                    - rrule: >-
-                        DTSTART:20250201T000000ZRRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1
-                      justification: >-
-                        Monthly recurring fee billed in advance on the 1st of
-                        each month
-                      filteredContractSummary: >
-                        Contract Start Date: January 29, 2025
-
-                        Parties to the Agreement:
-
-                        - Provider (Vendor): [Vendor Name] - Client (Payer):
-                        [Client Name]
-
-                        Fees and Payment Terms:
-
-                        - Monthly Recurring Fee: \$20.00 - Payment Schedule:
-                        Fees are payable in advance on the 1st day of each
-                        month. - First Payment Date: February 1, 2025 - Payment
-                        Method: Via credit card to the account designated by
-                        Provider. - Payment Due Date: Payment is due 5 days
-                        after the invoice date.
-                      invoiceSchema:
-                        lineItems:
-                          - name: Monthly Subscription Service Fee
-                            unitPrice: 20
-                            currency: USD
-                            quantity: 1
-                  creatorEntityId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                  payerId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                  vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-  /contract/{contractId}:
-    get:
-      operationId: contract_get
-      tags:
-        - Contract
-      parameters:
-        - name: contractId
-          in: path
-          description: Contract ID
-          required: true
-          schema:
-            $ref: '#/components/schemas/ContractId'
-          example: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-          examples:
-            Get contract:
-              value: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ContractResponse'
-              examples:
-                Get contract:
-                  value:
-                    id: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                    summary: >
-                      Contract Start Date: January 29, 2025
-
-                      Parties to the Agreement:
-
-                      - Provider (Vendor): [Vendor Name] - Client (Payer):
-                      [Client Name]
-
-                      Fees and Payment Terms:
-
-                      - Monthly Recurring Fee: \$20.00 - Payment Schedule: Fees
-                      are payable in advance on the 1st day of each month. -
-                      First Payment Date: February 1, 2025 - Payment Method: Via
-                      credit card to the account designated by Provider. -
-                      Payment Due Date: Payment is due 5 days after the invoice
-                      date.
-                    recurrences:
-                      - id: cntrec_0b2d48a7-38e8-44e1-9abc-95e0e67eb484
-                        contractId: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                        rrule: >-
-                          DTSTART:20250201T000000ZRRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1
-                        justification: >-
-                          Monthly recurring fee billed in advance on the 1st of
-                          each month
-                        filteredContractSummary: >
-                          Contract Start Date: January 29, 2025
-
-                          Parties to the Agreement:
-
-                          - Provider (Vendor): [Vendor Name] - Client (Payer):
-                          [Client Name]
-
-                          Fees and Payment Terms:
-
-                          - Monthly Recurring Fee: \$20.00 - Payment Schedule:
-                          Fees are payable in advance on the 1st day of each
-                          month. - First Payment Date: February 1, 2025 -
-                          Payment Method: Via credit card to the account
-                          designated by Provider. - Payment Due Date: Payment is
-                          due 5 days after the invoice date.
-                        invoiceSchema:
-                          lineItems:
-                            - name: Monthly Subscription Service Fee
-                              unitPrice: 20
-                              currency: USD
-                              quantity: 1
-                        createdInvoiceIds:
-                          - in_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                        createdAt: '2025-01-29T00:00:00Z'
-                        updatedAt: '2025-01-29T00:00:00Z'
-                    nextInvoiceDate: '2025-03-01'
-                    creatorEntityId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                    payerId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                    payer:
-                      id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                      foreignId: MY-DB-ID-12345
-                      name: Acme Inc.
-                      email: customer@acme.com
-                      acceptedTos: true
-                      status: verified
-                      isCustomer: true
-                      isPayor: true
-                      isPayee: false
-                      isNetworkPayor: false
-                      isNetworkPayee: false
-                      accountType: business
-                      updatedAt: '2024-01-02T00:00:00Z'
-                      createdAt: '2024-01-01T00:00:00Z'
-                      profile:
-                        business:
-                          email: customer@acme.com
-                          legalBusinessName: Acme Inc.
-                          businessType: llc
-                          phone:
-                            countryCode: '1'
-                            number: '4155551234'
-                          address:
-                            addressLine1: 123 Main St
-                            addressLine2: Unit 1
-                            city: San Francisco
-                            stateOrProvince: CA
-                            postalCode: '94105'
-                            country: US
-                          taxIDProvided: true
-                          taxId:
-                            ein:
-                              number: 12-3456789
-                          ownersProvided: true
-                      accounts:
-                        - accountId: '85866843'
-                          postalCode: '94105'
-                          nameOnAccount: John Doe
-                      paymentMethods:
-                        - id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
-                          type: bankAccount
-                          accountName: My Checking Account
-                          bankName: Chase
-                          routingNumber: '12345678'
-                          accountNumber: '99988767623'
-                          accountType: CHECKING
-                          status: VERIFIED
-                          isDefaultSource: true
-                          isDefaultDestination: true
-                          supportedCurrencies:
-                            - USD
-                          metadata: {}
-                          frozen: false
-                          confirmedByEntity: true
-                          createdAt: '2021-01-01T00:00:00Z'
-                          updatedAt: '2021-01-01T00:00:00Z'
-                      counterpartyType:
-                        - ENTITY
-                    vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                    vendor:
-                      id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                      foreignId: MY-DB-ID-90909
-                      name: Big Box Store
-                      email: vendor@bigboxstore.com
-                      acceptedTos: false
-                      status: unverified
-                      isCustomer: false
-                      isPayor: false
-                      isPayee: true
-                      isNetworkPayor: false
-                      isNetworkPayee: false
-                      accountType: business
-                      updatedAt: '2024-01-02T00:00:00Z'
-                      createdAt: '2024-01-01T00:00:00Z'
-                      profile:
-                        business:
-                          email: vendor@bigboxstore.com
-                          legalBusinessName: Big Box Store
-                          businessType: publicCorporation
-                          taxIDProvided: false
-                          ownersProvided: false
-                      paymentMethods:
-                        - id: pm_7610541f-4619-4033-8620-cfccfb811293
-                          type: bankAccount
-                          accountName: Vendor Checking Account
-                          bankName: Chase
-                          routingNumber: '66554433'
-                          accountNumber: '55934059697648'
-                          accountType: CHECKING
-                          status: NEW
-                          isDefaultSource: true
-                          isDefaultDestination: true
-                          supportedCurrencies:
-                            - USD
-                          metadata: {}
-                          frozen: false
-                          confirmedByEntity: false
-                          createdAt: '2021-01-01T00:00:00Z'
-                          updatedAt: '2021-01-01T00:00:00Z'
-                      counterpartyType:
-                        - ENTITY
-                    createdAt: '2025-01-29T00:00:00Z'
-                    updatedAt: '2025-02-01T00:00:00Z'
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Get
-      security:
-        - BearerAuth: []
-    put:
-      operationId: contract_update
-      tags:
-        - Contract
-      parameters:
-        - name: contractId
-          in: path
-          description: Contract ID
-          required: true
-          schema:
-            $ref: '#/components/schemas/ContractId'
-          example: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-          examples:
-            Update contract:
-              value: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ContractResponse'
-              examples:
-                Update contract:
-                  value:
-                    id: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                    summary: >
-                      Contract Start Date: January 29, 2025
-
-                      Parties to the Agreement:
-
-                      - Provider (Vendor): [Vendor Name] - Client (Payer):
-                      [Client Name]
-
-                      Fees and Payment Terms:
-
-                      - Monthly Recurring Fee: \$20.00 - Payment Schedule: Fees
-                      are payable in advance on the 1st day of each month. -
-                      First Payment Date: February 1, 2025 - Payment Method: Via
-                      credit card to the account designated by Provider. -
-                      Payment Due Date: Payment is due 5 days after the invoice
-                      date.
-                    recurrences:
-                      - id: cntrec_0b2d48a7-38e8-44e1-9abc-95e0e67eb484
-                        contractId: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-                        rrule: >-
-                          DTSTART:20250201T000000ZRRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1
-                        justification: >-
-                          Monthly recurring fee billed in advance on the 1st of
-                          each month
-                        filteredContractSummary: >
-                          Contract Start Date: January 29, 2025
-
-                          Parties to the Agreement:
-
-                          - Provider (Vendor): [Vendor Name] - Client (Payer):
-                          [Client Name]
-
-                          Fees and Payment Terms:
-
-                          - Monthly Recurring Fee: \$20.00 - Payment Schedule:
-                          Fees are payable in advance on the 1st day of each
-                          month. - First Payment Date: February 1, 2025 -
-                          Payment Method: Via credit card to the account
-                          designated by Provider. - Payment Due Date: Payment is
-                          due 5 days after the invoice date.
-                        invoiceSchema:
-                          lineItems:
-                            - name: Monthly Subscription Service Fee
-                              unitPrice: 20
-                              currency: USD
-                              quantity: 1
-                        createdInvoiceIds:
-                          - in_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                        createdAt: '2025-01-29T00:00:00Z'
-                        updatedAt: '2025-01-29T00:00:00Z'
-                    nextInvoiceDate: '2025-03-01'
-                    creatorEntityId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                    payerId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                    payer:
-                      id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
-                      foreignId: MY-DB-ID-12345
-                      name: Acme Inc.
-                      email: customer@acme.com
-                      acceptedTos: true
-                      status: verified
-                      isCustomer: true
-                      isPayor: true
-                      isPayee: false
-                      isNetworkPayor: false
-                      isNetworkPayee: false
-                      accountType: business
-                      updatedAt: '2024-01-02T00:00:00Z'
-                      createdAt: '2024-01-01T00:00:00Z'
-                      profile:
-                        business:
-                          email: customer@acme.com
-                          legalBusinessName: Acme Inc.
-                          businessType: llc
-                          phone:
-                            countryCode: '1'
-                            number: '4155551234'
-                          address:
-                            addressLine1: 123 Main St
-                            addressLine2: Unit 1
-                            city: San Francisco
-                            stateOrProvince: CA
-                            postalCode: '94105'
-                            country: US
-                          taxIDProvided: true
-                          taxId:
-                            ein:
-                              number: 12-3456789
-                          ownersProvided: true
-                      accounts:
-                        - accountId: '85866843'
-                          postalCode: '94105'
-                          nameOnAccount: John Doe
-                      paymentMethods:
-                        - id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
-                          type: bankAccount
-                          accountName: My Checking Account
-                          bankName: Chase
-                          routingNumber: '12345678'
-                          accountNumber: '99988767623'
-                          accountType: CHECKING
-                          status: VERIFIED
-                          isDefaultSource: true
-                          isDefaultDestination: true
-                          supportedCurrencies:
-                            - USD
-                          metadata: {}
-                          frozen: false
-                          confirmedByEntity: true
-                          createdAt: '2021-01-01T00:00:00Z'
-                          updatedAt: '2021-01-01T00:00:00Z'
-                      counterpartyType:
-                        - ENTITY
-                    vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                    vendor:
-                      id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
-                      foreignId: MY-DB-ID-90909
-                      name: Big Box Store
-                      email: vendor@bigboxstore.com
-                      acceptedTos: false
-                      status: unverified
-                      isCustomer: false
-                      isPayor: false
-                      isPayee: true
-                      isNetworkPayor: false
-                      isNetworkPayee: false
-                      accountType: business
-                      updatedAt: '2024-01-02T00:00:00Z'
-                      createdAt: '2024-01-01T00:00:00Z'
-                      profile:
-                        business:
-                          email: vendor@bigboxstore.com
-                          legalBusinessName: Big Box Store
-                          businessType: publicCorporation
-                          taxIDProvided: false
-                          ownersProvided: false
-                      paymentMethods:
-                        - id: pm_7610541f-4619-4033-8620-cfccfb811293
-                          type: bankAccount
-                          accountName: Vendor Checking Account
-                          bankName: Chase
-                          routingNumber: '66554433'
-                          accountNumber: '55934059697648'
-                          accountType: CHECKING
-                          status: NEW
-                          isDefaultSource: true
-                          isDefaultDestination: true
-                          supportedCurrencies:
-                            - USD
-                          metadata: {}
-                          frozen: false
-                          confirmedByEntity: false
-                          createdAt: '2021-01-01T00:00:00Z'
-                          updatedAt: '2021-01-01T00:00:00Z'
-                      counterpartyType:
-                        - ENTITY
-                    createdAt: '2025-01-29T00:00:00Z'
-                    updatedAt: '2025-02-01T00:00:00Z'
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Update
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ContractUpdateRequest'
-            examples:
-              Update contract:
-                value:
-                  summary: >
-                    Contract Start Date: January 29, 2025
-
-                    Parties to the Agreement:
-
-                    - Provider (Vendor): [Vendor Name] - Client (Payer): [Client
-                    Name]
-
-                    Fees and Payment Terms:
-
-                    - Monthly Recurring Fee: \$20.00 - Payment Schedule: Fees
-                    are payable in advance on the 1st day of each month. - First
-                    Payment Date: February 1, 2025 - Payment Method: Via credit
-                    card to the account designated by Provider. - Payment Due
-                    Date: Payment is due 5 days after the invoice date.
-                  recurrences:
-                    - rrule: >-
-                        DTSTART:20250201T000000ZRRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1
-                      justification: >-
-                        Monthly recurring fee billed in advance on the 1st of
-                        each month
-                      filteredContractSummary: >
-                        Contract Start Date: January 29, 2025
-
-                        Parties to the Agreement:
-
-                        - Provider (Vendor): [Vendor Name] - Client (Payer):
-                        [Client Name]
-
-                        Fees and Payment Terms:
-
-                        - Monthly Recurring Fee: \$20.00 - Payment Schedule:
-                        Fees are payable in advance on the 1st day of each
-                        month. - First Payment Date: February 1, 2025 - Payment
-                        Method: Via credit card to the account designated by
-                        Provider. - Payment Due Date: Payment is due 5 days
-                        after the invoice date.
-                      invoiceSchema:
-                        lineItems:
-                          - name: Monthly Subscription Service Fee
-                            unitPrice: 20
-                            currency: USD
-                            quantity: 1
-    delete:
-      operationId: contract_delete
-      tags:
-        - Contract
-      parameters:
-        - name: contractId
-          in: path
-          description: Contract ID
-          required: true
-          schema:
-            $ref: '#/components/schemas/ContractId'
-          example: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-          examples:
-            Delete contract:
-              value: cnt_3bd62b69-3835-433e-829f-4388a2e46c41
-      responses:
-        '204':
-          description: ''
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Delete
-      security:
-        - BearerAuth: []
   /entityGroups:
     get:
       description: >-
@@ -19193,6 +16190,570 @@ paths:
                     - session_456
               All Sessions:
                 value: {}
+  /payment-gateway/validate:
+    post:
+      description: Create a job to validate a payment gateway
+      operationId: paymentGateway_createValidationJob
+      tags:
+        - PaymentGateway
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidatePaymentGatewayResponse'
+              examples:
+                Document:
+                  value:
+                    jobStatus: pending
+                    jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
+                HTML:
+                  value:
+                    jobStatus: pending
+                    jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Create Validation Job
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidatePaymentGatewayRequest'
+            examples:
+              Document:
+                value:
+                  type: document
+                  document: ValidatePaymentGatewayRequestDocument.Default
+              HTML:
+                value:
+                  type: html
+                  html: ValidatePaymentGatewayRequestHTML.Default
+  /payment-gateway/validate/{jobId}:
+    get:
+      description: Get the status of a payment gateway validation job
+      operationId: paymentGateway_getValidationJob
+      tags:
+        - PaymentGateway
+      parameters:
+        - name: jobId
+          in: path
+          description: The ID of the payment gateway validation job
+          required: true
+          schema:
+            type: string
+          example: job_1a92b5f7-f522-435e-a953-fd649363730a
+          examples:
+            Default:
+              value: job_1a92b5f7-f522-435e-a953-fd649363730a
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidatePaymentGatewayResponse'
+              examples:
+                Default:
+                  value:
+                    jobStatus: completed
+                    jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
+                    paymentGatewayUrl: >-
+                      https://www.payment-gateway.com/invoice/job_1a92b5f7-f522-435e-a953-fd649363730a
+                    sessionUrl: >-
+                      https://www.payment-gateway.com/session/job_1a92b5f7-f522-435e-a953-fd649363730a
+                    card:
+                      eligibility: ACCEPTED
+                      fee:
+                        type: percentage
+                        value: 2.5
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Get Validation Job
+      security:
+        - BearerAuth: []
+  /payment-gateway/process:
+    post:
+      description: Create a job to process a payment through a payment gateway
+      operationId: paymentGateway_createProcessJob
+      tags:
+        - PaymentGateway
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessPaymentGatewayResponse'
+              examples:
+                Direct:
+                  value:
+                    jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
+                    jobStatus: pending
+                Iframe:
+                  value:
+                    jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
+                    jobStatus: pending
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Create Process Job
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessPaymentGatewayRequest'
+            examples:
+              Direct:
+                value:
+                  type: document
+                  document: >-
+                    data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
+                  cardDetails:
+                    type: direct
+                    nameOnCard: John Doe
+                    cardNumber: '4242424242424242'
+                    expirationMonth: 10
+                    expirationYear: 2025
+                    cvv: '123'
+                    postalCode: '12345'
+                    country: US
+              Iframe:
+                value:
+                  type: html
+                  html: >-
+                    <html><body><h1>Invoice Details</h1><a
+                    href="https://www.payment-gateway.com/invoice/123123">Pay
+                    Invoice</a></body></html>
+                  cardDetails:
+                    type: iframe
+                    iframeUrl: https://www.myvirtualcard.com/iframe/543543
+  /payment-gateway/process/{jobId}:
+    get:
+      description: Get the status of a payment gateway processing job
+      operationId: paymentGateway_getProcessJob
+      tags:
+        - PaymentGateway
+      parameters:
+        - name: jobId
+          in: path
+          description: The ID of the payment gateway processing job
+          required: true
+          schema:
+            type: string
+          example: job_1a92b5f7-f522-435e-a953-fd649363730a
+          examples:
+            Default:
+              value: job_1a92b5f7-f522-435e-a953-fd649363730a
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessPaymentGatewayResponse'
+              examples:
+                Default:
+                  value:
+                    jobStatus: completed
+                    jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
+                    receiptUrl: https://www.payment-gateway.com/receipt/123123
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Get Process Job
+      security:
+        - BearerAuth: []
   /bankLookup:
     get:
       description: Find bank account details
@@ -41080,367 +38641,259 @@ components:
         - type: array
           items:
             type: string
-    ContractId:
-      title: ContractId
-      type: string
-    ContractRecurrenceId:
-      title: ContractRecurrenceId
-      type: string
-    ContractJobId:
-      title: ContractJobId
-      type: string
-    ContractCreateRequest:
-      title: ContractCreateRequest
-      type: object
-      properties:
-        summary:
-          type: string
-          description: Natural language summary of the contract
-          example: >
-            Contract Start Date: January 29, 2025
-
-            Parties to the Agreement:
-
-            - Provider (Vendor): [Vendor Name] - Client (Payer): [Client Name]
-
-            Fees and Payment Terms:
-
-            - Monthly Recurring Fee: \$20.00 - Payment Schedule: Fees are
-            payable in advance on the 1st day of each month. - First Payment
-            Date: February 1, 2025 - Payment Method: Via credit card to the
-            account designated by Provider. - Payment Due Date: Payment is due 5
-            days after the invoice date.
-        recurrences:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContractRecurrenceCreateRequest'
-          description: Recurrences defining the contract's fee schedule.
-        creatorEntityId:
-          $ref: '#/components/schemas/EntityId'
-          description: ID of the entity that created the contract
-        payerId:
-          $ref: '#/components/schemas/EntityId'
-          nullable: true
-          description: ID of the payer entity for this contract
-        vendorId:
-          $ref: '#/components/schemas/EntityId'
-          nullable: true
-          description: ID of the vendor entity for this contract
-      required:
-        - summary
-        - recurrences
-        - creatorEntityId
-    ContractUpdateRequest:
-      title: ContractUpdateRequest
-      type: object
-      properties:
-        summary:
-          type: string
-          nullable: true
-          description: Natural language summary of the contract
-        recurrences:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContractRecurrenceCreateRequest'
-          nullable: true
-          description: >-
-            Recurrences defining the contract's fee schedule. Please note that
-            setting this will overwrite all existing recurrences.
-        creatorEntityId:
-          $ref: '#/components/schemas/EntityId'
-          nullable: true
-          description: ID of the entity that created the contract
-        payerId:
-          $ref: '#/components/schemas/EntityId'
-          nullable: true
-          description: ID of the payer entity for this contract
-        vendorId:
-          $ref: '#/components/schemas/EntityId'
-          nullable: true
-          description: ID of the vendor entity for this contract
-    ContractResponse:
-      title: ContractResponse
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/ContractId'
-        summary:
-          type: string
-          description: Natural language summary of the contract
-          example: >
-            Contract Start Date: January 29, 2025
-
-            Parties to the Agreement:
-
-            - Provider (Vendor): [Vendor Name] - Client (Payer): [Client Name]
-
-            Fees and Payment Terms:
-
-            - Monthly Recurring Fee: \$20.00 - Payment Schedule: Fees are
-            payable in advance on the 1st day of each month. - First Payment
-            Date: February 1, 2025 - Payment Method: Via credit card to the
-            account designated by Provider. - Payment Due Date: Payment is due 5
-            days after the invoice date.
-        recurrences:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContractRecurrenceResponse'
-          description: Recurrences defining the contract's fee schedule
-        nextInvoiceDate:
-          type: string
-          format: date
-          nullable: true
-          description: Date of the next invoice to be created from the contract
-        creatorEntityId:
-          $ref: '#/components/schemas/EntityId'
-          description: The ID of the entity who created this contract
-        payerId:
-          $ref: '#/components/schemas/EntityId'
-          nullable: true
-          description: The ID of the payer entity for this contract
-        payer:
-          $ref: '#/components/schemas/CounterpartyResponse'
-          nullable: true
-          description: The payer entity for this contract
-        vendorId:
-          $ref: '#/components/schemas/EntityId'
-          nullable: true
-          description: The ID of the vendor entity for this contract
-        vendor:
-          $ref: '#/components/schemas/CounterpartyResponse'
-          nullable: true
-          description: The vendor entity for this contract
-        createdAt:
-          type: string
-          format: date-time
-          example: '2025-01-29T00:00:00Z'
-        updatedAt:
-          type: string
-          format: date-time
-          example: '2025-02-01T00:00:00Z'
-      required:
-        - id
-        - summary
-        - recurrences
-        - creatorEntityId
-        - createdAt
-        - updatedAt
-    ContractRecurrenceCreateRequest:
-      title: ContractRecurrenceCreateRequest
-      type: object
-      properties:
-        rrule:
-          type: string
-          description: RFC 5545 RRULE string
-          example: DTSTART:20250201T000000ZRRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1
-        justification:
-          type: string
-          description: Natural language justification for the recurrence
-          example: Monthly recurring fee billed in advance on the 1st of each month
-        filteredContractSummary:
-          type: string
-          description: >-
-            Natural language summary of the contract, filtered to only include
-            information relevant to the recurrence
-          example: >
-            Contract Start Date: January 29, 2025
-
-            Parties to the Agreement:
-
-            - Provider (Vendor): [Vendor Name] - Client (Payer): [Client Name]
-
-            Fees and Payment Terms:
-
-            - Monthly Recurring Fee: \$20.00 - Payment Schedule: Fees are
-            payable in advance on the 1st day of each month. - First Payment
-            Date: February 1, 2025 - Payment Method: Via credit card to the
-            account designated by Provider. - Payment Due Date: Payment is due 5
-            days after the invoice date.
-        invoiceSchema:
-          $ref: '#/components/schemas/ContractInvoiceSchema'
-          description: Schema of the invoices to be created by this recurrence
-      required:
-        - rrule
-        - justification
-        - filteredContractSummary
-        - invoiceSchema
-    ContractRecurrenceResponse:
-      title: ContractRecurrenceResponse
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/ContractRecurrenceId'
-        contractId:
-          $ref: '#/components/schemas/ContractId'
-        rrule:
-          type: string
-          description: RFC 5545 RRULE string
-          example: DTSTART:20250201T000000ZRRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1
-        justification:
-          type: string
-          description: Natural language justification for the recurrence
-          example: Monthly recurring fee billed in advance on the 1st of each month
-        filteredContractSummary:
-          type: string
-          description: >-
-            Natural language summary of the contract, filtered to only include
-            information relevant to the recurrence
-          example: >
-            Contract Start Date: January 29, 2025
-
-            Parties to the Agreement:
-
-            - Provider (Vendor): [Vendor Name] - Client (Payer): [Client Name]
-
-            Fees and Payment Terms:
-
-            - Monthly Recurring Fee: \$20.00 - Payment Schedule: Fees are
-            payable in advance on the 1st day of each month. - First Payment
-            Date: February 1, 2025 - Payment Method: Via credit card to the
-            account designated by Provider. - Payment Due Date: Payment is due 5
-            days after the invoice date.
-        invoiceSchema:
-          $ref: '#/components/schemas/ContractInvoiceSchema'
-          description: Schema of the invoices to be created by this recurrence
-        createdInvoiceIds:
-          type: array
-          items:
-            $ref: '#/components/schemas/InvoiceId'
-          description: IDs of invoices created by the recurrence
-        createdAt:
-          type: string
-          format: date-time
-          example: '2025-01-29T00:00:00Z'
-        updatedAt:
-          type: string
-          format: date-time
-          example: '2025-01-29T00:00:00Z'
-      required:
-        - id
-        - contractId
-        - rrule
-        - justification
-        - filteredContractSummary
-        - invoiceSchema
-        - createdInvoiceIds
-        - createdAt
-        - updatedAt
-    ContractInvoiceSchema:
-      title: ContractInvoiceSchema
-      type: object
-      properties:
-        lineItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContractInvoiceLineItemSchema'
-          description: Line items in the invoice
-      required:
-        - lineItems
-    ContractInvoiceLineItemSchema:
-      title: ContractInvoiceLineItemSchema
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the line item
-          example: Monthly Subscription Service Fee
-        unitPrice:
-          type: number
-          format: double
-          nullable: true
-          description: Unit price of the line item
-        currency:
-          $ref: '#/components/schemas/CurrencyCode'
-          nullable: true
-          description: ISO 4217 currency code
-        quantity:
-          type: number
-          format: double
-          nullable: true
-          description: Quantity of the line item
-      required:
-        - name
-    FindContractResponse:
-      title: FindContractResponse
-      type: object
-      properties:
-        count:
-          type: integer
-          description: Total number of contracts found
-          example: 1
-        hasMore:
-          type: boolean
-          description: True if there are more contracts available for the given filters
-          example: false
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContractResponse'
-      required:
-        - count
-        - hasMore
-        - data
-    GenerateContractRequest:
-      title: GenerateContractRequest
-      type: object
-      properties:
-        document:
-          type: string
-          description: Base64 encoded PDF of contract document.
-          example: >-
-            data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
-        creatorEntityId:
-          $ref: '#/components/schemas/EntityId'
-          description: ID of the entity that created the contract
-      required:
-        - document
-        - creatorEntityId
-    GenerateContractResponse:
-      title: GenerateContractResponse
-      type: object
-      properties:
-        jobId:
-          $ref: '#/components/schemas/ContractJobId'
-          description: Job ID
-        contract:
-          $ref: '#/components/schemas/ContractResponse'
-          description: Contract
-      required:
-        - jobId
-        - contract
-    GenerateContractAsyncResponse:
-      title: GenerateContractAsyncResponse
-      type: object
-      properties:
-        jobId:
-          $ref: '#/components/schemas/ContractJobId'
-          description: Job ID
-      required:
-        - jobId
-    ContractJobStatus:
-      title: ContractJobStatus
+    CountryCode:
+      title: CountryCode
       type: string
       enum:
-        - pending
-        - success
-        - failed
-    GenerateContractAsyncJobResponse:
-      title: GenerateContractAsyncJobResponse
-      type: object
-      properties:
-        jobId:
-          $ref: '#/components/schemas/ContractJobId'
-          description: Job ID
-        status:
-          $ref: '#/components/schemas/ContractJobStatus'
-          description: Job status
-        contract:
-          $ref: '#/components/schemas/ContractResponse'
-          nullable: true
-          description: Contract
-      required:
-        - jobId
-        - status
+        - AF
+        - AL
+        - DZ
+        - AS
+        - AD
+        - AO
+        - AI
+        - AQ
+        - AG
+        - AR
+        - AM
+        - AW
+        - AU
+        - AT
+        - AZ
+        - BS
+        - BH
+        - BD
+        - BB
+        - BY
+        - BE
+        - BZ
+        - BJ
+        - BM
+        - BT
+        - BO
+        - BQ
+        - BA
+        - BW
+        - BV
+        - BR
+        - IO
+        - BN
+        - BG
+        - BF
+        - BI
+        - KH
+        - CM
+        - CA
+        - CV
+        - KY
+        - CF
+        - TD
+        - CL
+        - CN
+        - CX
+        - CC
+        - CO
+        - KM
+        - CG
+        - CD
+        - CK
+        - CR
+        - HR
+        - CU
+        - CW
+        - CY
+        - CZ
+        - CI
+        - DK
+        - DJ
+        - DM
+        - DO
+        - EC
+        - EG
+        - SV
+        - GQ
+        - ER
+        - EE
+        - SZ
+        - ET
+        - FK
+        - FO
+        - FJ
+        - FI
+        - FR
+        - GF
+        - PF
+        - TF
+        - GA
+        - GM
+        - GE
+        - DE
+        - GH
+        - GI
+        - GR
+        - GL
+        - GD
+        - GP
+        - GU
+        - GT
+        - GG
+        - GN
+        - GW
+        - GY
+        - HT
+        - HM
+        - VA
+        - HN
+        - HK
+        - HU
+        - IS
+        - IN
+        - ID
+        - IR
+        - IQ
+        - IE
+        - IM
+        - IL
+        - IT
+        - JM
+        - JP
+        - JE
+        - JO
+        - KZ
+        - KE
+        - KI
+        - KP
+        - KR
+        - KW
+        - KG
+        - LA
+        - LV
+        - LB
+        - LS
+        - LR
+        - LY
+        - LI
+        - LT
+        - LU
+        - MO
+        - MK
+        - MG
+        - MW
+        - MY
+        - MV
+        - ML
+        - MT
+        - MH
+        - MQ
+        - MR
+        - MU
+        - YT
+        - MX
+        - FM
+        - MD
+        - MC
+        - MN
+        - ME
+        - MS
+        - MA
+        - MZ
+        - MM
+        - NA
+        - NR
+        - NP
+        - NL
+        - NC
+        - NZ
+        - NI
+        - NE
+        - NG
+        - NU
+        - NF
+        - MP
+        - 'NO'
+        - OM
+        - PK
+        - PW
+        - PS
+        - PA
+        - PG
+        - PY
+        - PE
+        - PH
+        - PN
+        - PL
+        - PT
+        - PR
+        - QA
+        - RO
+        - RU
+        - RW
+        - RE
+        - BL
+        - SH
+        - KN
+        - LC
+        - MF
+        - PM
+        - VC
+        - WS
+        - SM
+        - ST
+        - SA
+        - SN
+        - RS
+        - SC
+        - SL
+        - SG
+        - SX
+        - SK
+        - SI
+        - SB
+        - SO
+        - ZA
+        - GS
+        - SS
+        - ES
+        - LK
+        - SD
+        - SR
+        - SJ
+        - SE
+        - CH
+        - SY
+        - TW
+        - TJ
+        - TZ
+        - TH
+        - TL
+        - TG
+        - TK
+        - TO
+        - TT
+        - TN
+        - TR
+        - TM
+        - TC
+        - TV
+        - UG
+        - UA
+        - AE
+        - GB
+        - US
+        - UM
+        - UY
+        - UZ
+        - VU
+        - VE
+        - VN
+        - VG
+        - VI
+        - WF
+        - EH
+        - YE
+        - ZM
+        - ZW
+        - AX
     PaymentMethodFee:
       title: PaymentMethodFee
       oneOf:
@@ -43109,6 +40562,15 @@ components:
       title: CatchallTrigger
       type: object
       properties: {}
+    Comparison:
+      title: Comparison
+      type: string
+      enum:
+        - eq
+        - gt
+        - gte
+        - lt
+        - lte
     AmountTrigger:
       title: AmountTrigger
       type: object
@@ -43118,6 +40580,12 @@ components:
           format: double
         currency:
           $ref: '#/components/schemas/CurrencyCode'
+        comparison:
+          $ref: '#/components/schemas/Comparison'
+          nullable: true
+          description: >-
+            The comparison operator to use when comparing the amount to the
+            trigger amount. Defaults to gte.
       required:
         - amount
         - currency
@@ -46037,8 +43505,16 @@ components:
           $ref: '#/components/schemas/EntityId'
           nullable: true
           description: >-
-            When using the Entity vendor network, specify the entity to use if.
+            When using the Entity vendor network, specify the entity to use.
             EntityId on an auth token will take precedence over this parameter.
+        splitDocument:
+          type: boolean
+          nullable: true
+          description: >-
+            If true, attempt to split the document into subdocuments before
+            processing. Default is false. If a document is split into
+            subdocuments, the linked OCR jobs will be accessible via the
+            linkedJobIds field on each OCR job response.
       required:
         - mimeType
         - image
@@ -46134,6 +43610,11 @@ components:
         logo:
           type: string
           nullable: true
+          description: Base64 encoded logo image.
+        favicon:
+          type: string
+          nullable: true
+          description: Base64 encoded favicon image.
         websiteUrl:
           type: string
           nullable: true
@@ -46185,6 +43666,9 @@ components:
         name:
           type: string
         logoUrl:
+          type: string
+          nullable: true
+        faviconUrl:
           type: string
           nullable: true
         websiteUrl:
@@ -47405,6 +44889,457 @@ components:
         - key
         - displayName
         - type
+    ValidatePaymentGatewayRequestDocument:
+      title: ValidatePaymentGatewayRequestDocument
+      type: object
+      properties:
+        document:
+          type: string
+          description: >-
+            The invoice document to extract the payment gateway from in base64
+            format
+          example: >-
+            data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
+      required:
+        - document
+    ValidatePaymentGatewayRequestHTML:
+      title: ValidatePaymentGatewayRequestHTML
+      type: object
+      properties:
+        html:
+          type: string
+          description: The HTML from an email to extract the payment gateway from
+          example: >-
+            <html><body><h1>Invoice Details</h1><a
+            href="https://www.payment-gateway.com/invoice/job_1a92b5f7-f522-435e-a953-fd649363730a4567890">Pay
+            Invoice</a></body></html>
+      required:
+        - html
+    ValidatePaymentGatewayRequest:
+      title: ValidatePaymentGatewayRequest
+      oneOf:
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - document
+            - $ref: '#/components/schemas/ValidatePaymentGatewayRequestDocument'
+          required:
+            - type
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - html
+            - $ref: '#/components/schemas/ValidatePaymentGatewayRequestHTML'
+          required:
+            - type
+    ValidatePaymentGatewayCardFeePercentage:
+      title: ValidatePaymentGatewayCardFeePercentage
+      type: object
+      properties:
+        value:
+          type: number
+          format: double
+          description: >-
+            The fee percentage in bps. For example, if the fee is 2.5% and the
+            payment amount is $100, set this to 250.
+          example: 250
+      required:
+        - value
+    ValidatePaymentGatewayCardFeeFlat:
+      title: ValidatePaymentGatewayCardFeeFlat
+      type: object
+      properties:
+        value:
+          type: number
+          format: double
+          description: >-
+            The fee amount in major units of the invoice currency. For example,
+            if the fee is a flat $2.50, set this to 2.5.
+          example: 2.5
+      required:
+        - value
+    ValidatePaymentGatewayCardFeeNone:
+      title: ValidatePaymentGatewayCardFeeNone
+      type: object
+      properties: {}
+    ValidatePaymentGatewayCardFee:
+      title: ValidatePaymentGatewayCardFee
+      oneOf:
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - percentage
+            - $ref: '#/components/schemas/ValidatePaymentGatewayCardFeePercentage'
+          required:
+            - type
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - flat
+            - $ref: '#/components/schemas/ValidatePaymentGatewayCardFeeFlat'
+          required:
+            - type
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - none
+            - $ref: '#/components/schemas/ValidatePaymentGatewayCardFeeNone'
+          required:
+            - type
+    ValidatePaymentGatewayCardAcceptance:
+      title: ValidatePaymentGatewayCardAcceptance
+      type: string
+      enum:
+        - ACCEPTED
+        - NOT_ACCEPTED
+        - UNKNOWN
+    ValidatePaymentGatewayCardResponse:
+      title: ValidatePaymentGatewayCardResponse
+      type: object
+      properties:
+        eligibility:
+          $ref: '#/components/schemas/ValidatePaymentGatewayCardAcceptance'
+          description: Whether the payment gateway accepts card payments
+        fee:
+          $ref: '#/components/schemas/ValidatePaymentGatewayCardFee'
+          description: The fee that was extracted from the gateway
+      required:
+        - eligibility
+        - fee
+    ValidatePaymentGatewayPendingResponse:
+      title: ValidatePaymentGatewayPendingResponse
+      type: object
+      properties:
+        jobId:
+          type: string
+          description: The job ID of the payment gateway validation job
+      required:
+        - jobId
+    ValidatePaymentGatewayFailedResponse:
+      title: ValidatePaymentGatewayFailedResponse
+      type: object
+      properties:
+        jobId:
+          type: string
+          description: The job ID of the payment gateway validation job
+        errorType:
+          $ref: '#/components/schemas/PaymentGatewayError'
+          description: The error that occurred during the payment gateway validation job
+        errorMessage:
+          type: string
+          nullable: true
+          description: >-
+            The error message that occurred during the payment gateway
+            validation job
+      required:
+        - jobId
+        - errorType
+    ValidatePaymentGatewayCompletedResponse:
+      title: ValidatePaymentGatewayCompletedResponse
+      type: object
+      properties:
+        jobId:
+          type: string
+          description: The job ID of the payment gateway validation job
+        paymentGatewayUrl:
+          type: string
+          nullable: true
+          description: The payment gateway URL that was found in the document
+        sessionUrl:
+          type: string
+          nullable: true
+          description: >-
+            The URL of the playback session for the agent that validated the
+            payment gateway
+        card:
+          $ref: '#/components/schemas/ValidatePaymentGatewayCardResponse'
+          nullable: true
+          description: Data on the card payments that were extracted from the gateway
+      required:
+        - jobId
+    ValidatePaymentGatewayResponse:
+      title: ValidatePaymentGatewayResponse
+      oneOf:
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                jobStatus:
+                  type: string
+                  enum:
+                    - pending
+            - $ref: '#/components/schemas/ValidatePaymentGatewayPendingResponse'
+          required:
+            - jobStatus
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                jobStatus:
+                  type: string
+                  enum:
+                    - completed
+            - $ref: '#/components/schemas/ValidatePaymentGatewayCompletedResponse'
+          required:
+            - jobStatus
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                jobStatus:
+                  type: string
+                  enum:
+                    - failed
+            - $ref: '#/components/schemas/ValidatePaymentGatewayFailedResponse'
+          required:
+            - jobStatus
+    ProcessPaymentGatewayRequestDocument:
+      title: ProcessPaymentGatewayRequestDocument
+      type: object
+      properties:
+        document:
+          type: string
+          description: >-
+            The invoice document to extract the payment gateway from in base64
+            format
+          example: >-
+            data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
+        cardDetails:
+          $ref: '#/components/schemas/ProcessPaymentGatewayCardDetails'
+          description: The details of the card to use for the payment
+      required:
+        - document
+        - cardDetails
+    ProcessPaymentGatewayRequestHTML:
+      title: ProcessPaymentGatewayRequestHTML
+      type: object
+      properties:
+        html:
+          type: string
+          description: The HTML from an email to extract the payment gateway from
+          example: >-
+            <html><body><h1>Invoice Details</h1><a
+            href="https://www.payment-gateway.com/invoice/123123">Pay
+            Invoice</a></body></html>
+        cardDetails:
+          $ref: '#/components/schemas/ProcessPaymentGatewayCardDetails'
+          description: The details of the card to use for the payment
+      required:
+        - html
+        - cardDetails
+    ProcessPaymentGatewayRequest:
+      title: ProcessPaymentGatewayRequest
+      oneOf:
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - document
+            - $ref: '#/components/schemas/ProcessPaymentGatewayRequestDocument'
+          required:
+            - type
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - html
+            - $ref: '#/components/schemas/ProcessPaymentGatewayRequestHTML'
+          required:
+            - type
+    ProcessPaymentGatewayCardDetails:
+      title: ProcessPaymentGatewayCardDetails
+      oneOf:
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - direct
+            - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsDirect'
+          required:
+            - type
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - iframe
+            - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsIframe'
+          required:
+            - type
+    ProcessPaymentGatewayCardDetailsDirect:
+      title: ProcessPaymentGatewayCardDetailsDirect
+      type: object
+      properties:
+        nameOnCard:
+          type: string
+          description: The name on the card to use for the payment
+          example: John Doe
+        cardNumber:
+          type: string
+          description: The number of the card to use for the payment
+          example: '4242424242424242'
+        expirationMonth:
+          type: integer
+          description: >-
+            The month of the expiration date of the card to use for the payment.
+            This must be a number between 1 and 12.
+          example: 10
+        expirationYear:
+          type: integer
+          description: >-
+            The year of the expiration date of the card to use for the payment.
+            This must be the full year, not the last two digits.
+          example: 2025
+        cvv:
+          type: string
+          description: The CVV of the card to use for the payment
+          example: '123'
+        postalCode:
+          type: string
+          description: The postal code of the address of the card to use for the payment
+          example: '12345'
+        country:
+          $ref: '#/components/schemas/CountryCode'
+          description: The country of the address of the card to use for the payment
+      required:
+        - nameOnCard
+        - cardNumber
+        - expirationMonth
+        - expirationYear
+        - cvv
+        - postalCode
+        - country
+    ProcessPaymentGatewayCardDetailsIframe:
+      title: ProcessPaymentGatewayCardDetailsIframe
+      type: object
+      properties:
+        iframeUrl:
+          type: string
+          description: The URL of the iframe that render the virtual card details
+          example: https://www.myvirtualcard.com/iframe/345345
+      required:
+        - iframeUrl
+    ProcessPaymentGatewayPendingResponse:
+      title: ProcessPaymentGatewayPendingResponse
+      type: object
+      properties:
+        jobId:
+          type: string
+          description: The job ID of the payment gateway processing job
+      required:
+        - jobId
+    ProcessPaymentGatewayFailedResponse:
+      title: ProcessPaymentGatewayFailedResponse
+      type: object
+      properties:
+        jobId:
+          type: string
+          description: The job ID of the payment gateway processing job
+        errorType:
+          $ref: '#/components/schemas/PaymentGatewayError'
+          description: The error that occurred during the payment gateway processing job
+        errorMessage:
+          type: string
+          nullable: true
+          description: >-
+            The error message that occurred during the payment gateway
+            processing job
+      required:
+        - jobId
+        - errorType
+    ProcessPaymentGatewayCompletedResponse:
+      title: ProcessPaymentGatewayCompletedResponse
+      type: object
+      properties:
+        jobId:
+          type: string
+          description: The job ID of the payment gateway processing job
+        receiptUrl:
+          type: string
+          nullable: true
+          description: The URL of the receipt that was downloaded from the payment gateway
+        sessionUrl:
+          type: string
+          nullable: true
+          description: >-
+            The URL of the playback session for the agent that processed the
+            payment
+      required:
+        - jobId
+    ProcessPaymentGatewayResponse:
+      title: ProcessPaymentGatewayResponse
+      oneOf:
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                jobStatus:
+                  type: string
+                  enum:
+                    - pending
+            - $ref: '#/components/schemas/ProcessPaymentGatewayPendingResponse'
+          required:
+            - jobStatus
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                jobStatus:
+                  type: string
+                  enum:
+                    - completed
+            - $ref: '#/components/schemas/ProcessPaymentGatewayCompletedResponse'
+          required:
+            - jobStatus
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                jobStatus:
+                  type: string
+                  enum:
+                    - failed
+            - $ref: '#/components/schemas/ProcessPaymentGatewayFailedResponse'
+          required:
+            - jobStatus
+    PaymentGatewayError:
+      title: PaymentGatewayError
+      type: string
+      enum:
+        - NO_VALID_PAYMENT_GATEWAY_FOUND
+        - PAYMENT_GATEWAY_UNSUPPORTED
+        - CARD_DETAILS_INVALID
     PaymentMethodId:
       title: PaymentMethodId
       type: string
