@@ -11311,6 +11311,11 @@ paths:
                           createdAt: '2021-01-01T00:00:00Z'
                           updatedAt: '2021-01-01T00:00:00Z'
                         paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                        paymentSourceOptions:
+                          type: bnpl
+                          installmentsStartDate: '2025-06-18'
+                          defermentWeeks: 8
+                          acceptedTerms: true
                         vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
                         vendor:
                           id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
@@ -12150,6 +12155,11 @@ paths:
                       createdAt: '2021-01-01T00:00:00Z'
                       updatedAt: '2021-01-01T00:00:00Z'
                     paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                    paymentSourceOptions:
+                      type: bnpl
+                      installmentsStartDate: '2025-06-18'
+                      defermentWeeks: 8
+                      acceptedTerms: true
                     vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
                     vendor:
                       id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
@@ -13106,6 +13116,11 @@ paths:
                       createdAt: '2021-01-01T00:00:00Z'
                       updatedAt: '2021-01-01T00:00:00Z'
                     paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                    paymentSourceOptions:
+                      type: bnpl
+                      installmentsStartDate: '2025-06-18'
+                      defermentWeeks: 8
+                      acceptedTerms: true
                     vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
                     vendor:
                       id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
@@ -13629,6 +13644,11 @@ paths:
                       createdAt: '2021-01-01T00:00:00Z'
                       updatedAt: '2021-01-01T00:00:00Z'
                     paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                    paymentSourceOptions:
+                      type: bnpl
+                      installmentsStartDate: '2025-06-18'
+                      defermentWeeks: 8
+                      acceptedTerms: true
                     vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
                     vendor:
                       id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
@@ -15167,6 +15187,11 @@ paths:
                       createdAt: '2021-01-01T00:00:00Z'
                       updatedAt: '2021-01-01T00:00:00Z'
                     paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                    paymentSourceOptions:
+                      type: bnpl
+                      installmentsStartDate: '2025-06-18'
+                      defermentWeeks: 8
+                      acceptedTerms: true
                     vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
                     vendor:
                       id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
@@ -16324,11 +16349,15 @@ paths:
               Document:
                 value:
                   type: document
-                  document: ValidatePaymentGatewayRequestDocument.Default
+                  document: >-
+                    data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
               HTML:
                 value:
                   type: html
-                  html: ValidatePaymentGatewayRequestHTML.Default
+                  html: >-
+                    <html><body><h1>Invoice Details</h1><a
+                    href="https://www.payment-gateway.com/invoice/job_1a92b5f7-f522-435e-a953-fd649363730a4567890">Pay
+                    Invoice</a></body></html>
   /payment-gateway/validate/{jobId}:
     get:
       description: Get the status of a payment gateway validation job
@@ -18450,6 +18479,11 @@ paths:
                           createdAt: '2021-01-01T00:00:00Z'
                           updatedAt: '2021-01-01T00:00:00Z'
                         paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                        paymentSourceOptions:
+                          type: bnpl
+                          installmentsStartDate: '2025-06-18'
+                          defermentWeeks: 8
+                          acceptedTerms: true
                         vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
                         vendor:
                           id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
@@ -18847,6 +18881,353 @@ paths:
                       content:
                         type: string
       summary: Get All
+      security:
+        - BearerAuth: []
+  /entityGroup/{entityGroupId}/invoices/download:
+    get:
+      description: Get a URL to download invoices for an entity group as a CSV/JSON file.
+      operationId: entityGroup_invoice_download
+      tags:
+        - EntityGroupInvoice
+      parameters:
+        - name: entityGroupId
+          in: path
+          description: Entity Group ID or Entity Group ForeignID
+          required: true
+          schema:
+            $ref: '#/components/schemas/EntityGroupId'
+          example: entg_8545a84e-a45f-41bf-bdf1-33b42a55812c
+          examples:
+            Default:
+              value: entg_8545a84e-a45f-41bf-bdf1-33b42a55812c
+        - name: format
+          in: query
+          description: Format of the file to download. Defaults to CSV.
+          required: false
+          schema:
+            $ref: '#/components/schemas/BulkDownloadFormat'
+            nullable: true
+          example: CSV
+          examples:
+            Default:
+              value: CSV
+        - name: startDate
+          in: query
+          description: >-
+            Start date filter. Defaults to CREATED_AT unless specified the
+            dateType is specified
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+        - name: endDate
+          in: query
+          description: >-
+            End date filter. Defaults to CREATED_AT unless specified the
+            dateType is specified
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+        - name: dateType
+          in: query
+          description: >-
+            Type of date to filter by if startDate and endDate filters are
+            provided. Defaults to CREATED_AT.
+          required: false
+          schema:
+            $ref: '#/components/schemas/InvoiceDateFilter'
+            nullable: true
+        - name: orderBy
+          in: query
+          description: Field to order invoices by. Defaults to CREATED_AT.
+          required: false
+          schema:
+            $ref: '#/components/schemas/InvoiceOrderByField'
+            nullable: true
+        - name: orderDirection
+          in: query
+          description: Direction to order invoices by. Defaults to asc.
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+            nullable: true
+        - name: search
+          in: query
+          description: >-
+            Find invoices by vendor name, invoice number, check number, or
+            amount. Partial matches are supported.
+          required: false
+          schema:
+            type: string
+            nullable: true
+        - name: metadata
+          in: query
+          description: >-
+            Filter invoices by metadata. Each filter will be applied as an AND
+            condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/MetadataFilter'
+              nullable: true
+        - name: lineItemMetadata
+          in: query
+          description: >-
+            Filter invoices by line item metadata. Each filter will be applied
+            as an AND condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/MetadataFilter'
+              nullable: true
+        - name: lineItemGlAccountId
+          in: query
+          description: >-
+            Filter invoices by line item GL account ID. Each filter will be
+            applied as an OR condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              nullable: true
+        - name: payerId
+          in: query
+          description: Filter invoices by payer ID or payer foreign ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityId'
+              nullable: true
+        - name: vendorId
+          in: query
+          description: Filter invoices by vendor ID or vendor foreign ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityId'
+              nullable: true
+        - name: creatorUserId
+          in: query
+          description: >-
+            Filter invoices by the ID or foreign ID of the user that created the
+            invoice.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityUserId'
+              nullable: true
+        - name: approverId
+          in: query
+          description: >-
+            Filter invoices by assigned approver user ID. Only invoices with all
+            upstream policies approved will be returned.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityUserId'
+              nullable: true
+        - name: approverAction
+          in: query
+          description: >-
+            Filter invoices by approver action. Needs to be used with
+            approverId. For example, if you want to find all invoices that have
+            been approved by a specific user, you would use approverId and
+            approverAction=APPROVE.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ApproverAction'
+              nullable: true
+        - name: invoiceId
+          in: query
+          description: Filter invoices by invoice ID or invoice foreign ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/InvoiceId'
+              nullable: true
+        - name: status
+          in: query
+          description: Invoice status to filter on
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/InvoiceStatus'
+              nullable: true
+        - name: paymentType
+          in: query
+          description: Filter invoices by recurring status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/PaymentType'
+            nullable: true
+        - name: invoiceTemplateId
+          in: query
+          description: Filter invoice by invoice template ID
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/InvoiceTemplateId'
+              nullable: true
+        - name: excludePayables
+          in: query
+          description: Return only invoices that are receivable by the entity.
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+        - name: excludeReceivables
+          in: query
+          description: Return only invoices that are payable by the entity.
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+          example: true
+          examples:
+            Default:
+              value: true
+        - name: returnPayerMetadata
+          in: query
+          description: Whether to return payer metadata in the response
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+        - name: returnVendorMetadata
+          in: query
+          description: Whether to return vendor metadata in the response
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkDownloadResponse'
+              examples:
+                Default:
+                  value:
+                    url: https://mercoa.com/download/bulk-invoices.csv
+                    mimeType: text/csv
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Download Invoices
       security:
         - BearerAuth: []
   /entityGroup/{entityGroupId}/invoice-metrics:
@@ -20489,6 +20870,238 @@ paths:
       summary: Restore
       security:
         - BearerAuth: []
+  /entity/{entityId}/bnpl/loans:
+    get:
+      description: Get all BNPL loans associated with an entity
+      operationId: entity_bnpl_getLoans
+      tags:
+        - EntityBnpl
+      parameters:
+        - name: entityId
+          in: path
+          description: The ID of the entity to get loans for
+          required: true
+          schema:
+            type: string
+          example: ent_123
+          examples:
+            Get Entity BNPL Loans:
+              value: ent_123
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BnplLoanResponse'
+              examples:
+                Get Entity BNPL Loans:
+                  value:
+                    - loanId: 684adb5d70a01b00596a3106
+                      businessExternalId: ent_9a718f18-cd03-4b4d-98a6-32248969cbac
+                      dueDate: 1752724800000
+                      originalPrincipalBalance: 914
+                      drawDate: 1749736285033
+                      repaidAmount: 0
+                      paymentMethodId: 68483ffc9b7d57005896805d
+                      repaymentMethodId: 684adaf3cf8a670059e7f044
+                      status: PENDING
+                      outstandingBalance:
+                        principalBalance: 823
+                        feeBalance: 13
+                        totalBalance: 927
+                        lateFeeBalance: 0
+                      termsAgreementFile: >-
+                        https://persist-agreement-signature-oatfi-api-stg.s3.us-east-1.amazonaws.com/loan%3A%3A684adb5d70a01b00596a3106-1749736285241.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAXHRI6YYRXZIPAOTZ%2F20250612%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250612T135329Z&X-Amz-Expires=900&X-Amz-Signature=eb7c598665ea380ae24f2911488707e72f5b1fd9bf6fe42de27e4ded6996dee7&X-Amz-SignedHeaders=host&x-id=GetObject
+                      invoiceUrl: >-
+                        https://persist-invoice-pdf-oatfi-api-stg.s3.us-east-1.amazonaws.com/invoice_pdf_evidence/682354a387e0050058fbff2e/684adb5d70a01b00596a3106_2025-06-12T13%3A51%3A25.067Z.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAXHRI6YYRXZIPAOTZ%2F20250612%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250612T135329Z&X-Amz-Expires=900&X-Amz-Signature=337e598acf2feaff5b234a3ecad49d6667850c47dbacb888e6ebd75224e10f74&X-Amz-SignedHeaders=host&x-id=GetObject
+                      invoiceAmount: 914
+                      invoiceExternalId: in_5c0e0b6c-6348-47e4-b39b-97e3d69edabd
+                      invoiceDueDate: 1749709258847
+                      downPaymentAmount: 91
+                      cadence: WEEKLY
+                      baseFeeRate: 1.339283
+                      installments:
+                        - number: 0
+                          startDate: 1749700800000
+                          dueDate: 1749700800000
+                          maturityDate: 1749700800000
+                          outstandingBalance: 91
+                          amount: 91
+                          status: PENDING
+                          type: DOWN_PAYMENT
+                          totalPaid:
+                            principalBalance: 0
+                            dueInterest: 0
+                            totalLateFees: 0
+                            feeAmount: 0
+                        - number: 1
+                          startDate: 1750392000000
+                          dueDate: 1750910400000
+                          maturityDate: 1751342400000
+                          outstandingBalance: 209
+                          amount: 209
+                          status: PENDING
+                          type: REGULAR
+                          totalPaid:
+                            principalBalance: 0
+                            dueInterest: 0
+                            totalLateFees: 0
+                            feeAmount: 0
+                    - loanId: 684adb5d70a01b00596a3106
+                      businessExternalId: ent_9a718f18-cd03-4b4d-98a6-32248969cbac
+                      dueDate: 1752724800000
+                      originalPrincipalBalance: 914
+                      drawDate: 1749736285033
+                      repaidAmount: 0
+                      paymentMethodId: 68483ffc9b7d57005896805d
+                      repaymentMethodId: 684adaf3cf8a670059e7f044
+                      status: PENDING
+                      outstandingBalance:
+                        principalBalance: 823
+                        feeBalance: 13
+                        totalBalance: 927
+                        lateFeeBalance: 0
+                      termsAgreementFile: >-
+                        https://persist-agreement-signature-oatfi-api-stg.s3.us-east-1.amazonaws.com/loan%3A%3A684adb5d70a01b00596a3106-1749736285241.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAXHRI6YYRXZIPAOTZ%2F20250612%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250612T135329Z&X-Amz-Expires=900&X-Amz-Signature=eb7c598665ea380ae24f2911488707e72f5b1fd9bf6fe42de27e4ded6996dee7&X-Amz-SignedHeaders=host&x-id=GetObject
+                      invoiceUrl: >-
+                        https://persist-invoice-pdf-oatfi-api-stg.s3.us-east-1.amazonaws.com/invoice_pdf_evidence/682354a387e0050058fbff2e/684adb5d70a01b00596a3106_2025-06-12T13%3A51%3A25.067Z.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAXHRI6YYRXZIPAOTZ%2F20250612%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250612T135329Z&X-Amz-Expires=900&X-Amz-Signature=337e598acf2feaff5b234a3ecad49d6667850c47dbacb888e6ebd75224e10f74&X-Amz-SignedHeaders=host&x-id=GetObject
+                      invoiceAmount: 914
+                      invoiceExternalId: in_5c0e0b6c-6348-47e4-b39b-97e3d69edabd
+                      invoiceDueDate: 1749709258847
+                      downPaymentAmount: 91
+                      cadence: WEEKLY
+                      baseFeeRate: 1.339283
+                      installments:
+                        - number: 0
+                          startDate: 1749700800000
+                          dueDate: 1749700800000
+                          maturityDate: 1749700800000
+                          outstandingBalance: 91
+                          amount: 91
+                          status: PENDING
+                          type: DOWN_PAYMENT
+                          totalPaid:
+                            principalBalance: 0
+                            dueInterest: 0
+                            totalLateFees: 0
+                            feeAmount: 0
+                        - number: 1
+                          startDate: 1750392000000
+                          dueDate: 1750910400000
+                          maturityDate: 1751342400000
+                          outstandingBalance: 209
+                          amount: 209
+                          status: PENDING
+                          type: REGULAR
+                          totalPaid:
+                            principalBalance: 0
+                            dueInterest: 0
+                            totalLateFees: 0
+                            feeAmount: 0
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Get Entity BNPL Loans
+      security:
+        - BearerAuth: []
   /entities:
     post:
       description: >-
@@ -20662,6 +21275,249 @@ paths:
                           taxId:
                             ein:
                               number: 12-3456789
+  /entities/download:
+    get:
+      description: Get a URL to download a bulk entity as a CSV/JSON file.
+      operationId: entity_bulk_download
+      tags:
+        - EntityBulk
+      parameters:
+        - name: format
+          in: query
+          description: Format of the file to download. Defaults to CSV.
+          required: false
+          schema:
+            $ref: '#/components/schemas/BulkDownloadFormat'
+            nullable: true
+          example: CSV
+          examples:
+            Default:
+              value: CSV
+        - name: paymentMethods
+          in: query
+          description: If true, will include entity payment methods as part of the response
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+        - name: isCustomer
+          in: query
+          description: >-
+            If true, only entities with a direct relationship to the requesting
+            organization will be returned. If false or not provided, all
+            entities will be returned.
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+        - name: foreignId
+          in: query
+          description: ID used to identify this entity in your system
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              nullable: true
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityStatus'
+              nullable: true
+        - name: isPayee
+          in: query
+          description: >-
+            If true, entities that are marked as payees will be returned.
+
+            If false or not provided, entities that are marked as payees will
+            not be returned.
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+        - name: isPayor
+          in: query
+          description: >-
+            If true or not provided, entities that are marked as payors will be
+            returned.
+
+            If false, entities that are marked as payors will not be returned.
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+        - name: name
+          in: query
+          description: >-
+            Use search instead. Deprecated. Filter entities by name. Partial
+            matches are supported.
+          required: false
+          schema:
+            type: string
+            nullable: true
+        - name: search
+          in: query
+          description: >-
+            Find entities by name, email, or emailTo. Partial matches are
+            supported.
+          required: false
+          schema:
+            type: string
+            nullable: true
+        - name: metadata
+          in: query
+          description: >-
+            Filter entities by simple key/value metadata. Each filter will be
+            applied as an AND condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            $ref: '#/components/schemas/MetadataFilter'
+            nullable: true
+        - name: returnMetadata
+          in: query
+          description: >-
+            Return simple key/value metadata for the specified keys for the
+            entities. For more complex metadata, use the Metadata API.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              nullable: true
+        - name: limit
+          in: query
+          description: >-
+            Number of entities to return. Limit can range between 1 and 100, and
+            the default is 10.
+          required: false
+          schema:
+            type: integer
+            nullable: true
+        - name: startingAfter
+          in: query
+          description: >-
+            The ID of the entity to start after. If not provided, the first page
+            of entities will be returned.
+          required: false
+          schema:
+            $ref: '#/components/schemas/EntityId'
+            nullable: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkDownloadResponse'
+              examples:
+                Default:
+                  value:
+                    url: https://mercoa.com/download/bulk-invoices.csv
+                    mimeType: text/csv
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Download Bulk Entities (Sync)
+      security:
+        - BearerAuth: []
   /entity/{entityId}/counterparty/{counterpartyId}/vendor-credits:
     get:
       operationId: entity_counterparty_vendorCredit_getAll
@@ -24159,6 +25015,11 @@ paths:
                           createdAt: '2021-01-01T00:00:00Z'
                           updatedAt: '2021-01-01T00:00:00Z'
                         paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                        paymentSourceOptions:
+                          type: bnpl
+                          installmentsStartDate: '2025-06-18'
+                          defermentWeeks: 8
+                          acceptedTerms: true
                         vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
                         vendor:
                           id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
@@ -24870,6 +25731,338 @@ paths:
                       content:
                         type: string
       summary: Get Metrics
+      security:
+        - BearerAuth: []
+  /entity/{entityId}/invoices/download:
+    get:
+      description: Get a URL to download invoices for an entity as a CSV/JSON file.
+      operationId: entity_invoice_download
+      tags:
+        - EntityInvoice
+      parameters:
+        - name: entityId
+          in: path
+          description: Entity ID or Entity ForeignID
+          required: true
+          schema:
+            $ref: '#/components/schemas/EntityId'
+          example: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+          examples:
+            Default:
+              value: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+        - name: format
+          in: query
+          description: Format of the file to download. Defaults to CSV.
+          required: false
+          schema:
+            $ref: '#/components/schemas/BulkDownloadFormat'
+            nullable: true
+          example: CSV
+          examples:
+            Default:
+              value: CSV
+        - name: excludePayables
+          in: query
+          description: Return only invoices that are receivable by the entity.
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+        - name: excludeReceivables
+          in: query
+          description: Return only invoices that are payable by the entity.
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+        - name: startDate
+          in: query
+          description: >-
+            Start date filter. Defaults to CREATED_AT unless specified the
+            dateType is specified
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+        - name: endDate
+          in: query
+          description: >-
+            End date filter. Defaults to CREATED_AT unless specified the
+            dateType is specified
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+        - name: dateType
+          in: query
+          description: >-
+            Type of date to filter by if startDate and endDate filters are
+            provided. Defaults to CREATED_AT.
+          required: false
+          schema:
+            $ref: '#/components/schemas/InvoiceDateFilter'
+            nullable: true
+        - name: orderBy
+          in: query
+          description: Field to order invoices by. Defaults to CREATED_AT.
+          required: false
+          schema:
+            $ref: '#/components/schemas/InvoiceOrderByField'
+            nullable: true
+        - name: orderDirection
+          in: query
+          description: Direction to order invoices by. Defaults to asc.
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+            nullable: true
+        - name: search
+          in: query
+          description: >-
+            Find invoices by vendor name, invoice number, check number, or
+            amount. Partial matches are supported.
+          required: false
+          schema:
+            type: string
+            nullable: true
+        - name: metadata
+          in: query
+          description: >-
+            Filter invoices by metadata. Each filter will be applied as an AND
+            condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/MetadataFilter'
+              nullable: true
+        - name: lineItemMetadata
+          in: query
+          description: >-
+            Filter invoices by line item metadata. Each filter will be applied
+            as an AND condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/MetadataFilter'
+              nullable: true
+        - name: lineItemGlAccountId
+          in: query
+          description: >-
+            Filter invoices by line item GL account ID. Each filter will be
+            applied as an OR condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              nullable: true
+        - name: payerId
+          in: query
+          description: Filter invoices by payer ID or payer foreign ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityId'
+              nullable: true
+        - name: vendorId
+          in: query
+          description: Filter invoices by vendor ID or vendor foreign ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityId'
+              nullable: true
+        - name: creatorUserId
+          in: query
+          description: >-
+            Filter invoices by the ID or foreign ID of the user that created the
+            invoice.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityUserId'
+              nullable: true
+        - name: approverId
+          in: query
+          description: Filter invoices by assigned approver user ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityUserId'
+              nullable: true
+        - name: approverAction
+          in: query
+          description: >-
+            Filter invoices by approver action. Needs to be used with
+            approverId. For example, if you want to find all invoices that have
+            been approved by a specific user, you would use approverId and
+            approverAction=APPROVE.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ApproverAction'
+              nullable: true
+        - name: invoiceId
+          in: query
+          description: Filter invoices by invoice ID or invoice foreign ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/InvoiceId'
+              nullable: true
+        - name: status
+          in: query
+          description: Invoice status to filter on.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/InvoiceStatus'
+              nullable: true
+        - name: paymentType
+          in: query
+          description: Filter invoices by payment type.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/PaymentType'
+            nullable: true
+        - name: returnPayerMetadata
+          in: query
+          description: Whether to return payer metadata in the response
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+        - name: returnVendorMetadata
+          in: query
+          description: Whether to return vendor metadata in the response
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkDownloadResponse'
+              examples:
+                Default:
+                  value:
+                    url: https://mercoa.com/download/bulk-invoices.csv
+                    mimeType: text/csv
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Download Bulk Invoices (Sync)
       security:
         - BearerAuth: []
   /entity/{entityId}/metadata:
@@ -30351,6 +31544,363 @@ paths:
                 value:
                   text: This is a reason for my action
                   userId: user_e24fc81c-c5ee-47e8-af42-4fe29d895506
+  /invoice/{invoiceId}/bnpl/offer:
+    post:
+      description: Get a BNPL offer for an invoice
+      operationId: invoice_bnpl_offer
+      tags:
+        - InvoiceBnpl
+      parameters:
+        - name: invoiceId
+          in: path
+          description: Invoice ID or Invoice ForeignID
+          required: true
+          schema:
+            $ref: '#/components/schemas/InvoiceId'
+          example: in_286a1849-2e3c-48a4-ab5a-8b7940cc3a5b
+          examples:
+            Get BNPL Offer:
+              value: in_286a1849-2e3c-48a4-ab5a-8b7940cc3a5b
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BnplOfferResponse'
+              examples:
+                Get BNPL Offer:
+                  value:
+                    invoiceAmount: 120000
+                    totalRepaymentAmount: 121687
+                    currency: USD
+                    downPaymentAmount: 12000
+                    numberOfPayments: 5
+                    firstPaymentDate: '2025-06-18'
+                    finalPaymentDate: '2025-07-28'
+                    paymentDayOfWeek: WEDNESDAY
+                    installmentAmount: 27422
+                    financeFeeRate: 1.4% per 28 days
+                    fees:
+                      baseFeeAmount: 1687
+                      baseFeePercentage: 1.4058
+                    termsLink: >-
+                      https://dashboard-stg.oatfi.com/terms/6858b8b7e09d9a0057d82e65
+                    installments:
+                      - number: 0
+                        dueDate: '2025-06-18'
+                        amount: 12000
+                        type: DOWN_PAYMENT
+                      - number: 1
+                        dueDate: '2025-07-02'
+                        amount: 27422
+                        type: REGULAR
+                      - number: 2
+                        dueDate: '2025-07-09'
+                        amount: 27422
+                        type: REGULAR
+                      - number: 3
+                        dueDate: '2025-07-16'
+                        amount: 27422
+                        type: REGULAR
+                      - number: 4
+                        dueDate: '2025-07-23'
+                        amount: 27421
+                        type: REGULAR
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Get BNPL Offer
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BnplOfferRequest'
+            examples:
+              Get BNPL Offer:
+                value:
+                  cadence: WEEKLY
+                  installmentsStartDate: '2025-06-18'
+                  numberOfInstallments: 4
+                  paymentDayOfWeek: WEDNESDAY
+                  downPaymentDueDate: '2025-06-11'
+  /bnpl/loan/{loanId}:
+    get:
+      description: Get information about a specific BNPL loan by loan ID
+      operationId: invoice_bnpl_loan
+      tags:
+        - InvoiceBnpl
+      parameters:
+        - name: loanId
+          in: path
+          description: The ID of the loan to retrieve
+          required: true
+          schema:
+            type: string
+          example: 684adb5d70a01b00596a3106
+          examples:
+            Get BNPL Loan:
+              value: 684adb5d70a01b00596a3106
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BnplLoanResponse'
+              examples:
+                Get BNPL Loan:
+                  value:
+                    loanId: 684adb5d70a01b00596a3106
+                    businessExternalId: ent_9a718f18-cd03-4b4d-98a6-32248969cbac
+                    dueDate: 1752724800000
+                    originalPrincipalBalance: 914
+                    drawDate: 1749736285033
+                    repaidAmount: 0
+                    paymentMethodId: 68483ffc9b7d57005896805d
+                    repaymentMethodId: 684adaf3cf8a670059e7f044
+                    status: PENDING
+                    outstandingBalance:
+                      principalBalance: 823
+                      feeBalance: 13
+                      totalBalance: 927
+                      lateFeeBalance: 0
+                    termsAgreementFile: >-
+                      https://persist-agreement-signature-oatfi-api-stg.s3.us-east-1.amazonaws.com/loan%3A%3A684adb5d70a01b00596a3106-1749736285241.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAXHRI6YYRXZIPAOTZ%2F20250612%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250612T135329Z&X-Amz-Expires=900&X-Amz-Signature=eb7c598665ea380ae24f2911488707e72f5b1fd9bf6fe42de27e4ded6996dee7&X-Amz-SignedHeaders=host&x-id=GetObject
+                    invoiceUrl: >-
+                      https://persist-invoice-pdf-oatfi-api-stg.s3.us-east-1.amazonaws.com/invoice_pdf_evidence/682354a387e0050058fbff2e/684adb5d70a01b00596a3106_2025-06-12T13%3A51%3A25.067Z.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAXHRI6YYRXZIPAOTZ%2F20250612%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250612T135329Z&X-Amz-Expires=900&X-Amz-Signature=337e598acf2feaff5b234a3ecad49d6667850c47dbacb888e6ebd75224e10f74&X-Amz-SignedHeaders=host&x-id=GetObject
+                    invoiceAmount: 914
+                    invoiceExternalId: in_5c0e0b6c-6348-47e4-b39b-97e3d69edabd
+                    invoiceDueDate: 1749709258847
+                    downPaymentAmount: 91
+                    cadence: WEEKLY
+                    baseFeeRate: 1.339283
+                    installments:
+                      - number: 0
+                        startDate: 1749700800000
+                        dueDate: 1749700800000
+                        maturityDate: 1749700800000
+                        outstandingBalance: 91
+                        amount: 91
+                        status: PENDING
+                        type: DOWN_PAYMENT
+                        totalPaid:
+                          principalBalance: 0
+                          dueInterest: 0
+                          totalLateFees: 0
+                          feeAmount: 0
+                      - number: 1
+                        startDate: 1750392000000
+                        dueDate: 1750910400000
+                        maturityDate: 1751342400000
+                        outstandingBalance: 209
+                        amount: 209
+                        status: PENDING
+                        type: REGULAR
+                        totalPaid:
+                          principalBalance: 0
+                          dueInterest: 0
+                          totalLateFees: 0
+                          feeAmount: 0
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Get BNPL Loan
+      security:
+        - BearerAuth: []
   /invoices/approve:
     post:
       description: >-
@@ -30498,6 +32048,354 @@ paths:
                     - invoiceId: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
                       text: This is a reason for my action
                       userId: user_e24fc81c-c5ee-47e8-af42-4fe29d895506
+  /invoices/download:
+    get:
+      description: Get a URL to download a bulk invoice as a CSV/JSON file.
+      operationId: invoice_bulk_download
+      tags:
+        - InvoiceBulk
+      parameters:
+        - name: format
+          in: query
+          description: Format of the file to download. Defaults to CSV.
+          required: false
+          schema:
+            $ref: '#/components/schemas/BulkDownloadFormat'
+            nullable: true
+          example: CSV
+          examples:
+            Default:
+              value: CSV
+        - name: entityId
+          in: query
+          description: >-
+            Filter invoices by the ID or foreign ID of the entity that is the
+            payer or the vendor of the invoice.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityId'
+              nullable: true
+        - name: entityGroupId
+          in: query
+          description: >-
+            Filter invoices by the ID or foreign ID of the entity group that the
+            entity belongs to.
+          required: false
+          schema:
+            $ref: '#/components/schemas/EntityGroupId'
+            nullable: true
+        - name: startDate
+          in: query
+          description: >-
+            Start date filter. Defaults to CREATED_AT unless specified the
+            dateType is specified
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+        - name: endDate
+          in: query
+          description: >-
+            End date filter. Defaults to CREATED_AT unless specified the
+            dateType is specified
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+        - name: dateType
+          in: query
+          description: >-
+            Type of date to filter by if startDate and endDate filters are
+            provided. Defaults to CREATED_AT.
+          required: false
+          schema:
+            $ref: '#/components/schemas/InvoiceDateFilter'
+            nullable: true
+        - name: orderBy
+          in: query
+          description: Field to order invoices by. Defaults to CREATED_AT.
+          required: false
+          schema:
+            $ref: '#/components/schemas/InvoiceOrderByField'
+            nullable: true
+        - name: orderDirection
+          in: query
+          description: Direction to order invoices by. Defaults to asc.
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+            nullable: true
+        - name: startingAfter
+          in: query
+          description: >-
+            The ID of the invoice to start after. If not provided, the first
+            page of invoices will be returned.
+          required: false
+          schema:
+            $ref: '#/components/schemas/InvoiceId'
+            nullable: true
+        - name: search
+          in: query
+          description: >-
+            Find invoices by vendor name, invoice number, check number, or
+            amount. Partial matches are supported.
+          required: false
+          schema:
+            type: string
+            nullable: true
+        - name: metadata
+          in: query
+          description: >-
+            Filter invoices by metadata. Each filter will be applied as an AND
+            condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/MetadataFilter'
+              nullable: true
+        - name: lineItemMetadata
+          in: query
+          description: >-
+            Filter invoices by line item metadata. Each filter will be applied
+            as an AND condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/MetadataFilter'
+              nullable: true
+        - name: lineItemGlAccountId
+          in: query
+          description: >-
+            Filter invoices by line item GL account ID. Each filter will be
+            applied as an OR condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              nullable: true
+        - name: payerId
+          in: query
+          description: Filter invoices by payer ID or payer foreign ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityId'
+              nullable: true
+        - name: vendorId
+          in: query
+          description: Filter invoices by vendor ID or vendor foreign ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityId'
+              nullable: true
+        - name: creatorUserId
+          in: query
+          description: >-
+            Filter invoices by the ID or foreign ID of the user that created the
+            invoice.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityUserId'
+              nullable: true
+        - name: approverId
+          in: query
+          description: >-
+            Filter invoices by assigned approver user ID. Only invoices with all
+            upstream policies approved will be returned.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityUserId'
+              nullable: true
+        - name: approverAction
+          in: query
+          description: >-
+            Filter invoices by approver action. Needs to be used with
+            approverId. For example, if you want to find all invoices that have
+            been approved by a specific user, you would use approverId and
+            approverAction=APPROVE.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ApproverAction'
+              nullable: true
+        - name: invoiceId
+          in: query
+          description: Filter invoices by invoice ID or invoice foreign ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/InvoiceId'
+              nullable: true
+        - name: status
+          in: query
+          description: Invoice status to filter on
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/InvoiceStatus'
+              nullable: true
+        - name: paymentType
+          in: query
+          description: Filter invoices by recurring status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/PaymentType'
+            nullable: true
+        - name: invoiceTemplateId
+          in: query
+          description: Filter invoice by invoice template ID
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/InvoiceTemplateId'
+              nullable: true
+        - name: returnPayerMetadata
+          in: query
+          description: Whether to return payer metadata in the response
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+        - name: returnVendorMetadata
+          in: query
+          description: Whether to return vendor metadata in the response
+          required: false
+          schema:
+            type: boolean
+            nullable: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkDownloadResponse'
+              examples:
+                Default:
+                  value:
+                    url: https://mercoa.com/download/bulk-invoices.csv
+                    mimeType: text/csv
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Download Bulk Invoices (Sync)
+      security:
+        - BearerAuth: []
   /invoice/{invoiceId}/collection/next-action:
     get:
       description: >-
@@ -35184,6 +37082,11 @@ paths:
                               createdAt: '2021-01-01T00:00:00Z'
                               updatedAt: '2021-01-01T00:00:00Z'
                             paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                            paymentSourceOptions:
+                              type: bnpl
+                              installmentsStartDate: '2025-06-18'
+                              defermentWeeks: 8
+                              acceptedTerms: true
                             vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
                             vendor:
                               id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
@@ -35724,6 +37627,11 @@ paths:
                               createdAt: '2021-01-01T00:00:00Z'
                               updatedAt: '2021-01-01T00:00:00Z'
                             paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                            paymentSourceOptions:
+                              type: bnpl
+                              installmentsStartDate: '2025-06-18'
+                              defermentWeeks: 8
+                              acceptedTerms: true
                             vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
                             vendor:
                               id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
@@ -36849,6 +38757,11 @@ paths:
                           createdAt: '2021-01-01T00:00:00Z'
                           updatedAt: '2021-01-01T00:00:00Z'
                         paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                        paymentSourceOptions:
+                          type: bnpl
+                          installmentsStartDate: '2025-06-18'
+                          defermentWeeks: 8
+                          acceptedTerms: true
                         vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
                         vendor:
                           id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
@@ -37849,6 +39762,11 @@ paths:
                           createdAt: '2021-01-01T00:00:00Z'
                           updatedAt: '2021-01-01T00:00:00Z'
                         paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                        paymentSourceOptions:
+                          type: bnpl
+                          installmentsStartDate: '2025-06-18'
+                          defermentWeeks: 8
+                          acceptedTerms: true
                         vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
                         vendor:
                           id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
@@ -38250,6 +40168,296 @@ paths:
       summary: Get Transaction
       security:
         - BearerAuth: []
+  /transactions/download:
+    get:
+      description: Get a URL to download transactions as a CSV/JSON file.
+      operationId: transaction_download
+      tags:
+        - Transaction
+      parameters:
+        - name: format
+          in: query
+          description: Format of the file to download. Defaults to CSV.
+          required: false
+          schema:
+            $ref: '#/components/schemas/BulkDownloadFormat'
+            nullable: true
+          example: CSV
+          examples:
+            Default:
+              value: CSV
+        - name: entityId
+          in: query
+          description: >-
+            Filter transactions by the ID or foreign ID of the entity that
+            created the transaction.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityId'
+              nullable: true
+        - name: entityGroupId
+          in: query
+          description: >-
+            Filter transactions by the ID or foreign ID of the entity group that
+            the entity belongs to.
+          required: false
+          schema:
+            $ref: '#/components/schemas/EntityGroupId'
+            nullable: true
+        - name: startDate
+          in: query
+          description: CREATED_AT Start date filter.
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+        - name: endDate
+          in: query
+          description: CREATED_AT End date filter.
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+        - name: limit
+          in: query
+          description: >-
+            Number of transactions to return. Limit can range between 1 and 100,
+            and the default is 10.
+          required: false
+          schema:
+            type: integer
+            nullable: true
+        - name: startingAfter
+          in: query
+          description: >-
+            The ID of the transactions to start after. If not provided, the
+            first page of transactions will be returned.
+          required: false
+          schema:
+            $ref: '#/components/schemas/TransactionId'
+            nullable: true
+        - name: search
+          in: query
+          description: >-
+            Find transactions by vendor name, invoice number, check number, or
+            amount. Partial matches are supported.
+          required: false
+          schema:
+            type: string
+            nullable: true
+        - name: metadata
+          in: query
+          description: >-
+            Filter transactions by invoice metadata. Each filter will be applied
+            as an AND condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/MetadataFilter'
+              nullable: true
+        - name: lineItemMetadata
+          in: query
+          description: >-
+            Filter transactions by invoice line item metadata. Each filter will
+            be applied as an AND condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/MetadataFilter'
+              nullable: true
+        - name: lineItemGlAccountId
+          in: query
+          description: >-
+            Filter transactions by invoice line item GL account ID. Each filter
+            will be applied as an OR condition. Duplicate keys will be ignored.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              nullable: true
+        - name: payerId
+          in: query
+          description: Filter transactions by payer ID or payer foreign ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityId'
+              nullable: true
+        - name: vendorId
+          in: query
+          description: Filter transactions by vendor ID or vendor foreign ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EntityId'
+              nullable: true
+        - name: invoiceId
+          in: query
+          description: Filter transactions by invoice ID or invoice foreign ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/InvoiceId'
+              nullable: true
+        - name: transactionId
+          in: query
+          description: Filter transactions by transaction ID.
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TransactionId'
+              nullable: true
+        - name: status
+          in: query
+          description: Transaction status to filter on
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TransactionStatus'
+              nullable: true
+        - name: transactionType
+          in: query
+          description: Filter transactions by transaction type
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TransactionType'
+              nullable: true
+        - name: creatorUserId
+          in: query
+          description: Filter transactions by creator user ID. Does not work, do not use.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              nullable: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkDownloadResponse'
+              examples:
+                Default:
+                  value:
+                    url: https://mercoa.com/download/bulk-invoices.csv
+                    mimeType: text/csv
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Download Transactions (Sync)
+      security:
+        - BearerAuth: []
 components:
   schemas:
     BankAddress:
@@ -38641,6 +40849,25 @@ components:
         - type: array
           items:
             type: string
+    BulkDownloadFormat:
+      title: BulkDownloadFormat
+      type: string
+      enum:
+        - CSV
+        - JSON
+    BulkDownloadResponse:
+      title: BulkDownloadResponse
+      type: object
+      properties:
+        url:
+          type: string
+          example: https://mercoa.com/download/bulk-invoices.csv
+        mimeType:
+          type: string
+          example: text/csv
+      required:
+        - url
+        - mimeType
     CountryCode:
       title: CountryCode
       type: string
@@ -40003,6 +42230,16 @@ components:
           description: URL for the entity logo
         status:
           $ref: '#/components/schemas/EntityStatus'
+        oatfiStatus:
+          type: string
+          nullable: true
+          description: The OatFi status of this entity
+        oatfiUnderwritingResponse:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+          description: The OatFi underwriting response of this entity
         acceptedTos:
           type: boolean
           description: True if this entity has accepted the terms of service.
@@ -41885,6 +44122,12 @@ components:
             ID of payment source for this invoice. If not provided, will attempt
             to use the default payment source for the payer when creating an
             invoice if a default payment source exists for the payer.
+        paymentSourceOptions:
+          $ref: '#/components/schemas/PaymentSourceOptions'
+          nullable: true
+          description: >-
+            Options for the payment source. Depending on the payment source,
+            this may include things such as BNPL configuration.
         vendorId:
           $ref: '#/components/schemas/EntityId'
           nullable: true
@@ -41986,6 +44229,13 @@ components:
           $ref: '#/components/schemas/OCRJobId'
           nullable: true
           description: ID of the OCR job that processed this invoice.
+        paymentDestinationConfirmed:
+          type: boolean
+          nullable: true
+          description: >-
+            Set to true if the payment destination has been confirmed by the
+            vendor or if the payment destination should default to the selected
+            payment destination on the vendor portal.
     InvoiceUpdateRequest:
       title: InvoiceUpdateRequest
       type: object
@@ -42275,6 +44525,9 @@ components:
         paymentSourceId:
           $ref: '#/components/schemas/PaymentMethodId'
           nullable: true
+        paymentSourceOptions:
+          $ref: '#/components/schemas/PaymentSourceOptions'
+          nullable: true
         vendorId:
           $ref: '#/components/schemas/EntityId'
           nullable: true
@@ -42476,6 +44729,59 @@ components:
             - $ref: '#/components/schemas/UtilityPaymentDestinationOptions'
           required:
             - type
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - custom
+            - $ref: '#/components/schemas/CustomPaymentDestinationOptions'
+          required:
+            - type
+    PaymentSourceOptions:
+      title: PaymentSourceOptions
+      oneOf:
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - bnpl
+            - $ref: '#/components/schemas/BnplPaymentSourceOptions'
+          required:
+            - type
+    BnplPaymentSourceOptions:
+      title: BnplPaymentSourceOptions
+      type: object
+      properties:
+        installmentsStartDate:
+          type: string
+          description: The start date for installments in YYYY-MM-DD format
+          example: '2025-06-18'
+        defermentWeeks:
+          type: integer
+          description: The number of weeks to defer repayment
+          example: 8
+        acceptedTerms:
+          type: boolean
+          description: Whether the user has agreed to the BNPL terms
+          example: true
+        loanId:
+          type: string
+          nullable: true
+          description: The ID of the loan to use for the BNPL payment.
+        downpaymentId:
+          type: string
+          nullable: true
+          description: The ID of the downpayment to use for the BNPL payment.
+      required:
+        - installmentsStartDate
+        - defermentWeeks
+        - acceptedTerms
     BankDeliveryMethod:
       title: BankDeliveryMethod
       type: string
@@ -42536,6 +44842,18 @@ components:
             on payor/payee relationship.
       required:
         - accountId
+    CustomPaymentDestinationOptions:
+      title: CustomPaymentDestinationOptions
+      type: object
+      properties:
+        dynamicUrls:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+          description: >-
+            Map of field names to dynamic URL values that will be used for
+            dynamicUrl fields in custom payment method schemas
     AddApproverRequest:
       title: AddApproverRequest
       type: object
@@ -43477,6 +45795,366 @@ components:
             $ref: '#/components/schemas/BulkInvoiceApprovalFromObjectResponse'
       required:
         - data
+    BnplCadence:
+      title: BnplCadence
+      type: string
+      enum:
+        - WEEKLY
+        - BIWEEKLY
+        - MONTHLY
+    BnplDayOfWeek:
+      title: BnplDayOfWeek
+      type: string
+      enum:
+        - MONDAY
+        - TUESDAY
+        - WEDNESDAY
+        - THURSDAY
+        - FRIDAY
+        - SATURDAY
+        - SUNDAY
+    BnplFees:
+      title: BnplFees
+      type: object
+      properties:
+        baseFeeAmount:
+          type: integer
+          description: Total fees in cents
+          example: 1687
+        baseFeePercentage:
+          type: number
+          format: double
+          description: Fee percentage as a decimal (e.g., 1.4 for 1.4%)
+          example: 1.4058
+      required:
+        - baseFeeAmount
+        - baseFeePercentage
+    BnplInstallment:
+      title: BnplInstallment
+      type: object
+      properties:
+        number:
+          type: integer
+          example: 0
+        dueDate:
+          type: string
+          example: '2025-06-18'
+        amount:
+          type: integer
+          example: 12000
+        type:
+          $ref: '#/components/schemas/BnplInstallmentType'
+      required:
+        - number
+        - dueDate
+        - amount
+        - type
+    BnplInstallmentType:
+      title: BnplInstallmentType
+      type: string
+      enum:
+        - DOWN_PAYMENT
+        - REGULAR
+    BnplOfferRequest:
+      title: BnplOfferRequest
+      type: object
+      properties:
+        cadence:
+          $ref: '#/components/schemas/BnplCadence'
+          description: The payment cadence for the BNPL offer
+        installmentsStartDate:
+          type: string
+          description: The start date for installments in YYYY-MM-DD format
+          example: '2025-06-18'
+        numberOfInstallments:
+          type: integer
+          description: The number of installments
+          example: 4
+        paymentDayOfWeek:
+          $ref: '#/components/schemas/BnplDayOfWeek'
+          description: The day of the week for payments
+        downPaymentDueDate:
+          type: string
+          description: The due date for the down payment in YYYY-MM-DD format
+          example: '2025-06-11'
+      required:
+        - cadence
+        - installmentsStartDate
+        - numberOfInstallments
+        - paymentDayOfWeek
+        - downPaymentDueDate
+    BnplOfferResponse:
+      title: BnplOfferResponse
+      type: object
+      properties:
+        invoiceAmount:
+          type: integer
+          description: The total amount of the invoice in cents.
+          example: 120000
+        totalRepaymentAmount:
+          type: integer
+          description: Total amount to be repaid, including fees. In cents.
+          example: 121687
+        currency:
+          type: string
+          description: The currency code for the amount
+          example: USD
+        downPaymentAmount:
+          type: integer
+          description: The down payment amount in cents
+          example: 12000
+        numberOfPayments:
+          type: integer
+          description: The number of payments/installments
+          example: 5
+        firstPaymentDate:
+          type: string
+          description: The date of the first payment in YYYY-MM-DD format
+          example: '2025-06-18'
+        finalPaymentDate:
+          type: string
+          description: The date of the final payment in YYYY-MM-DD format
+          example: '2025-07-28'
+        fees:
+          $ref: '#/components/schemas/BnplFees'
+          description: The fees associated with the offer
+        termsLink:
+          type: string
+          nullable: true
+          description: A link to the terms and conditions for the offer
+        installments:
+          type: array
+          items:
+            $ref: '#/components/schemas/BnplInstallment'
+          description: A list of all installments, including down payment.
+        paymentDayOfWeek:
+          $ref: '#/components/schemas/BnplDayOfWeek'
+          description: The day of the week for payments, e.g. "Wednesday"
+        installmentAmount:
+          type: integer
+          description: >-
+            The amount for each regular installment. The last installment may
+            have a different amount. In cents.
+          example: 27422
+        financeFeeRate:
+          type: string
+          description: e.g. "1.5% per 28 days"
+          example: 1.4% per 28 days
+      required:
+        - invoiceAmount
+        - totalRepaymentAmount
+        - currency
+        - downPaymentAmount
+        - numberOfPayments
+        - firstPaymentDate
+        - finalPaymentDate
+        - fees
+        - installments
+        - paymentDayOfWeek
+        - installmentAmount
+        - financeFeeRate
+    BnplLoanStatus:
+      title: BnplLoanStatus
+      type: string
+      enum:
+        - PENDING
+        - ACTIVE
+        - PAID_OFF
+        - DELINQUENT
+    BnplOutstandingBalance:
+      title: BnplOutstandingBalance
+      type: object
+      properties:
+        principalBalance:
+          type: integer
+          description: Outstanding principal balance in cents
+          example: 823
+        feeBalance:
+          type: integer
+          description: Outstanding fee balance in cents
+          example: 13
+        totalBalance:
+          type: integer
+          description: Total outstanding balance in cents
+          example: 927
+        lateFeeBalance:
+          type: integer
+          description: Outstanding late fee balance in cents
+          example: 0
+      required:
+        - principalBalance
+        - feeBalance
+        - totalBalance
+        - lateFeeBalance
+    BnplInstallmentTotalPaid:
+      title: BnplInstallmentTotalPaid
+      type: object
+      properties:
+        principalBalance:
+          type: integer
+          description: Total principal paid in cents
+          example: 0
+        dueInterest:
+          type: integer
+          description: Total interest paid in cents
+          example: 0
+        totalLateFees:
+          type: integer
+          description: Total late fees paid in cents
+          example: 0
+        feeAmount:
+          type: integer
+          description: Total fees paid in cents
+          example: 0
+      required:
+        - principalBalance
+        - dueInterest
+        - totalLateFees
+        - feeAmount
+    BnplLoanInstallment:
+      title: BnplLoanInstallment
+      type: object
+      properties:
+        number:
+          type: integer
+          description: Installment number (0 for down payment)
+          example: 0
+        startDate:
+          type: integer
+          description: Start date as timestamp in milliseconds
+          example: 1749700800000
+        dueDate:
+          type: integer
+          description: Due date as timestamp in milliseconds
+          example: 1749700800000
+        maturityDate:
+          type: integer
+          description: Maturity date as timestamp in milliseconds
+          example: 1749700800000
+        outstandingBalance:
+          type: integer
+          description: Outstanding balance for this installment in cents
+          example: 91
+        amount:
+          type: integer
+          description: Total amount for this installment in cents
+          example: 91
+        status:
+          $ref: '#/components/schemas/BnplLoanStatus'
+          description: Status of this installment
+        type:
+          $ref: '#/components/schemas/BnplInstallmentType'
+          description: Type of installment
+        totalPaid:
+          $ref: '#/components/schemas/BnplInstallmentTotalPaid'
+          description: Total amounts paid for this installment
+      required:
+        - number
+        - startDate
+        - dueDate
+        - maturityDate
+        - outstandingBalance
+        - amount
+        - status
+        - type
+        - totalPaid
+    BnplLoanResponse:
+      title: BnplLoanResponse
+      type: object
+      properties:
+        loanId:
+          type: string
+          description: The unique identifier for the loan
+          example: 684adb5d70a01b00596a3106
+        businessExternalId:
+          type: string
+          description: The external ID of the business entity
+          example: ent_9a718f18-cd03-4b4d-98a6-32248969cbac
+        dueDate:
+          type: integer
+          description: The final due date as timestamp in milliseconds
+          example: 1752724800000
+        originalPrincipalBalance:
+          type: integer
+          description: The original principal balance in cents
+          example: 914
+        drawDate:
+          type: integer
+          description: The date the loan was drawn as timestamp in milliseconds
+          example: 1749736285033
+        repaidAmount:
+          type: integer
+          description: The total amount repaid in cents
+          example: 0
+        paymentMethodId:
+          type: string
+          description: The ID of the payment method used
+          example: 68483ffc9b7d57005896805d
+        repaymentMethodId:
+          type: string
+          description: The ID of the repayment method
+          example: 684adaf3cf8a670059e7f044
+        status:
+          $ref: '#/components/schemas/BnplLoanStatus'
+          description: The current status of the loan
+        outstandingBalance:
+          $ref: '#/components/schemas/BnplOutstandingBalance'
+          description: The current outstanding balance breakdown
+        termsAgreementFile:
+          type: string
+          nullable: true
+          description: URL to the terms agreement file
+        invoiceUrl:
+          type: string
+          nullable: true
+          description: URL to the invoice PDF
+        invoiceAmount:
+          type: integer
+          description: The original invoice amount in cents
+          example: 914
+        invoiceExternalId:
+          type: string
+          description: The external ID of the associated invoice
+          example: in_5c0e0b6c-6348-47e4-b39b-97e3d69edabd
+        invoiceDueDate:
+          type: integer
+          description: The original invoice due date as timestamp in milliseconds
+          example: 1749709258847
+        downPaymentAmount:
+          type: integer
+          description: The down payment amount in cents
+          example: 91
+        installments:
+          type: array
+          items:
+            $ref: '#/components/schemas/BnplLoanInstallment'
+          description: List of all installments for this loan
+        cadence:
+          $ref: '#/components/schemas/BnplCadence'
+          description: The payment cadence for the loan
+        baseFeeRate:
+          type: number
+          format: double
+          description: The base fee rate as a percentage
+          example: 1.339283
+      required:
+        - loanId
+        - businessExternalId
+        - dueDate
+        - originalPrincipalBalance
+        - drawDate
+        - repaidAmount
+        - paymentMethodId
+        - repaymentMethodId
+        - status
+        - outstandingBalance
+        - invoiceAmount
+        - invoiceExternalId
+        - invoiceDueDate
+        - downPaymentAmount
+        - installments
+        - cadence
+        - baseFeeRate
     OCRJobId:
       title: OCRJobId
       type: string
@@ -43655,6 +46333,10 @@ components:
         rolePermissions:
           $ref: '#/components/schemas/RolePermissionRequest'
           nullable: true
+        notificationsDisabled:
+          type: boolean
+          nullable: true
+          description: If true, all notifications for this organization will be disabled.
     OrganizationResponse:
       title: OrganizationResponse
       type: object
@@ -43713,6 +46395,9 @@ components:
           nullable: true
         rolePermissions:
           $ref: '#/components/schemas/RolePermissionResponse'
+          nullable: true
+        notificationsDisabled:
+          type: boolean
           nullable: true
       required:
         - id
@@ -46268,6 +48953,8 @@ components:
         - phone
         - email
         - url
+        - dynamicUrl
+        - embeddedUrl
         - address
         - usBankRoutingNumber
         - usBankAccountNumber
@@ -47602,6 +50289,43 @@ components:
       required:
         - eventType
         - data
+    OCRJobCompletedWebhook:
+      title: OCRJobCompletedWebhook
+      type: object
+      properties:
+        eventType:
+          type: string
+          description: The type of the event.
+          example: ocr.job.completed
+        jobId:
+          $ref: '#/components/schemas/OCRJobId'
+          description: The ID of the OCR job that completed.
+        status:
+          $ref: '#/components/schemas/OCRJobStatus'
+          description: The final status of the OCR job.
+        data:
+          $ref: '#/components/schemas/OCRResponse'
+          nullable: true
+          description: The OCR job results. Only present if the job was successful.
+        linkedJobIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/OCRJobId'
+          nullable: true
+          description: >-
+            The IDs of any linked OCR jobs that are processing other
+            subdocuments of the same document.
+        pageRange:
+          $ref: '#/components/schemas/OCRPageRange'
+          nullable: true
+          description: >-
+            The start and end page numbers of the corresponding subdocument
+            (zero-indexed, inclusive). If not provided, the document was not
+            split during OCR.
+      required:
+        - eventType
+        - jobId
+        - status
   securitySchemes:
     BearerAuth:
       type: http
