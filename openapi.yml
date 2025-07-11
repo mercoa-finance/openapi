@@ -16385,7 +16385,7 @@ paths:
               examples:
                 Default:
                   value:
-                    jobStatus: completed
+                    jobStatus: success
                     jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
                     paymentGatewayUrl: >-
                       https://www.payment-gateway.com/invoice/job_1a92b5f7-f522-435e-a953-fd649363730a
@@ -16635,7 +16635,8 @@ paths:
                     data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
                   cardDetails:
                     type: direct
-                    nameOnCard: John Doe
+                    firstName: John
+                    lastName: Doe
                     cardNumber: '4242424242424242'
                     expirationMonth: 10
                     expirationYear: 2025
@@ -16651,6 +16652,10 @@ paths:
                     Invoice</a></body></html>
                   cardDetails:
                     type: iframe
+                    firstName: John
+                    lastName: Doe
+                    postalCode: '12345'
+                    country: US
                     iframeUrl: https://www.myvirtualcard.com/iframe/543543
   /payment-gateway/process/{jobId}:
     get:
@@ -16679,7 +16684,7 @@ paths:
               examples:
                 Default:
                   value:
-                    jobStatus: completed
+                    jobStatus: success
                     jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
                     receiptUrl: https://www.payment-gateway.com/receipt/123123
         '400':
@@ -48025,8 +48030,8 @@ components:
         document:
           type: string
           description: >-
-            The invoice document to extract the payment gateway from in base64
-            format
+            The invoice document PDF to extract the payment gateway from. Must
+            be in base64 format or a publicly accessible URL.
           example: >-
             data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
       required:
@@ -48183,8 +48188,8 @@ components:
       required:
         - jobId
         - errorType
-    ValidatePaymentGatewayCompletedResponse:
-      title: ValidatePaymentGatewayCompletedResponse
+    ValidatePaymentGatewaySuccessResponse:
+      title: ValidatePaymentGatewaySuccessResponse
       type: object
       properties:
         jobId:
@@ -48227,8 +48232,8 @@ components:
                 jobStatus:
                   type: string
                   enum:
-                    - completed
-            - $ref: '#/components/schemas/ValidatePaymentGatewayCompletedResponse'
+                    - success
+            - $ref: '#/components/schemas/ValidatePaymentGatewaySuccessResponse'
           required:
             - jobStatus
         - type: object
@@ -48249,8 +48254,8 @@ components:
         document:
           type: string
           description: >-
-            The invoice document to extract the payment gateway from in base64
-            format
+            The invoice document PDF to extract the payment gateway from. Must
+            be in base64 format or a publicly accessible URL.
           example: >-
             data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
         cardDetails:
@@ -48326,14 +48331,43 @@ components:
             - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsIframe'
           required:
             - type
+    ProcessPaymentGatewayCardDetailsBase:
+      title: ProcessPaymentGatewayCardDetailsBase
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: The first name of the card user
+        lastName:
+          type: string
+          description: The last name of the card user
+        postalCode:
+          type: string
+          description: The postal code of the address of the card
+        country:
+          $ref: '#/components/schemas/CountryCode'
+          description: The country of the address of the card
+        phoneNumber:
+          type: string
+          nullable: true
+          description: The phone number of the card user
+        email:
+          type: string
+          nullable: true
+          description: The email of the card user
+        fullAddress:
+          type: string
+          nullable: true
+          description: The full address of the card user
+      required:
+        - firstName
+        - lastName
+        - postalCode
+        - country
     ProcessPaymentGatewayCardDetailsDirect:
       title: ProcessPaymentGatewayCardDetailsDirect
       type: object
       properties:
-        nameOnCard:
-          type: string
-          description: The name on the card to use for the payment
-          example: John Doe
         cardNumber:
           type: string
           description: The number of the card to use for the payment
@@ -48354,21 +48388,13 @@ components:
           type: string
           description: The CVV of the card to use for the payment
           example: '123'
-        postalCode:
-          type: string
-          description: The postal code of the address of the card to use for the payment
-          example: '12345'
-        country:
-          $ref: '#/components/schemas/CountryCode'
-          description: The country of the address of the card to use for the payment
       required:
-        - nameOnCard
         - cardNumber
         - expirationMonth
         - expirationYear
         - cvv
-        - postalCode
-        - country
+      allOf:
+        - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsBase'
     ProcessPaymentGatewayCardDetailsIframe:
       title: ProcessPaymentGatewayCardDetailsIframe
       type: object
@@ -48379,6 +48405,8 @@ components:
           example: https://www.myvirtualcard.com/iframe/345345
       required:
         - iframeUrl
+      allOf:
+        - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsBase'
     ProcessPaymentGatewayPendingResponse:
       title: ProcessPaymentGatewayPendingResponse
       type: object
@@ -48407,8 +48435,8 @@ components:
       required:
         - jobId
         - errorType
-    ProcessPaymentGatewayCompletedResponse:
-      title: ProcessPaymentGatewayCompletedResponse
+    ProcessPaymentGatewaySuccessResponse:
+      title: ProcessPaymentGatewaySuccessResponse
       type: object
       properties:
         jobId:
@@ -48447,8 +48475,8 @@ components:
                 jobStatus:
                   type: string
                   enum:
-                    - completed
-            - $ref: '#/components/schemas/ProcessPaymentGatewayCompletedResponse'
+                    - success
+            - $ref: '#/components/schemas/ProcessPaymentGatewaySuccessResponse'
           required:
             - jobStatus
         - type: object
@@ -50409,6 +50437,42 @@ components:
         - remainingAmount
         - currency
         - vendorCredits
+    PaymentGatewayValidationJobCompletedWebhook:
+      title: PaymentGatewayValidationJobCompletedWebhook
+      type: object
+      properties:
+        eventType:
+          type: string
+          description: The type of the event.
+          example: paymentGateway.validation.completed
+        jobId:
+          type: string
+          description: The ID of the payment gateway validation job that completed.
+          example: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+        data:
+          $ref: '#/components/schemas/ValidatePaymentGatewayResponse'
+      required:
+        - eventType
+        - jobId
+        - data
+    PaymentGatewayProcessJobCompletedWebhook:
+      title: PaymentGatewayProcessJobCompletedWebhook
+      type: object
+      properties:
+        eventType:
+          type: string
+          description: The type of the event.
+          example: paymentGateway.process.completed
+        jobId:
+          type: string
+          description: The ID of the payment gateway process job that completed.
+          example: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+        data:
+          $ref: '#/components/schemas/ProcessPaymentGatewayResponse'
+      required:
+        - eventType
+        - jobId
+        - data
     BulkInvoiceCreationWebhook:
       title: BulkInvoiceCreationWebhook
       type: object
