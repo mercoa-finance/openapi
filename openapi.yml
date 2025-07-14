@@ -16233,11 +16233,11 @@ paths:
                 Document:
                   value:
                     jobStatus: pending
-                    jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
+                    jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
                 HTML:
                   value:
                     jobStatus: pending
-                    jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
+                    jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
         '400':
           description: ''
           content:
@@ -16386,11 +16386,11 @@ paths:
                 Default:
                   value:
                     jobStatus: success
-                    jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
+                    jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
                     paymentGatewayUrl: >-
-                      https://www.payment-gateway.com/invoice/job_1a92b5f7-f522-435e-a953-fd649363730a
+                      https://www.payment-gateway.com/invoice/pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
                     sessionUrl: >-
-                      https://www.payment-gateway.com/session/job_1a92b5f7-f522-435e-a953-fd649363730a
+                      https://www.payment-gateway.com/session/pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
                     card:
                       eligibility: ACCEPTED
                       fee:
@@ -16514,11 +16514,11 @@ paths:
               examples:
                 Direct:
                   value:
-                    jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
+                    jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
                     jobStatus: pending
                 Iframe:
                   value:
-                    jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
+                    jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
                     jobStatus: pending
         '400':
           description: ''
@@ -16685,7 +16685,7 @@ paths:
                 Default:
                   value:
                     jobStatus: success
-                    jobId: job_1a92b5f7-f522-435e-a953-fd649363730a
+                    jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
                     receiptUrl: https://www.payment-gateway.com/receipt/123123
         '400':
           description: ''
@@ -48306,6 +48306,37 @@ components:
             - $ref: '#/components/schemas/ProcessPaymentGatewayRequestHTML'
           required:
             - type
+    EphemeralKeyEndpoint:
+      title: EphemeralKeyEndpoint
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL endpoint to call for generating ephemeral keys
+          example: https://api.example.com/ephemeral-keys
+        method:
+          type: string
+          description: The HTTP method to use for the request
+          example: POST
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: >-
+            The headers to include in the request. Supports variables
+            {{cardId}}, {{nonce}}, and {{accountId}} that will be replaced with
+            actual values.
+        postBody:
+          type: string
+          nullable: true
+          description: >-
+            The body to include in the POST request. Supports variables
+            {{cardId}}, {{nonce}}, and {{accountId}} that will be replaced with
+            actual values.
+      required:
+        - url
+        - method
+        - headers
     ProcessPaymentGatewayCardDetails:
       title: ProcessPaymentGatewayCardDetails
       oneOf:
@@ -48329,6 +48360,18 @@ components:
                   enum:
                     - iframe
             - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsIframe'
+          required:
+            - type
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - stripeIssuing
+            - $ref: >-
+                #/components/schemas/ProcessPaymentGatewayCardDetailsStripeIssuing
           required:
             - type
     ProcessPaymentGatewayCardDetailsBase:
@@ -48405,6 +48448,33 @@ components:
           example: https://www.myvirtualcard.com/iframe/345345
       required:
         - iframeUrl
+      allOf:
+        - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsBase'
+    ProcessPaymentGatewayCardDetailsStripeIssuing:
+      title: ProcessPaymentGatewayCardDetailsStripeIssuing
+      type: object
+      properties:
+        stripeCardId:
+          type: string
+          description: The Stripe Issuing card ID
+          example: ic_1234567890abcdef
+        stripePublishableKey:
+          type: string
+          description: The Stripe publishable key for the Issuing Elements
+          example: pk_test_1234567890abcdef
+        stripeAccountId:
+          type: string
+          nullable: true
+          description: The Stripe account ID (optional, used for connected accounts)
+        ephemeralKeyEndpoint:
+          $ref: '#/components/schemas/EphemeralKeyEndpoint'
+          description: >-
+            The endpoint configuration for generating ephemeral keys. Expects a
+            JSON response with a `ephemeralKeySecret` field.
+      required:
+        - stripeCardId
+        - stripePublishableKey
+        - ephemeralKeyEndpoint
       allOf:
         - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsBase'
     ProcessPaymentGatewayPendingResponse:
