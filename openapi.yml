@@ -34707,6 +34707,139 @@ paths:
       summary: Get Check PDF
       security:
         - BearerAuth: []
+  /invoice/{invoiceId}/payment-confirmation/generate:
+    get:
+      description: >-
+        Generate a PDF of the payment confirmation for the invoice. This PDF is
+        generated from the data in the invoice, not from the uploaded documents.
+      operationId: invoice_document_generatePaymentConfirmationPdf
+      tags:
+        - InvoiceDocument
+      parameters:
+        - name: invoiceId
+          in: path
+          description: Invoice ID or Invoice ForeignID
+          required: true
+          schema:
+            $ref: '#/components/schemas/InvoiceId'
+          example: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
+          examples:
+            Default:
+              value: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
+      responses:
+        '200':
+          description: Link to the PDF file. Will expire after 1 hour.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentResponse'
+              examples:
+                Default:
+                  value:
+                    mimeType: application/pdf
+                    uri: https://mercoa.com/pdf/not-real.pdf
+                    type: PAYMENT_CONFIRMATION
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Get Payment Confirmation PDF
+      security:
+        - BearerAuth: []
   /invoice/{invoiceId}/source-email:
     get:
       description: Get the email subject and body that was used to create this invoice.
@@ -41265,6 +41398,7 @@ components:
       type: string
       enum:
         - INVOICE
+        - PAYMENT_CONFIRMATION
         - TEN_NINETY_NINE
         - W9
         - CHECK
