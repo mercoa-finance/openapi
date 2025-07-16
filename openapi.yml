@@ -12986,6 +12986,8 @@ paths:
                   invoiceDate: '2021-01-01T00:00:00Z'
                   dueDate: '2021-01-31T00:00:00Z'
                   paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                  paymentDestinationId: pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18
+                  deductionDate: '2021-01-29T00:00:00Z'
               CreateScheduledInvoice:
                 value:
                   status: SCHEDULED
@@ -45075,6 +45077,12 @@ components:
           $ref: '#/components/schemas/OCRJobId'
           nullable: true
           description: ID of the OCR job that processed this invoice.
+        recurringTemplateId:
+          $ref: '#/components/schemas/InvoiceTemplateId'
+          nullable: true
+          description: >-
+            ID of the invoice template that created this recurring invoice. Only
+            present if the invoice was created from a recurring template.
       required:
         - status
         - paymentDestinationConfirmed
