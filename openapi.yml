@@ -1798,6 +1798,556 @@ paths:
                   entityIds:
                     - ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
                     - ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+  /entityGroup/{entityGroupId}/addPayees:
+    post:
+      description: >-
+        Create association between all entities in the group and a given list of
+        Payees. If a Payee has previously been archived, unarchive the Payee.
+      operationId: entityGroup_counterparty_addPayees
+      tags:
+        - EntityGroupCounterparty
+      parameters:
+        - name: entityGroupId
+          in: path
+          description: Entity Group ID or Entity Group ForeignID
+          required: true
+          schema:
+            $ref: '#/components/schemas/EntityGroupId'
+          example: entg_8545a84e-a45f-41bf-bdf1-33b42a55812c
+          examples:
+            Default:
+              value: entg_8545a84e-a45f-41bf-bdf1-33b42a55812c
+      responses:
+        '204':
+          description: ''
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Link Payees to Group
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityAddPayeesRequest'
+            examples:
+              Default:
+                value:
+                  payees:
+                    - ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                  customizations:
+                    - counterpartyId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                      accounts:
+                        - accountId: '85866843'
+                          postalCode: '94105'
+                          nameOnAccount: John Doe
+  /entityGroup/{entityGroupId}/hidePayees:
+    post:
+      description: >-
+        Marks Payees as unsearchable by all entities in the group via
+        Counterparty search. Invoices associated with these Payees will still be
+        searchable via Invoice search.
+      operationId: entityGroup_counterparty_hidePayees
+      tags:
+        - EntityGroupCounterparty
+      parameters:
+        - name: entityGroupId
+          in: path
+          description: Entity Group ID or Entity Group ForeignID
+          required: true
+          schema:
+            $ref: '#/components/schemas/EntityGroupId'
+          example: entg_8545a84e-a45f-41bf-bdf1-33b42a55812c
+          examples:
+            Default:
+              value: entg_8545a84e-a45f-41bf-bdf1-33b42a55812c
+      responses:
+        '204':
+          description: ''
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Hide Payees from Group
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityHidePayeesRequest'
+            examples:
+              Default:
+                value:
+                  payees:
+                    - ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+  /entityGroup/{entityGroupId}/addPayors:
+    post:
+      description: >-
+        Create association between all entities in the group and a given list of
+        Payors. If a Payor has previously been archived, unarchive the Payor.
+      operationId: entityGroup_counterparty_addPayors
+      tags:
+        - EntityGroupCounterparty
+      parameters:
+        - name: entityGroupId
+          in: path
+          description: Entity Group ID or Entity Group ForeignID
+          required: true
+          schema:
+            $ref: '#/components/schemas/EntityGroupId'
+          example: entg_8545a84e-a45f-41bf-bdf1-33b42a55812c
+          examples:
+            Default:
+              value: entg_8545a84e-a45f-41bf-bdf1-33b42a55812c
+      responses:
+        '204':
+          description: ''
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Link Payors to Group
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityAddPayorsRequest'
+            examples:
+              Default:
+                value:
+                  payors:
+                    - ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                  customizations:
+                    - counterpartyId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                      accounts:
+                        - accountId: '85866843'
+                          postalCode: '94105'
+                          nameOnAccount: John Doe
+  /entityGroup/{entityGroupId}/hidePayors:
+    post:
+      description: >-
+        Marks Payors as unsearchable by all entities in the group via
+        Counterparty search. Invoices associated with these Payors will still be
+        searchable via Invoice search.
+      operationId: entityGroup_counterparty_hidePayors
+      tags:
+        - EntityGroupCounterparty
+      parameters:
+        - name: entityGroupId
+          in: path
+          description: Entity Group ID or Entity Group ForeignID
+          required: true
+          schema:
+            $ref: '#/components/schemas/EntityGroupId'
+          example: entg_8545a84e-a45f-41bf-bdf1-33b42a55812c
+          examples:
+            Default:
+              value: entg_8545a84e-a45f-41bf-bdf1-33b42a55812c
+      responses:
+        '204':
+          description: ''
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Hide Payors from Group
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityHidePayorsRequest'
+            examples:
+              Default:
+                value:
+                  payors:
+                    - ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
   /entityGroup/{entityGroupId}/users:
     get:
       description: Search entity group users
@@ -16217,6 +16767,423 @@ paths:
                     - session_456
               All Sessions:
                 value: {}
+  /payment-gateway/validation-jobs:
+    get:
+      description: Search payment gateway validation jobs for the organization
+      operationId: paymentGateway_findValidationJobs
+      tags:
+        - PaymentGateway
+      parameters:
+        - name: status
+          in: query
+          description: Filter jobs by status
+          required: false
+          schema:
+            $ref: '#/components/schemas/PaymentGatewayJobStatus'
+            nullable: true
+          example: FAILED
+          examples:
+            Find failed validation jobs:
+              value: FAILED
+        - name: startDate
+          in: query
+          description: Start date filter for job creation time
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+          example: '2024-01-01T00:00:00Z'
+          examples:
+            Find failed validation jobs:
+              value: '2024-01-01T00:00:00Z'
+        - name: endDate
+          in: query
+          description: End date filter for job creation time
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+          example: '2024-12-31T23:59:59Z'
+          examples:
+            Find failed validation jobs:
+              value: '2024-12-31T23:59:59Z'
+        - name: orderBy
+          in: query
+          description: Field to order jobs by. Defaults to CREATED_AT.
+          required: false
+          schema:
+            $ref: '#/components/schemas/PaymentGatewayJobOrderByField'
+            nullable: true
+        - name: orderDirection
+          in: query
+          description: Direction to order jobs by. Defaults to desc.
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+            nullable: true
+        - name: limit
+          in: query
+          description: >-
+            Number of jobs to return. Limit can range between 1 and 100, and the
+            default is 10.
+          required: false
+          schema:
+            type: integer
+            nullable: true
+        - name: startingAfter
+          in: query
+          description: >-
+            The ID of the job to start after. If not provided, the first page of
+            jobs will be returned.
+          required: false
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/SearchPaymentGatewayValidationJobsResponse
+              examples:
+                Find failed validation jobs:
+                  value:
+                    jobs:
+                      - jobStatus: pending
+                        jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                      - jobStatus: success
+                        jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        paymentGatewayUrl: >-
+                          https://www.payment-gateway.com/invoice/pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        sessionUrl: >-
+                          https://www.payment-gateway.com/session/pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        card:
+                          eligibility: ACCEPTED
+                          fee:
+                            type: percentage
+                            value: 2.5
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                      - jobStatus: failed
+                        jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        errorType: NO_VALID_PAYMENT_GATEWAY_FOUND
+                        errorMessage: >-
+                          No valid payment gateway was found in the document or
+                          HTML
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                    hasMore: true
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Search validation jobs
+      security:
+        - BearerAuth: []
+  /payment-gateway/process-jobs:
+    get:
+      description: Search payment gateway process jobs for the organization
+      operationId: paymentGateway_findProcessJobs
+      tags:
+        - PaymentGateway
+      parameters:
+        - name: status
+          in: query
+          description: Filter jobs by status
+          required: false
+          schema:
+            $ref: '#/components/schemas/PaymentGatewayJobStatus'
+            nullable: true
+          example: FAILED
+          examples:
+            Find failed process jobs:
+              value: FAILED
+        - name: startDate
+          in: query
+          description: Start date filter for job creation time
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+          example: '2024-01-01T00:00:00Z'
+          examples:
+            Find failed process jobs:
+              value: '2024-01-01T00:00:00Z'
+        - name: endDate
+          in: query
+          description: End date filter for job creation time
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+          example: '2024-12-31T23:59:59Z'
+          examples:
+            Find failed process jobs:
+              value: '2024-12-31T23:59:59Z'
+        - name: orderBy
+          in: query
+          description: Field to order jobs by. Defaults to CREATED_AT.
+          required: false
+          schema:
+            $ref: '#/components/schemas/PaymentGatewayJobOrderByField'
+            nullable: true
+        - name: orderDirection
+          in: query
+          description: Direction to order jobs by. Defaults to desc.
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+            nullable: true
+        - name: limit
+          in: query
+          description: >-
+            Number of jobs to return. Limit can range between 1 and 100, and the
+            default is 10.
+          required: false
+          schema:
+            type: integer
+            nullable: true
+        - name: startingAfter
+          in: query
+          description: >-
+            The ID of the job to start after. If not provided, the first page of
+            jobs will be returned.
+          required: false
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchPaymentGatewayProcessJobsResponse'
+              examples:
+                Find failed process jobs:
+                  value:
+                    jobs:
+                      - jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        jobStatus: pending
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                      - jobStatus: success
+                        jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        receiptUrl: https://www.payment-gateway.com/receipt/123123
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                      - jobStatus: failed
+                        jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        errorType: NO_VALID_PAYMENT_GATEWAY_FOUND
+                        errorMessage: >-
+                          No valid payment gateway was found in the document or
+                          HTML
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                    hasMore: true
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Search process jobs
+      security:
+        - BearerAuth: []
   /payment-gateway/validate:
     post:
       description: Create a job to validate a payment gateway
@@ -16236,10 +17203,14 @@ paths:
                   value:
                     jobStatus: pending
                     jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                    createdAt: '2024-01-01T00:00:00Z'
+                    updatedAt: '2024-01-01T00:00:00Z'
                 HTML:
                   value:
                     jobStatus: pending
                     jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                    createdAt: '2024-01-01T00:00:00Z'
+                    updatedAt: '2024-01-01T00:00:00Z'
         '400':
           description: ''
           content:
@@ -16398,6 +17369,8 @@ paths:
                       fee:
                         type: percentage
                         value: 2.5
+                    createdAt: '2024-01-01T00:00:00Z'
+                    updatedAt: '2024-01-01T00:00:00Z'
         '400':
           description: ''
           content:
@@ -16518,10 +17491,14 @@ paths:
                   value:
                     jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
                     jobStatus: pending
+                    createdAt: '2024-01-01T00:00:00Z'
+                    updatedAt: '2024-01-01T00:00:00Z'
                 Iframe:
                   value:
                     jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
                     jobStatus: pending
+                    createdAt: '2024-01-01T00:00:00Z'
+                    updatedAt: '2024-01-01T00:00:00Z'
         '400':
           description: ''
           content:
@@ -16689,6 +17666,8 @@ paths:
                     jobStatus: success
                     jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
                     receiptUrl: https://www.payment-gateway.com/receipt/123123
+                    createdAt: '2024-01-01T00:00:00Z'
+                    updatedAt: '2024-01-01T00:00:00Z'
         '400':
           description: ''
           content:
@@ -48309,8 +49288,18 @@ components:
         jobId:
           type: string
           description: The job ID of the payment gateway validation job
+        createdAt:
+          type: string
+          format: date-time
+          description: The timestamp when the job was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: The timestamp when the job was last updated
       required:
         - jobId
+        - createdAt
+        - updatedAt
     ValidatePaymentGatewayFailedResponse:
       title: ValidatePaymentGatewayFailedResponse
       type: object
@@ -48327,9 +49316,19 @@ components:
           description: >-
             The error message that occurred during the payment gateway
             validation job
+        createdAt:
+          type: string
+          format: date-time
+          description: The timestamp when the job was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: The timestamp when the job was last updated
       required:
         - jobId
         - errorType
+        - createdAt
+        - updatedAt
     ValidatePaymentGatewaySuccessResponse:
       title: ValidatePaymentGatewaySuccessResponse
       type: object
@@ -48351,8 +49350,18 @@ components:
           $ref: '#/components/schemas/ValidatePaymentGatewayCardResponse'
           nullable: true
           description: Data on the card payments that were extracted from the gateway
+        createdAt:
+          type: string
+          format: date-time
+          description: The timestamp when the job was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: The timestamp when the job was last updated
       required:
         - jobId
+        - createdAt
+        - updatedAt
     ValidatePaymentGatewayResponse:
       title: ValidatePaymentGatewayResponse
       oneOf:
@@ -48626,8 +49635,18 @@ components:
         jobId:
           type: string
           description: The job ID of the payment gateway processing job
+        createdAt:
+          type: string
+          format: date-time
+          description: The timestamp when the job was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: The timestamp when the job was last updated
       required:
         - jobId
+        - createdAt
+        - updatedAt
     ProcessPaymentGatewayFailedResponse:
       title: ProcessPaymentGatewayFailedResponse
       type: object
@@ -48644,9 +49663,19 @@ components:
           description: >-
             The error message that occurred during the payment gateway
             processing job
+        createdAt:
+          type: string
+          format: date-time
+          description: The timestamp when the job was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: The timestamp when the job was last updated
       required:
         - jobId
         - errorType
+        - createdAt
+        - updatedAt
     ProcessPaymentGatewaySuccessResponse:
       title: ProcessPaymentGatewaySuccessResponse
       type: object
@@ -48664,8 +49693,18 @@ components:
           description: >-
             The URL of the playback session for the agent that processed the
             payment
+        createdAt:
+          type: string
+          format: date-time
+          description: The timestamp when the job was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: The timestamp when the job was last updated
       required:
         - jobId
+        - createdAt
+        - updatedAt
     ProcessPaymentGatewayResponse:
       title: ProcessPaymentGatewayResponse
       oneOf:
@@ -48709,6 +49748,52 @@ components:
         - NO_VALID_PAYMENT_GATEWAY_FOUND
         - PAYMENT_GATEWAY_UNSUPPORTED
         - CARD_DETAILS_INVALID
+    PaymentGatewayJobOrderByField:
+      title: PaymentGatewayJobOrderByField
+      type: string
+      enum:
+        - CREATED_AT
+        - UPDATED_AT
+        - STATUS
+    SearchPaymentGatewayValidationJobsResponse:
+      title: SearchPaymentGatewayValidationJobsResponse
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidatePaymentGatewayResponse'
+          description: List of payment gateway validation jobs matching the search criteria
+        hasMore:
+          type: boolean
+          description: Whether there are more jobs available beyond the current page
+          example: true
+      required:
+        - jobs
+        - hasMore
+    SearchPaymentGatewayProcessJobsResponse:
+      title: SearchPaymentGatewayProcessJobsResponse
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProcessPaymentGatewayResponse'
+          description: List of payment gateway process jobs matching the search criteria
+        hasMore:
+          type: boolean
+          description: Whether there are more jobs available beyond the current page
+          example: true
+      required:
+        - jobs
+        - hasMore
+    PaymentGatewayJobStatus:
+      title: PaymentGatewayJobStatus
+      type: string
+      enum:
+        - PENDING
+        - COMPLETED
+        - FAILED
     PaymentMethodId:
       title: PaymentMethodId
       type: string
