@@ -14095,6 +14095,8 @@ paths:
               value: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
             UpdateVendorCredit:
               value: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
+            VoidCheck:
+              value: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
       responses:
         '200':
           description: ''
@@ -15121,6 +15123,315 @@ paths:
                     metadata: {}
                     createdAt: '2021-01-01T00:00:00Z'
                     updatedAt: '2021-01-01T00:00:00Z'
+                VoidCheck:
+                  value:
+                    id: in_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9
+                    status: FAILED
+                    payerId: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                    payer:
+                      id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                      foreignId: MY-DB-ID-12345
+                      name: Acme Inc.
+                      email: customer@acme.com
+                      acceptedTos: true
+                      status: verified
+                      isCustomer: true
+                      isPayor: true
+                      isPayee: false
+                      isNetworkPayor: false
+                      isNetworkPayee: false
+                      accountType: business
+                      updatedAt: '2024-01-02T00:00:00Z'
+                      createdAt: '2024-01-01T00:00:00Z'
+                      profile:
+                        business:
+                          email: customer@acme.com
+                          legalBusinessName: Acme Inc.
+                          businessType: llc
+                          phone:
+                            countryCode: '1'
+                            number: '4155551234'
+                          address:
+                            addressLine1: 123 Main St
+                            addressLine2: Unit 1
+                            city: San Francisco
+                            stateOrProvince: CA
+                            postalCode: '94105'
+                            country: US
+                          taxIDProvided: true
+                          taxId:
+                            ein:
+                              number: 12-3456789
+                          ownersProvided: true
+                      accounts:
+                        - accountId: '85866843'
+                          postalCode: '94105'
+                          nameOnAccount: John Doe
+                      paymentMethods:
+                        - id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                          type: bankAccount
+                          accountName: My Checking Account
+                          bankName: Chase
+                          routingNumber: '12345678'
+                          accountNumber: '99988767623'
+                          accountType: CHECKING
+                          status: VERIFIED
+                          isDefaultSource: true
+                          isDefaultDestination: true
+                          supportedCurrencies:
+                            - USD
+                          metadata: {}
+                          frozen: false
+                          confirmedByEntity: true
+                          createdAt: '2021-01-01T00:00:00Z'
+                          updatedAt: '2021-01-01T00:00:00Z'
+                      counterpartyType:
+                        - ENTITY
+                    vendorId: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                    vendor:
+                      id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                      foreignId: MY-DB-ID-90909
+                      name: Big Box Store
+                      email: vendor@bigboxstore.com
+                      acceptedTos: false
+                      status: unverified
+                      isCustomer: false
+                      isPayor: false
+                      isPayee: true
+                      isNetworkPayor: false
+                      isNetworkPayee: false
+                      accountType: business
+                      updatedAt: '2024-01-02T00:00:00Z'
+                      createdAt: '2024-01-01T00:00:00Z'
+                      profile:
+                        business:
+                          email: vendor@bigboxstore.com
+                          legalBusinessName: Big Box Store
+                          businessType: publicCorporation
+                          taxIDProvided: false
+                          ownersProvided: false
+                      paymentMethods:
+                        - id: pm_7610541f-4619-4033-8620-cfccfb811293
+                          type: bankAccount
+                          accountName: Vendor Checking Account
+                          bankName: Chase
+                          routingNumber: '66554433'
+                          accountNumber: '55934059697648'
+                          accountType: CHECKING
+                          status: NEW
+                          isDefaultSource: true
+                          isDefaultDestination: true
+                          supportedCurrencies:
+                            - USD
+                          metadata: {}
+                          frozen: false
+                          confirmedByEntity: false
+                          createdAt: '2021-01-01T00:00:00Z'
+                          updatedAt: '2021-01-01T00:00:00Z'
+                      counterpartyType:
+                        - ENTITY
+                    currency: USD
+                    amount: 100
+                    invoiceNumber: INV-123
+                    invoiceDate: '2021-01-01T00:00:00Z'
+                    dueDate: '2021-01-31T00:00:00Z'
+                    paymentSourceId: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                    paymentSource:
+                      id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                      type: bankAccount
+                      accountName: My Checking Account
+                      bankName: Chase
+                      routingNumber: '12345678'
+                      accountNumber: '99988767623'
+                      accountType: CHECKING
+                      status: VERIFIED
+                      isDefaultSource: true
+                      isDefaultDestination: true
+                      supportedCurrencies:
+                        - USD
+                      metadata: {}
+                      frozen: false
+                      confirmedByEntity: true
+                      createdAt: '2021-01-01T00:00:00Z'
+                      updatedAt: '2021-01-01T00:00:00Z'
+                    paymentDestinationId: pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18
+                    paymentDestination:
+                      id: pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18
+                      type: check
+                      payToTheOrderOf: John Doe
+                      addressLine1: 123 Main St
+                      addressLine2: Apt 1
+                      city: New York
+                      stateOrProvince: NY
+                      postalCode: '10001'
+                      country: US
+                      isDefaultSource: false
+                      isDefaultDestination: true
+                      supportedCurrencies:
+                        - USD
+                      metadata: {}
+                      frozen: false
+                      confirmedByEntity: true
+                      createdAt: '2021-01-01T00:00:00Z'
+                      updatedAt: '2021-01-01T00:00:00Z'
+                    deductionDate: '2021-01-29T00:00:00Z'
+                    paymentDestinationConfirmed: true
+                    hasDocuments: true
+                    hasSourceEmail: true
+                    approvers: []
+                    approvalPolicy: []
+                    metadata: {}
+                    transactions:
+                      - id: trx_bb08e72f-19f8-45f3-bcf9-46fdc46cb2f4
+                        type: bankAccountToBankAccount
+                        status: FAILED
+                        amount: 10000
+                        currency: USD
+                        payerId: ent_bb08e72f-19f8-45f3-bcf9-46fdc46cb2f4
+                        payer:
+                          id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
+                          foreignId: MY-DB-ID-12345
+                          name: Acme Inc.
+                          email: customer@acme.com
+                          acceptedTos: true
+                          status: verified
+                          isCustomer: true
+                          isPayor: true
+                          isPayee: false
+                          isNetworkPayor: false
+                          isNetworkPayee: false
+                          accountType: business
+                          updatedAt: '2024-01-02T00:00:00Z'
+                          createdAt: '2024-01-01T00:00:00Z'
+                          profile:
+                            business:
+                              email: customer@acme.com
+                              legalBusinessName: Acme Inc.
+                              businessType: llc
+                              phone:
+                                countryCode: '1'
+                                number: '4155551234'
+                              address:
+                                addressLine1: 123 Main St
+                                addressLine2: Unit 1
+                                city: San Francisco
+                                stateOrProvince: CA
+                                postalCode: '94105'
+                                country: US
+                              taxIDProvided: true
+                              taxId:
+                                ein:
+                                  number: 12-3456789
+                              ownersProvided: true
+                          accounts:
+                            - accountId: '85866843'
+                              postalCode: '94105'
+                              nameOnAccount: John Doe
+                          paymentMethods:
+                            - id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                              type: bankAccount
+                              accountName: My Checking Account
+                              bankName: Chase
+                              routingNumber: '12345678'
+                              accountNumber: '99988767623'
+                              accountType: CHECKING
+                              status: VERIFIED
+                              isDefaultSource: true
+                              isDefaultDestination: true
+                              supportedCurrencies:
+                                - USD
+                              metadata: {}
+                              frozen: false
+                              confirmedByEntity: true
+                              createdAt: '2021-01-01T00:00:00Z'
+                              updatedAt: '2021-01-01T00:00:00Z'
+                          counterpartyType:
+                            - ENTITY
+                        paymentSource:
+                          id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                          type: bankAccount
+                          accountName: My Checking Account
+                          bankName: Chase
+                          routingNumber: '12345678'
+                          accountNumber: '99988767623'
+                          accountType: CHECKING
+                          status: VERIFIED
+                          isDefaultSource: true
+                          isDefaultDestination: true
+                          supportedCurrencies:
+                            - USD
+                          metadata: {}
+                          frozen: false
+                          confirmedByEntity: true
+                          createdAt: '2021-01-01T00:00:00Z'
+                          updatedAt: '2021-01-01T00:00:00Z'
+                        paymentSourceId: pm_65523ab0-043d-4706-b2b2-0b73fed92269
+                        vendorId: ent_bb08e72f-19f8-45f3-bcf9-46fdc46cb2f4
+                        vendor:
+                          id: ent_21661ac1-a2a8-4465-a6c0-64474ba8181d
+                          foreignId: MY-DB-ID-90909
+                          name: Big Box Store
+                          email: vendor@bigboxstore.com
+                          acceptedTos: false
+                          status: unverified
+                          isCustomer: false
+                          isPayor: false
+                          isPayee: true
+                          isNetworkPayor: false
+                          isNetworkPayee: false
+                          accountType: business
+                          updatedAt: '2024-01-02T00:00:00Z'
+                          createdAt: '2024-01-01T00:00:00Z'
+                          profile:
+                            business:
+                              email: vendor@bigboxstore.com
+                              legalBusinessName: Big Box Store
+                              businessType: publicCorporation
+                              taxIDProvided: false
+                              ownersProvided: false
+                          paymentMethods:
+                            - id: pm_7610541f-4619-4033-8620-cfccfb811293
+                              type: bankAccount
+                              accountName: Vendor Checking Account
+                              bankName: Chase
+                              routingNumber: '66554433'
+                              accountNumber: '55934059697648'
+                              accountType: CHECKING
+                              status: NEW
+                              isDefaultSource: true
+                              isDefaultDestination: true
+                              supportedCurrencies:
+                                - USD
+                              metadata: {}
+                              frozen: false
+                              confirmedByEntity: false
+                              createdAt: '2021-01-01T00:00:00Z'
+                              updatedAt: '2021-01-01T00:00:00Z'
+                          counterpartyType:
+                            - ENTITY
+                        paymentDestination:
+                          id: pm_4794d597-70dc-4fec-b6ec-c5988e759769
+                          type: bankAccount
+                          accountName: My Checking Account
+                          bankName: Chase
+                          routingNumber: '12345678'
+                          accountNumber: '99988767623'
+                          accountType: CHECKING
+                          status: VERIFIED
+                          isDefaultSource: true
+                          isDefaultDestination: true
+                          supportedCurrencies:
+                            - USD
+                          metadata: {}
+                          frozen: false
+                          confirmedByEntity: true
+                          createdAt: '2021-01-01T00:00:00Z'
+                          updatedAt: '2021-01-01T00:00:00Z'
+                        paymentDestinationId: pm_65523ab0-043d-4706-b2b2-0b73fed92269
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                    createdAt: '2021-01-01T00:00:00Z'
+                    updatedAt: '2021-01-01T00:00:00Z'
         '400':
           description: ''
           content:
@@ -15284,6 +15595,9 @@ paths:
                 value:
                   vendorCreditIds:
                     - vcr_c3f4c87d-794d-4543-9562-575cdddfc0d7
+              VoidCheck:
+                value:
+                  status: FAILED
     delete:
       description: Only invoices in the UNASSIGNED and DRAFT statuses can be deleted.
       operationId: invoice_delete
@@ -16767,1008 +17081,6 @@ paths:
                     - session_456
               All Sessions:
                 value: {}
-  /payment-gateway/validation-jobs:
-    get:
-      description: Search payment gateway validation jobs for the organization
-      operationId: paymentGateway_findValidationJobs
-      tags:
-        - PaymentGateway
-      parameters:
-        - name: status
-          in: query
-          description: Filter jobs by status
-          required: false
-          schema:
-            $ref: '#/components/schemas/PaymentGatewayJobStatus'
-            nullable: true
-          example: FAILED
-          examples:
-            Find failed validation jobs:
-              value: FAILED
-        - name: startDate
-          in: query
-          description: Start date filter for job creation time
-          required: false
-          schema:
-            type: string
-            format: date-time
-            nullable: true
-          example: '2024-01-01T00:00:00Z'
-          examples:
-            Find failed validation jobs:
-              value: '2024-01-01T00:00:00Z'
-        - name: endDate
-          in: query
-          description: End date filter for job creation time
-          required: false
-          schema:
-            type: string
-            format: date-time
-            nullable: true
-          example: '2024-12-31T23:59:59Z'
-          examples:
-            Find failed validation jobs:
-              value: '2024-12-31T23:59:59Z'
-        - name: orderBy
-          in: query
-          description: Field to order jobs by. Defaults to CREATED_AT.
-          required: false
-          schema:
-            $ref: '#/components/schemas/PaymentGatewayJobOrderByField'
-            nullable: true
-        - name: orderDirection
-          in: query
-          description: Direction to order jobs by. Defaults to desc.
-          required: false
-          schema:
-            $ref: '#/components/schemas/OrderDirection'
-            nullable: true
-        - name: limit
-          in: query
-          description: >-
-            Number of jobs to return. Limit can range between 1 and 100, and the
-            default is 10.
-          required: false
-          schema:
-            type: integer
-            nullable: true
-        - name: startingAfter
-          in: query
-          description: >-
-            The ID of the job to start after. If not provided, the first page of
-            jobs will be returned.
-          required: false
-          schema:
-            type: string
-            nullable: true
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: >-
-                  #/components/schemas/SearchPaymentGatewayValidationJobsResponse
-              examples:
-                Find failed validation jobs:
-                  value:
-                    jobs:
-                      - jobStatus: pending
-                        jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                        createdAt: '2024-01-01T00:00:00Z'
-                        updatedAt: '2024-01-01T00:00:00Z'
-                      - jobStatus: success
-                        jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                        paymentGatewayUrl: >-
-                          https://www.payment-gateway.com/invoice/pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                        sessionUrl: >-
-                          https://www.payment-gateway.com/session/pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                        card:
-                          eligibility: ACCEPTED
-                          fee:
-                            type: percentage
-                            value: 2.5
-                        createdAt: '2024-01-01T00:00:00Z'
-                        updatedAt: '2024-01-01T00:00:00Z'
-                      - jobStatus: failed
-                        jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                        errorType: NO_VALID_PAYMENT_GATEWAY_FOUND
-                        errorMessage: >-
-                          No valid payment gateway was found in the document or
-                          HTML
-                        createdAt: '2024-01-01T00:00:00Z'
-                        updatedAt: '2024-01-01T00:00:00Z'
-                    hasMore: true
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Search validation jobs
-      security:
-        - BearerAuth: []
-  /payment-gateway/process-jobs:
-    get:
-      description: Search payment gateway process jobs for the organization
-      operationId: paymentGateway_findProcessJobs
-      tags:
-        - PaymentGateway
-      parameters:
-        - name: status
-          in: query
-          description: Filter jobs by status
-          required: false
-          schema:
-            $ref: '#/components/schemas/PaymentGatewayJobStatus'
-            nullable: true
-          example: FAILED
-          examples:
-            Find failed process jobs:
-              value: FAILED
-        - name: startDate
-          in: query
-          description: Start date filter for job creation time
-          required: false
-          schema:
-            type: string
-            format: date-time
-            nullable: true
-          example: '2024-01-01T00:00:00Z'
-          examples:
-            Find failed process jobs:
-              value: '2024-01-01T00:00:00Z'
-        - name: endDate
-          in: query
-          description: End date filter for job creation time
-          required: false
-          schema:
-            type: string
-            format: date-time
-            nullable: true
-          example: '2024-12-31T23:59:59Z'
-          examples:
-            Find failed process jobs:
-              value: '2024-12-31T23:59:59Z'
-        - name: orderBy
-          in: query
-          description: Field to order jobs by. Defaults to CREATED_AT.
-          required: false
-          schema:
-            $ref: '#/components/schemas/PaymentGatewayJobOrderByField'
-            nullable: true
-        - name: orderDirection
-          in: query
-          description: Direction to order jobs by. Defaults to desc.
-          required: false
-          schema:
-            $ref: '#/components/schemas/OrderDirection'
-            nullable: true
-        - name: limit
-          in: query
-          description: >-
-            Number of jobs to return. Limit can range between 1 and 100, and the
-            default is 10.
-          required: false
-          schema:
-            type: integer
-            nullable: true
-        - name: startingAfter
-          in: query
-          description: >-
-            The ID of the job to start after. If not provided, the first page of
-            jobs will be returned.
-          required: false
-          schema:
-            type: string
-            nullable: true
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SearchPaymentGatewayProcessJobsResponse'
-              examples:
-                Find failed process jobs:
-                  value:
-                    jobs:
-                      - jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                        jobStatus: pending
-                        createdAt: '2024-01-01T00:00:00Z'
-                        updatedAt: '2024-01-01T00:00:00Z'
-                      - jobStatus: success
-                        jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                        receiptUrl: https://www.payment-gateway.com/receipt/123123
-                        createdAt: '2024-01-01T00:00:00Z'
-                        updatedAt: '2024-01-01T00:00:00Z'
-                      - jobStatus: failed
-                        jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                        errorType: NO_VALID_PAYMENT_GATEWAY_FOUND
-                        errorMessage: >-
-                          No valid payment gateway was found in the document or
-                          HTML
-                        createdAt: '2024-01-01T00:00:00Z'
-                        updatedAt: '2024-01-01T00:00:00Z'
-                    hasMore: true
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Search process jobs
-      security:
-        - BearerAuth: []
-  /payment-gateway/validate:
-    post:
-      description: Create a job to validate a payment gateway
-      operationId: paymentGateway_createValidationJob
-      tags:
-        - PaymentGateway
-      parameters: []
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidatePaymentGatewayResponse'
-              examples:
-                Document:
-                  value:
-                    jobStatus: pending
-                    jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                    createdAt: '2024-01-01T00:00:00Z'
-                    updatedAt: '2024-01-01T00:00:00Z'
-                HTML:
-                  value:
-                    jobStatus: pending
-                    jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                    createdAt: '2024-01-01T00:00:00Z'
-                    updatedAt: '2024-01-01T00:00:00Z'
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Create Validation Job
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ValidatePaymentGatewayRequest'
-            examples:
-              Document:
-                value:
-                  type: document
-                  document: >-
-                    data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
-              HTML:
-                value:
-                  type: html
-                  html: >-
-                    <html><body><h1>Invoice Details</h1><a
-                    href="https://www.payment-gateway.com/invoice/job_1a92b5f7-f522-435e-a953-fd649363730a4567890">Pay
-                    Invoice</a></body></html>
-  /payment-gateway/validate/{jobId}:
-    get:
-      description: Get the status of a payment gateway validation job
-      operationId: paymentGateway_getValidationJob
-      tags:
-        - PaymentGateway
-      parameters:
-        - name: jobId
-          in: path
-          description: The ID of the payment gateway validation job
-          required: true
-          schema:
-            type: string
-          example: job_1a92b5f7-f522-435e-a953-fd649363730a
-          examples:
-            Default:
-              value: job_1a92b5f7-f522-435e-a953-fd649363730a
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidatePaymentGatewayResponse'
-              examples:
-                Default:
-                  value:
-                    jobStatus: success
-                    jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                    paymentGatewayUrl: >-
-                      https://www.payment-gateway.com/invoice/pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                    sessionUrl: >-
-                      https://www.payment-gateway.com/session/pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                    card:
-                      eligibility: ACCEPTED
-                      fee:
-                        type: percentage
-                        value: 2.5
-                    createdAt: '2024-01-01T00:00:00Z'
-                    updatedAt: '2024-01-01T00:00:00Z'
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Get Validation Job
-      security:
-        - BearerAuth: []
-  /payment-gateway/process:
-    post:
-      description: Create a job to process a payment through a payment gateway
-      operationId: paymentGateway_createProcessJob
-      tags:
-        - PaymentGateway
-      parameters: []
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProcessPaymentGatewayResponse'
-              examples:
-                Direct:
-                  value:
-                    jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                    jobStatus: pending
-                    createdAt: '2024-01-01T00:00:00Z'
-                    updatedAt: '2024-01-01T00:00:00Z'
-                Iframe:
-                  value:
-                    jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                    jobStatus: pending
-                    createdAt: '2024-01-01T00:00:00Z'
-                    updatedAt: '2024-01-01T00:00:00Z'
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Create Process Job
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ProcessPaymentGatewayRequest'
-            examples:
-              Direct:
-                value:
-                  type: document
-                  document: >-
-                    data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
-                  cardDetails:
-                    type: direct
-                    firstName: John
-                    lastName: Doe
-                    cardNumber: '4242424242424242'
-                    expirationMonth: 10
-                    expirationYear: 2025
-                    cvv: '123'
-                    postalCode: '12345'
-                    country: US
-              Iframe:
-                value:
-                  type: html
-                  html: >-
-                    <html><body><h1>Invoice Details</h1><a
-                    href="https://www.payment-gateway.com/invoice/123123">Pay
-                    Invoice</a></body></html>
-                  cardDetails:
-                    type: iframe
-                    firstName: John
-                    lastName: Doe
-                    postalCode: '12345'
-                    country: US
-                    iframeUrl: https://www.myvirtualcard.com/iframe/543543
-  /payment-gateway/process/{jobId}:
-    get:
-      description: Get the status of a payment gateway processing job
-      operationId: paymentGateway_getProcessJob
-      tags:
-        - PaymentGateway
-      parameters:
-        - name: jobId
-          in: path
-          description: The ID of the payment gateway processing job
-          required: true
-          schema:
-            type: string
-          example: job_1a92b5f7-f522-435e-a953-fd649363730a
-          examples:
-            Default:
-              value: job_1a92b5f7-f522-435e-a953-fd649363730a
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProcessPaymentGatewayResponse'
-              examples:
-                Default:
-                  value:
-                    jobStatus: success
-                    jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
-                    receiptUrl: https://www.payment-gateway.com/receipt/123123
-                    createdAt: '2024-01-01T00:00:00Z'
-                    updatedAt: '2024-01-01T00:00:00Z'
-        '400':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - BadRequest
-                      content:
-                        type: string
-        '401':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unauthorized
-                      content:
-                        type: string
-        '403':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Forbidden
-                      content:
-                        type: string
-        '404':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - NotFound
-                      content:
-                        type: string
-        '409':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Conflict
-                      content:
-                        type: string
-        '500':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - InternalServerError
-                      content:
-                        type: string
-        '501':
-          description: ''
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - type: object
-                    properties:
-                      errorName:
-                        type: string
-                        enum:
-                          - Unimplemented
-                      content:
-                        type: string
-      summary: Get Process Job
-      security:
-        - BearerAuth: []
   /bankLookup:
     get:
       description: Find bank account details
@@ -37883,6 +37195,1017 @@ paths:
       summary: Reset
       security:
         - BearerAuth: []
+  /payment-gateway/process-jobs:
+    get:
+      description: Search payment gateway process jobs
+      operationId: paymentGateway_process_find
+      tags:
+        - PaymentGatewayProcess
+      parameters:
+        - name: status
+          in: query
+          description: Filter jobs by status
+          required: false
+          schema:
+            $ref: '#/components/schemas/PaymentGatewayJobStatus'
+            nullable: true
+          example: FAILED
+          examples:
+            Find failed process jobs:
+              value: FAILED
+        - name: startDate
+          in: query
+          description: Start date filter for job creation time
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+          example: '2024-01-01T00:00:00Z'
+          examples:
+            Find failed process jobs:
+              value: '2024-01-01T00:00:00Z'
+        - name: endDate
+          in: query
+          description: End date filter for job creation time
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+          example: '2024-12-31T23:59:59Z'
+          examples:
+            Find failed process jobs:
+              value: '2024-12-31T23:59:59Z'
+        - name: orderBy
+          in: query
+          description: Field to order jobs by. Defaults to CREATED_AT.
+          required: false
+          schema:
+            $ref: '#/components/schemas/PaymentGatewayJobOrderByField'
+            nullable: true
+        - name: orderDirection
+          in: query
+          description: Direction to order jobs by. Defaults to desc.
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+            nullable: true
+        - name: limit
+          in: query
+          description: >-
+            Number of jobs to return. Limit can range between 1 and 100, and the
+            default is 10.
+          required: false
+          schema:
+            type: integer
+            nullable: true
+        - name: startingAfter
+          in: query
+          description: >-
+            The ID of the job to start after. If not provided, the first page of
+            jobs will be returned.
+          required: false
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchPaymentGatewayProcessJobsResponse'
+              examples:
+                Find failed process jobs:
+                  value:
+                    jobs:
+                      - jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        jobStatus: pending
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                      - jobStatus: success
+                        jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        receiptUrl: https://www.payment-gateway.com/receipt/123123
+                        invoiceAmount: 150.75
+                        gatewayAmount: 155.5
+                        vendorName: Acme Corporation
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                      - jobStatus: failed
+                        jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        errorType: NO_VALID_PAYMENT_GATEWAY_FOUND
+                        errorMessage: >-
+                          No valid payment gateway was found in the document or
+                          HTML
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                    hasMore: true
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Find Process Jobs
+      security:
+        - BearerAuth: []
+  /payment-gateway/process:
+    post:
+      description: Create a job to process a payment through a payment gateway
+      operationId: paymentGateway_process_create
+      tags:
+        - PaymentGatewayProcess
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessPaymentGatewayResponse'
+              examples:
+                Direct:
+                  value:
+                    jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                    jobStatus: pending
+                    createdAt: '2024-01-01T00:00:00Z'
+                    updatedAt: '2024-01-01T00:00:00Z'
+                Iframe:
+                  value:
+                    jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                    jobStatus: pending
+                    createdAt: '2024-01-01T00:00:00Z'
+                    updatedAt: '2024-01-01T00:00:00Z'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Create Process Job
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessPaymentGatewayRequest'
+            examples:
+              Direct:
+                value:
+                  type: document
+                  document: >-
+                    data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
+                  cardDetails:
+                    type: direct
+                    firstName: John
+                    lastName: Doe
+                    cardNumber: '4242424242424242'
+                    expirationMonth: 10
+                    expirationYear: 2025
+                    cvv: '123'
+                    postalCode: '12345'
+                    country: US
+              Iframe:
+                value:
+                  type: html
+                  html: >-
+                    <html><body><h1>Invoice Details</h1><a
+                    href="https://www.payment-gateway.com/invoice/123123">Pay
+                    Invoice</a></body></html>
+                  cardDetails:
+                    type: iframe
+                    firstName: John
+                    lastName: Doe
+                    postalCode: '12345'
+                    country: US
+                    cardType: debit
+                    iframeUrl: https://www.myvirtualcard.com/iframe/543543
+  /payment-gateway/process/{jobId}:
+    get:
+      description: Get the status of a payment gateway processing job
+      operationId: paymentGateway_process_get
+      tags:
+        - PaymentGatewayProcess
+      parameters:
+        - name: jobId
+          in: path
+          description: The ID of the payment gateway processing job
+          required: true
+          schema:
+            type: string
+          example: job_1a92b5f7-f522-435e-a953-fd649363730a
+          examples:
+            Default:
+              value: job_1a92b5f7-f522-435e-a953-fd649363730a
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessPaymentGatewayResponse'
+              examples:
+                Default:
+                  value:
+                    jobStatus: success
+                    jobId: pgp_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                    receiptUrl: https://www.payment-gateway.com/receipt/123123
+                    invoiceAmount: 150.75
+                    gatewayAmount: 155.5
+                    vendorName: Acme Corporation
+                    createdAt: '2024-01-01T00:00:00Z'
+                    updatedAt: '2024-01-01T00:00:00Z'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Get Process Job
+      security:
+        - BearerAuth: []
+  /payment-gateway/validation-jobs:
+    get:
+      description: Search payment gateway validation jobs
+      operationId: paymentGateway_validate_find
+      tags:
+        - PaymentGatewayValidate
+      parameters:
+        - name: status
+          in: query
+          description: Filter jobs by status
+          required: false
+          schema:
+            $ref: '#/components/schemas/PaymentGatewayJobStatus'
+            nullable: true
+          example: FAILED
+          examples:
+            Find failed validation jobs:
+              value: FAILED
+        - name: startDate
+          in: query
+          description: Start date filter for job creation time
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+          example: '2024-01-01T00:00:00Z'
+          examples:
+            Find failed validation jobs:
+              value: '2024-01-01T00:00:00Z'
+        - name: endDate
+          in: query
+          description: End date filter for job creation time
+          required: false
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+          example: '2024-12-31T23:59:59Z'
+          examples:
+            Find failed validation jobs:
+              value: '2024-12-31T23:59:59Z'
+        - name: orderBy
+          in: query
+          description: Field to order jobs by. Defaults to CREATED_AT.
+          required: false
+          schema:
+            $ref: '#/components/schemas/PaymentGatewayJobOrderByField'
+            nullable: true
+        - name: orderDirection
+          in: query
+          description: Direction to order jobs by. Defaults to desc.
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+            nullable: true
+        - name: limit
+          in: query
+          description: >-
+            Number of jobs to return. Limit can range between 1 and 100, and the
+            default is 10.
+          required: false
+          schema:
+            type: integer
+            nullable: true
+        - name: startingAfter
+          in: query
+          description: >-
+            The ID of the job to start after. If not provided, the first page of
+            jobs will be returned.
+          required: false
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/SearchPaymentGatewayValidationJobsResponse
+              examples:
+                Find failed validation jobs:
+                  value:
+                    jobs:
+                      - jobStatus: pending
+                        jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                      - jobStatus: success
+                        jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        paymentGatewayUrl: >-
+                          https://www.payment-gateway.com/invoice/pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        card:
+                          eligibility: ACCEPTED
+                          fee:
+                            type: percentage
+                            value: 2.5
+                        invoiceAmount: 150.75
+                        gatewayAmount: 155.5
+                        vendorName: Acme Corporation
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                      - jobStatus: failed
+                        jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        errorType: NO_VALID_PAYMENT_GATEWAY_FOUND
+                        errorMessage: >-
+                          No valid payment gateway was found in the document or
+                          HTML
+                        createdAt: '2024-01-01T00:00:00Z'
+                        updatedAt: '2024-01-01T00:00:00Z'
+                    hasMore: true
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Find Validation Jobs
+      security:
+        - BearerAuth: []
+  /payment-gateway/validate:
+    post:
+      description: Create a job to validate a payment gateway
+      operationId: paymentGateway_validate_create
+      tags:
+        - PaymentGatewayValidate
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidatePaymentGatewayResponse'
+              examples:
+                Document:
+                  value:
+                    jobStatus: pending
+                    jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                    createdAt: '2024-01-01T00:00:00Z'
+                    updatedAt: '2024-01-01T00:00:00Z'
+                HTML:
+                  value:
+                    jobStatus: pending
+                    jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                    createdAt: '2024-01-01T00:00:00Z'
+                    updatedAt: '2024-01-01T00:00:00Z'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Create Validation Job
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidatePaymentGatewayRequest'
+            examples:
+              Document:
+                value:
+                  type: document
+                  document: >-
+                    data:application/pdf;base64,JVBERi0xLjEKJcKlwrHDqwoKMSAwIG9iagogIDw8IC9UeXBlIC9DYXRhbG9nCiAgICAgL1BhZ2VzIDIgMCBSCiAgPj4KZW5kb2JqCgoyIDAgb2JqCiAgPDwgL1R5cGUgL1BhZ2VzCiAgICAgL0tpZHMgWzMgMCBSXQogICAgIC9Db3VudCAxCiAgICAgL01lZGlhQm94IFswIDAgMzAwIDE0NF0KICA+PgplbmRvYmoKCjMgMCBvYmoKICA8PCAgL1R5cGUgL1BhZ2UKICAgICAgL1BhcmVudCAyIDAgUgogICAgICAvUmVzb3VyY2VzCiAgICAgICA8PCAvRm9udAogICAgICAgICAgIDw8IC9GMQogICAgICAgICAgICAgICA8PCAvVHlwZSAvRm9udAogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTEKICAgICAgICAgICAgICAgICAgL0Jhc2VGb250IC9UaW1lcy1Sb21hbgogICAgICAgICAgICAgICA+PgogICAgICAgICAgID4+CiAgICAgICA+PgogICAgICAvQ29udGVudHMgNCAwIFIKICA+PgplbmRvYmoKCjQgMCBvYmoKICA8PCAvTGVuZ3RoIDU1ID4+CnN0cmVhbQogIEJUCiAgICAvRjEgMTggVGYKICAgIDAgMCBUZAogICAgKEhlbGxvIFdvcmxkKSBUagogIEVUCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOCAwMDAwMCBuIAowMDAwMDAwMDc3IDAwMDAwIG4gCjAwMDAwMDAxNzggMDAwMDAgbiAKMDAwMDAwMDQ1NyAwMDAwMCBuIAp0cmFpbGVyCiAgPDwgIC9Sb290IDEgMCBSCiAgICAgIC9TaXplIDUKICA+PgpzdGFydHhyZWYKNTY1CiUlRU9GCg==
+              HTML:
+                value:
+                  type: html
+                  html: >-
+                    <html><body><h1>Invoice Details</h1><a
+                    href="https://www.payment-gateway.com/invoice/job_1a92b5f7-f522-435e-a953-fd649363730a4567890">Pay
+                    Invoice</a></body></html>
+  /payment-gateway/validate/{jobId}:
+    get:
+      description: Get the status of a payment gateway validation job
+      operationId: paymentGateway_validate_get
+      tags:
+        - PaymentGatewayValidate
+      parameters:
+        - name: jobId
+          in: path
+          description: The ID of the payment gateway validation job
+          required: true
+          schema:
+            type: string
+          example: job_1a92b5f7-f522-435e-a953-fd649363730a
+          examples:
+            Default:
+              value: job_1a92b5f7-f522-435e-a953-fd649363730a
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidatePaymentGatewayResponse'
+              examples:
+                Default:
+                  value:
+                    jobStatus: success
+                    jobId: pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                    paymentGatewayUrl: >-
+                      https://www.payment-gateway.com/invoice/pgv_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                    card:
+                      eligibility: ACCEPTED
+                      fee:
+                        type: percentage
+                        value: 2.5
+                    invoiceAmount: 150.75
+                    gatewayAmount: 155.5
+                    vendorName: Acme Corporation
+                    createdAt: '2024-01-01T00:00:00Z'
+                    updatedAt: '2024-01-01T00:00:00Z'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - BadRequest
+                      content:
+                        type: string
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unauthorized
+                      content:
+                        type: string
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Forbidden
+                      content:
+                        type: string
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - NotFound
+                      content:
+                        type: string
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Conflict
+                      content:
+                        type: string
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - InternalServerError
+                      content:
+                        type: string
+        '501':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      errorName:
+                        type: string
+                        enum:
+                          - Unimplemented
+                      content:
+                        type: string
+      summary: Get Validation Job
+      security:
+        - BearerAuth: []
   /paymentMethods:
     get:
       operationId: paymentMethods_find
@@ -38956,6 +39279,7 @@ paths:
                         status: COMPLETED
                         amount: 10000
                         currency: USD
+                        mailedOnDate: '2024-01-01T00:00:00Z'
                         payerId: ent_bb08e72f-19f8-45f3-bcf9-46fdc46cb2f4
                         payer:
                           id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
@@ -41091,6 +41415,7 @@ paths:
                     status: COMPLETED
                     amount: 10000
                     currency: USD
+                    mailedOnDate: '2024-01-01T00:00:00Z'
                     payerId: ent_bb08e72f-19f8-45f3-bcf9-46fdc46cb2f4
                     payer:
                       id: ent_8545a84e-a45f-41bf-bdf1-33b42a55812c
@@ -49340,16 +49665,24 @@ components:
           type: string
           nullable: true
           description: The payment gateway URL that was found in the document
-        sessionUrl:
-          type: string
-          nullable: true
-          description: >-
-            The URL of the playback session for the agent that validated the
-            payment gateway
         card:
           $ref: '#/components/schemas/ValidatePaymentGatewayCardResponse'
           nullable: true
           description: Data on the card payments that were extracted from the gateway
+        invoiceAmount:
+          type: number
+          format: double
+          nullable: true
+          description: The invoice amount detected from the payment gateway
+        gatewayAmount:
+          type: number
+          format: double
+          nullable: true
+          description: The amount displayed on the payment gateway (may include fees)
+        vendorName:
+          type: string
+          nullable: true
+          description: The vendor name detected from the payment gateway
         createdAt:
           type: string
           format: date-time
@@ -49525,6 +49858,23 @@ components:
                 #/components/schemas/ProcessPaymentGatewayCardDetailsStripeIssuing
           required:
             - type
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - lithic
+            - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsLithic'
+          required:
+            - type
+    ProcessPaymentGatewayCardType:
+      title: ProcessPaymentGatewayCardType
+      type: string
+      enum:
+        - credit
+        - debit
     ProcessPaymentGatewayCardDetailsBase:
       title: ProcessPaymentGatewayCardDetailsBase
       type: object
@@ -49541,6 +49891,10 @@ components:
         country:
           $ref: '#/components/schemas/CountryCode'
           description: The country of the address of the card
+        cardType:
+          $ref: '#/components/schemas/ProcessPaymentGatewayCardType'
+          nullable: true
+          description: The type of card (credit or debit). Defaults to debit.
         phoneNumber:
           type: string
           nullable: true
@@ -49628,6 +49982,24 @@ components:
         - ephemeralKeyEndpoint
       allOf:
         - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsBase'
+    ProcessPaymentGatewayCardDetailsLithic:
+      title: ProcessPaymentGatewayCardDetailsLithic
+      type: object
+      properties:
+        embedRequest:
+          type: string
+          description: The base64-encoded embed request for the Lithic virtual card
+          example: >-
+            eyJ0b2tlbiI6InNhbXBsZV90b2tlbiIsImNzcyI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9tZXJjb2EtcGFydG5lci1sb2dvcy9saXRoaWMuY3NzIn0=
+        hmac:
+          type: string
+          description: The HMAC signature for the embed request
+          example: abc123def456ghi789
+      required:
+        - embedRequest
+        - hmac
+      allOf:
+        - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsBase'
     ProcessPaymentGatewayPendingResponse:
       title: ProcessPaymentGatewayPendingResponse
       type: object
@@ -49687,12 +50059,20 @@ components:
           type: string
           nullable: true
           description: The URL of the receipt that was downloaded from the payment gateway
-        sessionUrl:
+        invoiceAmount:
+          type: number
+          format: double
+          nullable: true
+          description: The invoice amount detected from the payment gateway
+        gatewayAmount:
+          type: number
+          format: double
+          nullable: true
+          description: The amount displayed on the payment gateway (may include fees)
+        vendorName:
           type: string
           nullable: true
-          description: >-
-            The URL of the playback session for the agent that processed the
-            payment
+          description: The vendor name detected from the payment gateway
         createdAt:
           type: string
           format: date-time
@@ -49748,6 +50128,8 @@ components:
         - NO_VALID_PAYMENT_GATEWAY_FOUND
         - PAYMENT_GATEWAY_UNSUPPORTED
         - CARD_DETAILS_INVALID
+        - CARD_DECLINED
+        - INVOICE_AMOUNT_MISMATCH
     PaymentGatewayJobOrderByField:
       title: PaymentGatewayJobOrderByField
       type: string
@@ -51229,6 +51611,19 @@ components:
         - checkNumber
       allOf:
         - $ref: '#/components/schemas/TransactionResponseBase'
+    TransactionResponseCheckBaseMailed:
+      title: TransactionResponseCheckBaseMailed
+      type: object
+      properties:
+        mailedOnDate:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            The date the check was mailed. If the check was not mailed, this
+            field will be null.
+      allOf:
+        - $ref: '#/components/schemas/TransactionResponseCheckBase'
     TransactionResponseBankToBankWithInvoices:
       title: TransactionResponseBankToBankWithInvoices
       type: object
@@ -51242,8 +51637,21 @@ components:
         - invoices
       allOf:
         - $ref: '#/components/schemas/TransactionResponseAchBase'
-    TransactionResponseBankToCheckWithInvoices:
-      title: TransactionResponseBankToCheckWithInvoices
+    TransactionResponseBankToMailedCheckWithInvoices:
+      title: TransactionResponseBankToMailedCheckWithInvoices
+      type: object
+      properties:
+        invoices:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvoiceResponse'
+          description: Invoices associated with this transaction
+      required:
+        - invoices
+      allOf:
+        - $ref: '#/components/schemas/TransactionResponseCheckBaseMailed'
+    TransactionResponseBankToPrintedCheckWithInvoices:
+      title: TransactionResponseBankToPrintedCheckWithInvoices
       type: object
       properties:
         invoices:
@@ -51355,7 +51763,7 @@ components:
                   type: string
                   enum:
                     - bankAccountToMailedCheck
-            - $ref: '#/components/schemas/TransactionResponseCheckBase'
+            - $ref: '#/components/schemas/TransactionResponseCheckBaseMailed'
           required:
             - type
         - type: object
@@ -51468,7 +51876,8 @@ components:
                   type: string
                   enum:
                     - bankAccountToMailedCheck
-            - $ref: '#/components/schemas/TransactionResponseBankToCheckWithInvoices'
+            - $ref: >-
+                #/components/schemas/TransactionResponseBankToMailedCheckWithInvoices
           required:
             - type
         - type: object
@@ -51479,7 +51888,8 @@ components:
                   type: string
                   enum:
                     - bankAccountToPrintedCheck
-            - $ref: '#/components/schemas/TransactionResponseBankToCheckWithInvoices'
+            - $ref: >-
+                #/components/schemas/TransactionResponseBankToPrintedCheckWithInvoices
           required:
             - type
         - type: object
