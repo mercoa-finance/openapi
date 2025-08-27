@@ -11700,6 +11700,15 @@ paths:
             items:
               $ref: '#/components/schemas/ApproverAction'
               nullable: true
+        - name: approverCount
+          in: query
+          description: >-
+            Filter invoices by the number of approvers. Use exact number (e.g.,
+            3) or range (e.g., ">3", "<5", ">=2", "<=4").
+          required: false
+          schema:
+            type: string
+            nullable: true
         - name: invoiceId
           in: query
           description: Filter invoices by invoice ID or invoice foreign ID.
@@ -18625,6 +18634,15 @@ paths:
             items:
               $ref: '#/components/schemas/ApproverAction'
               nullable: true
+        - name: approverCount
+          in: query
+          description: >-
+            Filter invoices by the number of approvers. Use exact number (e.g.,
+            3) or range (e.g., ">3", "<5", ">=2", "<=4").
+          required: false
+          schema:
+            type: string
+            nullable: true
         - name: invoiceId
           in: query
           description: Filter invoices by invoice ID or invoice foreign ID.
@@ -19634,6 +19652,15 @@ paths:
             items:
               $ref: '#/components/schemas/EntityUserId'
               nullable: true
+        - name: approverCount
+          in: query
+          description: >-
+            Filter invoices by the number of approvers. Use exact number (e.g.,
+            3) or range (e.g., ">3", "<5", ">=2", "<=4").
+          required: false
+          schema:
+            type: string
+            nullable: true
         - name: invoiceId
           in: query
           description: Filter invoices by invoice ID or invoice foreign ID.
@@ -23140,6 +23167,11 @@ paths:
                       assumeRole: admin
                     workflow:
                       autoAdvanceInvoiceStatus: true
+                    invoice:
+                      hideAddress: false
+                      hideQrCode: false
+                      hideBankDetails: false
+                      hidePaymentLink: false
                     rolePermissions:
                       admin:
                         - invoice.all
@@ -23390,6 +23422,11 @@ paths:
                       assumeRole: admin
                     workflow:
                       autoAdvanceInvoiceStatus: true
+                    invoice:
+                      hideAddress: false
+                      hideQrCode: false
+                      hideBankDetails: false
+                      hidePaymentLink: false
                     rolePermissions:
                       admin:
                         - invoice.all
@@ -23621,6 +23658,11 @@ paths:
                     assumeRole: admin
                   workflow:
                     autoAdvanceInvoiceStatus: true
+                  invoice:
+                    hideAddress: false
+                    hideQrCode: false
+                    hideBankDetails: false
+                    hidePaymentLink: false
                   rolePermissions:
                     admin:
                       - invoice.all
@@ -25605,6 +25647,15 @@ paths:
             items:
               $ref: '#/components/schemas/ApproverAction'
               nullable: true
+        - name: approverCount
+          in: query
+          description: >-
+            Filter invoices by the number of approvers. Use exact number (e.g.,
+            3) or range (e.g., ">3", "<5", ">=2", "<=4").
+          required: false
+          schema:
+            type: string
+            nullable: true
         - name: invoiceId
           in: query
           description: Filter invoices by invoice ID or invoice foreign ID.
@@ -26267,6 +26318,15 @@ paths:
             items:
               $ref: '#/components/schemas/EntityUserId'
               nullable: true
+        - name: approverCount
+          in: query
+          description: >-
+            Filter invoices by the number of approvers. Use exact number (e.g.,
+            3) or range (e.g., ">3", "<5", ">=2", "<=4").
+          required: false
+          schema:
+            type: string
+            nullable: true
         - name: invoiceId
           in: query
           description: Filter invoices by invoice ID or invoice foreign ID.
@@ -37290,6 +37350,12 @@ paths:
                         invoiceAmount: 150.75
                         gatewayAmount: 155.5
                         vendorName: Acme Corporation
+                        attempts:
+                          - id: pgpa_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                            status: COMPLETED
+                            amount: 150.75
+                            receiptUrl: https://www.payment-gateway.com/receipt/123123
+                            createdAt: '2024-01-01T00:00:00Z'
                         createdAt: '2024-01-01T00:00:00Z'
                         updatedAt: '2024-01-01T00:00:00Z'
                       - jobStatus: failed
@@ -37552,6 +37618,10 @@ paths:
                     cvv: '123'
                     postalCode: '12345'
                     country: US
+                    achDetails:
+                      routingNumber: '123456789'
+                      accountNumber: '987654321'
+                      accountName: John Doe
               Iframe:
                 value:
                   type: html
@@ -37567,6 +37637,10 @@ paths:
                     country: US
                     cardType: debit
                     iframeUrl: https://www.myvirtualcard.com/iframe/543543
+                    achDetails:
+                      routingNumber: '123456789'
+                      accountNumber: '987654321'
+                      accountName: John Doe
   /payment-gateway/process/{jobId}:
     get:
       description: Get the status of a payment gateway processing job
@@ -37600,6 +37674,12 @@ paths:
                     invoiceAmount: 150.75
                     gatewayAmount: 155.5
                     vendorName: Acme Corporation
+                    attempts:
+                      - id: pgpa_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+                        status: COMPLETED
+                        amount: 150.75
+                        receiptUrl: https://www.payment-gateway.com/receipt/123123
+                        createdAt: '2024-01-01T00:00:00Z'
                     createdAt: '2024-01-01T00:00:00Z'
                     updatedAt: '2024-01-01T00:00:00Z'
         '400':
@@ -43446,6 +43526,67 @@ components:
             stage in the payment workflow. For example, if the invoice is
             APPROVED, but has all necessary data to move to SCHEDULED, it will
             be advanced to SCHEDULED.
+    InvoiceCustomizationRequest:
+      title: InvoiceCustomizationRequest
+      type: object
+      properties:
+        hideAddress:
+          type: boolean
+          nullable: true
+          description: >-
+            If true, the address information will be hidden from generated
+            invoice PDFs. Defaults to false.
+        hideQrCode:
+          type: boolean
+          nullable: true
+          description: >-
+            If true, the QR code will be hidden from generated invoice PDFs.
+            Defaults to false.
+        hideBankDetails:
+          type: boolean
+          nullable: true
+          description: >-
+            If true, the bank account details will be hidden from generated
+            invoice PDFs. Defaults to false.
+        hidePaymentLink:
+          type: boolean
+          nullable: true
+          description: >-
+            If true, the payment link will be hidden from generated invoice
+            PDFs. Defaults to false.
+    InvoiceCustomizationResponse:
+      title: InvoiceCustomizationResponse
+      type: object
+      properties:
+        hideAddress:
+          type: boolean
+          description: >-
+            If true, the address information will be hidden from generated
+            invoice PDFs. Defaults to false.
+          example: false
+        hideQrCode:
+          type: boolean
+          description: >-
+            If true, the QR code will be hidden from generated invoice PDFs.
+            Defaults to false.
+          example: false
+        hideBankDetails:
+          type: boolean
+          description: >-
+            If true, the bank account details will be hidden from generated
+            invoice PDFs. Defaults to false.
+          example: false
+        hidePaymentLink:
+          type: boolean
+          description: >-
+            If true, the payment link will be hidden from generated invoice
+            PDFs. Defaults to false.
+          example: false
+      required:
+        - hideAddress
+        - hideQrCode
+        - hideBankDetails
+        - hidePaymentLink
     EmailLogId:
       title: EmailLogId
       type: string
@@ -45594,6 +45735,9 @@ components:
         workflow:
           $ref: '#/components/schemas/WorkflowCustomizationRequest'
           nullable: true
+        invoice:
+          $ref: '#/components/schemas/InvoiceCustomizationRequest'
+          nullable: true
         fees:
           $ref: '#/components/schemas/FeeCustomizationRequest'
           nullable: true
@@ -45626,6 +45770,8 @@ components:
           $ref: '#/components/schemas/NotificationCustomizationRequest'
         workflow:
           $ref: '#/components/schemas/WorkflowCustomizationRequest'
+        invoice:
+          $ref: '#/components/schemas/InvoiceCustomizationResponse'
         fees:
           $ref: '#/components/schemas/FeeCustomizationRequest'
         rolePermissions:
@@ -45638,6 +45784,7 @@ components:
         - ocr
         - notifications
         - workflow
+        - invoice
         - fees
         - rolePermissions
     EntityEventId:
@@ -49790,6 +49937,29 @@ components:
             - $ref: '#/components/schemas/ProcessPaymentGatewayRequestHTML'
           required:
             - type
+    ProcessPaymentGatewayAchDetails:
+      title: ProcessPaymentGatewayAchDetails
+      type: object
+      properties:
+        routingNumber:
+          type: string
+          description: The routing number of the ACH account
+          example: '123456789'
+        accountNumber:
+          type: string
+          description: The account number of the ACH account
+          example: '987654321'
+        accountName:
+          type: string
+          nullable: true
+          description: The name on the ACH account
+        accountType:
+          $ref: '#/components/schemas/BankType'
+          nullable: true
+          description: The type of bank account (checking or savings)
+      required:
+        - routingNumber
+        - accountNumber
     EphemeralKeyEndpoint:
       title: EphemeralKeyEndpoint
       type: object
@@ -49907,6 +50077,12 @@ components:
           type: string
           nullable: true
           description: The full address of the card user
+        achDetails:
+          $ref: '#/components/schemas/ProcessPaymentGatewayAchDetails'
+          nullable: true
+          description: >-
+            The details of the fallback ACH account to use for the payment. This
+            will be used if a fee is charged for card processing.
       required:
         - firstName
         - lastName
@@ -50048,6 +50224,35 @@ components:
         - errorType
         - createdAt
         - updatedAt
+    PaymentGatewayAttempt:
+      title: PaymentGatewayAttempt
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier for the payment gateway attempt
+          example: pgpa_8f86116b-3b4d-4ded-99ef-3bc929d8c33c
+        status:
+          $ref: '#/components/schemas/PaymentGatewayJobStatus'
+          description: The status of the attempt
+        amount:
+          type: number
+          format: double
+          nullable: true
+          description: The amount processed in this attempt
+        receiptUrl:
+          type: string
+          nullable: true
+          description: The URL of the receipt for this attempt
+        createdAt:
+          type: string
+          format: date-time
+          description: The timestamp when the attempt was created
+          example: '2024-01-01T00:00:00Z'
+      required:
+        - id
+        - status
+        - createdAt
     ProcessPaymentGatewaySuccessResponse:
       title: ProcessPaymentGatewaySuccessResponse
       type: object
@@ -50073,6 +50278,11 @@ components:
           type: string
           nullable: true
           description: The vendor name detected from the payment gateway
+        attempts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentGatewayAttempt'
+          description: List of payment gateway attempts for this job
         createdAt:
           type: string
           format: date-time
@@ -50083,6 +50293,7 @@ components:
           description: The timestamp when the job was last updated
       required:
         - jobId
+        - attempts
         - createdAt
         - updatedAt
     ProcessPaymentGatewayResponse:
