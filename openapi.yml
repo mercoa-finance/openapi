@@ -15,7 +15,7 @@ paths:
       parameters:
         - name: limit
           in: query
-          description: The maximum number of results to return. Defaults to 1. Max is 10.
+          description: The maximum number of results to return. Defaults to 1. Max is 20.
           required: false
           schema:
             type: integer
@@ -25,6 +25,15 @@ paths:
           required: false
           schema:
             $ref: '#/components/schemas/EntityGroupId'
+            nullable: true
+        - name: search
+          in: query
+          description: >-
+            Search entity groups by name. This will perform a case-insensitive
+            search on the group name.
+          required: false
+          schema:
+            type: string
             nullable: true
       responses:
         '200':
@@ -50848,6 +50857,18 @@ components:
           description: >-
             If provided, will print a check with the provided account number
             instead of the one from the bank account
+        accountHolderNameOverride:
+          type: string
+          nullable: true
+          description: >-
+            If provided, will print a check with the provided account holder
+            name instead of the payer name from the invoice
+        accountHolderAddressOverride:
+          $ref: '#/components/schemas/Address'
+          nullable: true
+          description: >-
+            If provided, will print a check with the provided account holder
+            address instead of the payer address from the invoice
         signatoryName:
           type: string
           description: Name of the person who's signature will be printed on the check.
