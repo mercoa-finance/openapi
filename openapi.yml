@@ -3561,8 +3561,9 @@ paths:
         - name: search
           in: query
           description: >-
-            Find entities by name, email, or emailTo. Partial matches are
-            supported.
+            Find entities by name, email, emailTo, entity ID, or foreign ID.
+            Partial matches are supported for name, email, and emailTo. Exact
+            matches are used for entity ID and foreign ID.
           required: false
           schema:
             type: string
@@ -21695,8 +21696,9 @@ paths:
         - name: search
           in: query
           description: >-
-            Find entities by name, email, or emailTo. Partial matches are
-            supported.
+            Find entities by name, email, emailTo, entity ID, or foreign ID.
+            Partial matches are supported for name, email, and emailTo. Exact
+            matches are used for entity ID and foreign ID.
           required: false
           schema:
             type: string
@@ -46642,6 +46644,14 @@ components:
           $ref: '#/components/schemas/EntityId'
           nullable: true
           description: The ID of the entity who created this invoice.
+        entityGroupId:
+          $ref: '#/components/schemas/EntityGroupId'
+          nullable: true
+          description: The ID of the entity group that created this invoice.
+        entityGroupForeignId:
+          type: string
+          nullable: true
+          description: The foreign ID of the entity group that created this invoice.
         creatorUser:
           $ref: '#/components/schemas/EntityUserResponse'
           nullable: true
@@ -49810,6 +49820,44 @@ components:
         - errorType
         - createdAt
         - updatedAt
+    ValidatePaymentGatewayRequiredData:
+      title: ValidatePaymentGatewayRequiredData
+      type: object
+      properties:
+        needsAccountNumber:
+          type: boolean
+          nullable: true
+          description: Whether the payment gateway requires an account number to proceed
+        needsPostalCode:
+          type: boolean
+          nullable: true
+          description: Whether the payment gateway requires a postal code to proceed
+        needsEmail:
+          type: boolean
+          nullable: true
+          description: Whether the payment gateway requires an email address to proceed
+        needsAccountHolderFirstName:
+          type: boolean
+          nullable: true
+          description: >-
+            Whether the payment gateway requires the account holder's first name
+            to proceed
+        needsAccountHolderLastName:
+          type: boolean
+          nullable: true
+          description: >-
+            Whether the payment gateway requires the account holder's last name
+            to proceed
+        needsFullServiceAddress:
+          type: boolean
+          nullable: true
+          description: >-
+            Whether the payment gateway requires a full service address to
+            proceed
+        needsPhoneNumber:
+          type: boolean
+          nullable: true
+          description: Whether the payment gateway requires a phone number to proceed
     ValidatePaymentGatewaySuccessResponse:
       title: ValidatePaymentGatewaySuccessResponse
       type: object
@@ -49829,7 +49877,7 @@ components:
           type: number
           format: double
           nullable: true
-          description: The invoice amount detected from the payment gateway
+          description: The invoice amount detected from the invoice
         gatewayAmount:
           type: number
           format: double
@@ -49838,7 +49886,11 @@ components:
         vendorName:
           type: string
           nullable: true
-          description: The vendor name detected from the payment gateway
+          description: The vendor name
+        requiredData:
+          $ref: '#/components/schemas/ValidatePaymentGatewayRequiredData'
+          nullable: true
+          description: Information about what data is required to proceed with payment
         createdAt:
           type: string
           format: date-time
@@ -50048,6 +50100,17 @@ components:
             - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsLithic'
           required:
             - type
+        - type: object
+          allOf:
+            - type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - marqetaJs
+            - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsMarqetaJs'
+          required:
+            - type
     ProcessPaymentGatewayCardType:
       title: ProcessPaymentGatewayCardType
       type: string
@@ -50185,6 +50248,23 @@ components:
         - hmac
       allOf:
         - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsBase'
+    ProcessPaymentGatewayCardDetailsMarqetaJs:
+      title: ProcessPaymentGatewayCardDetailsMarqetaJs
+      type: object
+      properties:
+        cardToken:
+          type: string
+          description: The Marqeta card token for the virtual card
+          example: 12345678-1234-1234-1234-123456789012
+        clientAccessToken:
+          type: string
+          description: The Marqeta client access token for Marqeta.js authentication
+          example: your_client_access_token_here
+      required:
+        - cardToken
+        - clientAccessToken
+      allOf:
+        - $ref: '#/components/schemas/ProcessPaymentGatewayCardDetailsBase'
     ProcessPaymentGatewayPendingResponse:
       title: ProcessPaymentGatewayPendingResponse
       type: object
@@ -50287,6 +50367,10 @@ components:
           type: string
           nullable: true
           description: The vendor name detected from the payment gateway
+        requiredData:
+          $ref: '#/components/schemas/ValidatePaymentGatewayRequiredData'
+          nullable: true
+          description: Information about what data is required to proceed with payment
         attempts:
           type: array
           items:
